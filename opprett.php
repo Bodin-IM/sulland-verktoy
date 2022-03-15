@@ -42,6 +42,10 @@ $conn->close();
 </head>
   
 <body>
+
+    <?php  
+    include "meny.php";
+    ?>
     <center>
         <h1>Storing Form data in Database</h1>
   
