@@ -1,7 +1,21 @@
 
 
-<?php
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=ph, initial-scale=1.0">
+  <link rel="stylesheet" href="meny.css">
+  <title>Document</title>
+</head>
+<body>
+  <?php
 include "meny.php";
+?>
+
+<?php
 
 if(isset($_POST["endre_id"])){
   $servername = "10.100.0.2";
@@ -31,16 +45,7 @@ echo ""
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=ph, initial-scale=1.0">
-  <link rel="stylesheet" href="meny.css">
-  <title>Document</title>
-</head>
-<body>
+
 
 <form action="php">
   
