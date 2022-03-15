@@ -1,4 +1,5 @@
 <?php
+include "meny.php";
 $servername = "10.100.0.2";
 $username = "im2a";
 $password = "Passord2";
@@ -38,14 +39,13 @@ $conn->close();
 <html lang="en">
   
 <head>
-    <title></title>
+    <title>Opprett</title>
+    <link rel="stylesheet" href="meny.css">
 </head>
   
 <body>
 
-    <?php  
-    include "meny.php";
-    ?>
+    
     <center>
         <h1>Storing Form data in Database</h1>
   

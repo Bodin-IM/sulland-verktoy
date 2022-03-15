@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sulland's verktøy</title>
+    <link rel="stylesheet" href="meny.css">
     <style>
     table, th, td {
     border: 1px solid;
@@ -15,6 +16,7 @@
 <body>
 
 <?php
+include "meny.php";
 $tjener = "10.100.0.2";
 $brukernavn = "im2a";
 $passord = "Passord2";
