@@ -16,6 +16,8 @@
 
  <?php
  include "meny.php";
+ ?>
+
 # webhook for project deployment
 if ($_GET['token'] === 'secret_key') {
 $cmd = shell_exec("rm -rf your-php-application
