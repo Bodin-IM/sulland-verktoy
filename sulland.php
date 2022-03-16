@@ -8,16 +8,7 @@
     <link rel="stylesheet" href="sulland.css">
     <style>
 
-    body {
-        background-color: #ffffff;
-    }
-
-    table {
-        width: 25%;
-        border-collapse: collapse;
-        border-color: #00334d;
-        font-family: Drive,Helvetica,Arial,sans-serif;
-    }
+    
 
     </style>
 </head>
