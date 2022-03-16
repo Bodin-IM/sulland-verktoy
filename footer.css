@@ -1,0 +1,17 @@
+.footer {
+    position: absolute;
+    bottom: 2px;
+    height: 20vh;
+    width: 100%;
+    display: flex;
+    text-align: center;
+    background-color: aquamarine;
+}
+
+.text {
+    position: relative;
+    width: auto;
+    display: flex;
+    flex-direction:column;
+    left: 545%; 
+}
