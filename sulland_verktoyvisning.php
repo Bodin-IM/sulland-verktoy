@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="meny.css">
     <style>
     table, th, td {
-    border: 1px solid;
+    border: 3px solid;
+    color: #00334d;
     }
 
     </style>

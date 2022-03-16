@@ -13,7 +13,6 @@
     }
 
     table {
-        
         width: 25%;
         border-collapse: collapse;
         border-color: #00334d;
