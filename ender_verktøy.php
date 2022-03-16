@@ -41,7 +41,8 @@ if(isset($_POST["endre_id"])){
 $sql = "SELECT * FROM verktoy WHERE id_verktoy='$endre_id'";
 $resultat = $conn->query($sql);
 
-echo ""
+echo "<from method='post'"
+
 
 ?>
 
@@ -59,7 +60,7 @@ echo ""
               
 <p>
                 <label for="hylle">hylle:</label>
-                <input type="text" name="hylle" id="hylle">
+                <input type="text" name="hylle" id="hylle">6
             </p>
   
   
