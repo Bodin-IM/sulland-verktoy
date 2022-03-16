@@ -41,7 +41,22 @@ if(isset($_POST["endre_id"])){
 $sql = "SELECT * FROM verktoy WHERE id_verktoy='$endre_id'";
 $resultat = $conn->query($sql);
 
-echo "<from method='post'"
+echo "<from method='POST'>";
+while($rad = $resultat->fetch_assoc())  {
+  $id_verktoy = $rad["id_verktoy"];
+  $hylle = $rad["hylle"];
+  $kasse = $rad["kasse"];
+  $delenummer = $rad["delenummer"];
+  $id_kit = $rad["id_kit"];
+  $beskrivelse = $rad["beakrivelse"];
+  $verktoynummer = $rad["verktoynummer"];
+  $id_bruker = $rad["id_bruker"];
+  $status = $rad["status"];
+
+
+}
+  echo "id"
+
 
 
 ?>
@@ -118,7 +133,7 @@ echo "<from method='post'"
 
 
 
-</body>
+
 
 
 </body>
