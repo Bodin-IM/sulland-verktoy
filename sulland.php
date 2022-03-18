@@ -34,9 +34,9 @@
 
 
         <div class="bottom">
-        
+        <?php include "footer.html" ?>
         </div>
     </div>
-    <?php include "footer.html" ?>
+    
 </body>
 </html>
