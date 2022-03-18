@@ -1,3 +1,7 @@
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,17 +10,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="sulland.css">
-    <style>
-
-    
-
-    </style>
 </head>
 <body>
     <div class="forside">
         <div class="top">
         
         </div>
+
         <div class="center">
         <?php
         include "sulland_verktoyvisning.php";

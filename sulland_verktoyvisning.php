@@ -7,10 +7,6 @@
     <title>Sulland's verktøy</title>
     <link rel="stylesheet" href="meny.css">
     <link rel="stylesheet" href="sulland.css">
-    <style>
-    
-
-    </style>
 </head>
 <body>
 
