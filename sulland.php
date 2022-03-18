@@ -10,6 +10,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="sulland.css">
+    <link rel="stylesheet" href="footer.css">
+    <style>
+
+    
+
+    </style>
 </head>
 <body>
     <div class="forside">
@@ -31,5 +37,6 @@
         
         </div>
     </div>
+    <?php include "footer.html" ?>
 </body>
 </html>
