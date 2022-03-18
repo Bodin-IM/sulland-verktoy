@@ -14,16 +14,21 @@
 <body>
     <div class="forside">
         <div class="top">
-        
+        <?php
+        include "meny.php";
+        ?>
         </div>
+
 
         <div class="center">
         <?php
         include "sulland_verktoyvisning.php";
         ?>
         </div>
-        <div class="bottom">
 
+
+        <div class="bottom">
+        
         </div>
     </div>
 </body>

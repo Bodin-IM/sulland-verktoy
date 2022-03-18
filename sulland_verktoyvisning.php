@@ -7,11 +7,13 @@
     <title>Sulland's verktøy</title>
     <link rel="stylesheet" href="meny.css">
     <link rel="stylesheet" href="sulland.css">
+    <style>
+    </style>
 </head>
-<body>
 
+<body>
 <?php
-include "meny.php";
+
 $tjener = "10.100.0.2";
 $brukernavn = "im2a";
 $passord = "Passord2";
