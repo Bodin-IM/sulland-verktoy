@@ -1,3 +1,7 @@
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,6 +22,7 @@
         <div class="top">
         
         </div>
+
         <div class="center">
         <?php
         include "sulland_verktoyvisning.php";
