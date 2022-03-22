@@ -7,6 +7,10 @@
     <title>Sulland's verktøy</title>
     <link rel="stylesheet" href="meny.css">
     <link rel="stylesheet" href="sulland.css">
+    <style>
+    
+
+    </style>
 </head>
 <body>
 
@@ -36,7 +40,7 @@ echo "<tr>";
 echo "</tr>";
 
 while($rad = $resultat->fetch_assoc()) {
-    $id_verktøy = $rad["id_verktoy"];
+    $id_verktoy = $rad["id_verktoy"];
     $hylle = $rad["hylle"];
     $kasse = $rad["kasse"];
     $delenummer = $rad["delenummer"];
@@ -47,7 +51,7 @@ while($rad = $resultat->fetch_assoc()) {
     $status = $rad["status"];
 
     echo "<tr>";
-        echo "<td>$id_verktøy</td>";
+        echo "<td>$id_verktoy</td>";
         echo "<td>$hylle</td>";
         echo "<td>$kasse</td>";
         echo "<td>$delenummer</td>";
@@ -56,6 +60,7 @@ while($rad = $resultat->fetch_assoc()) {
         echo "<td>$verktøynummer</td>";
         echo "<td>$id_bruker</td>";
         echo "<td>$status</td>";
+        echo "<td> <a href='endre_verktoy.php?verktoy=$id_verktoy'>ENDRE</a> </td>";
     echo "</tr>";
 }
 
