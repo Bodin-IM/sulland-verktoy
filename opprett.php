@@ -43,33 +43,74 @@ $conn->close();
     <link rel="stylesheet" href="meny.css">
 
     <style> 
+body {
+    background-image: url("Bakgrunn.jpg");
+}
+
 input[type=text] {
-  width: 50%;
+  width:75%;
   padding: 12px 20px;
   margin: 8px 0;
   box-sizing: border-box;
 }
 
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
 
+
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+}
 .input {
-    width: 50%;
+    width: 100%;
     display: flex;
     flex-direction: row;
    
 }
 .tekst {
     float: left;
-  width: 25%;
+  width: 200px;
   margin-top: 6px;
+  text-align: right;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 25px;
+  font-weight: bold;
 }
 
 .box {
     float: left;
-  width: 75%;
+  width: 70%;
   margin-top: 6px;
+
     
 }
+.submit {
+    padding: 20px 20px;
+}
 
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 8px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  border: 2px solid #555555;
+}
+
+.button:hover {
+  background-color: #555555;
+  color: white;
+}
 </style>
 
 </head>
@@ -84,7 +125,7 @@ input[type=text] {
               
 <div class="input">      
             <div class="tekst">
-                     <label for="hylle">hylle:</label>
+                     <label for="hylle">Hylle</label>
             </div>
             <div class="box"> 
                 <input type="text" name="hylle" id="hylle"> 
@@ -97,7 +138,7 @@ input[type=text] {
 <div class="input">    
 
             <div class="tekst"> 
-                <label for="kasse">kasse:</label> 
+                <label for="kasse">Kasse</label> 
             </div>
             <div class="box">
                 <input type="text" name="kasse" id="kasse">
@@ -110,7 +151,7 @@ input[type=text] {
 <div class="input">    
 
             <div class="tekst"> 
-                <label for="delenummer">delenumer:</label> 
+                <label for="delenummer">Delenummer</label> 
             </div>
             <div class="box"> 
                 <input type="text" name="delenummer" id="delenummer"> 
@@ -123,7 +164,7 @@ input[type=text] {
 <div class="input">
 
             <div class="tekst"> 
-                <label for="id_kit">kit:</label> 
+                <label for="id_kit">Kit</label> 
             </div>
             <div class="box">    
                 <input type="text" name="id_kit" id="id_kit"> 
@@ -135,7 +176,7 @@ input[type=text] {
 <div class="input">
  
             <div class="tekst"> 
-                <label for="beskrivelse">beskrivelse:</label> 
+                <label for="beskrivelse">Beskrivelse</label> 
             </div>
             <div class="box"> 
                 <input type="text" name="beskrivelse" id="beskrivelse"> 
@@ -147,7 +188,7 @@ input[type=text] {
 <div class="input">
 <p>
                 <div class="tekst">
-                    <label for="verktoynummer">verktøynummer:</label> 
+                    <label for="verktoynummer">Verktøynummer</label> 
                 </div>
                 <div class="box"> 
                     <input type="text" name="verktoynummer" id="verktoynummer">
@@ -160,7 +201,7 @@ input[type=text] {
 <div class="input">
 
                 <div class="tekst"> 
-                    <label for="status">status:</label> 
+                    <label for="status">Status</label> 
                 </div>
                 <div class="box"> 
                     <input type="text" name="status" id="status"> 
@@ -168,8 +209,8 @@ input[type=text] {
             
 </div>
   
-        <div>
-            <input name="submit" type="submit" value="Submit">
+        <div class="submit">
+            <input class="button" name="submit" type="submit" value="Lagre">
         </div>
 
         </form>
