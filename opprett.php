@@ -86,7 +86,7 @@ label {
 </head>
   
 <body>
-<img src="background.jpg" alt="kunne ikke finne bildet">
+
     
     <center>
         <h1>Legge til verktøy</h1>
