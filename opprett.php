@@ -44,30 +44,41 @@ $conn->close();
 
     <style> 
 input[type=text] {
-  width: 50%;
+  width:75%;
   padding: 12px 20px;
   margin: 8px 0;
   box-sizing: border-box;
 }
 
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
 
 .input {
-    width: 50%;
+    width: 100%;
     display: flex;
     flex-direction: row;
    
 }
 .tekst {
     float: left;
-  width: 25%;
+  width: 200px;
   margin-top: 6px;
+  text-align: right;
+
 }
 
 .box {
     float: left;
-  width: 75%;
+  width: 70%;
   margin-top: 6px;
+
     
+}
+.submit {
+    padding: 20px 20px;
 }
 
 </style>
@@ -75,7 +86,7 @@ input[type=text] {
 </head>
   
 <body>
-
+<img src="background.jpg" alt="kunne ikke finne bildet">
     
     <center>
         <h1>Legge til verktøy</h1>
@@ -168,7 +179,7 @@ input[type=text] {
             
 </div>
   
-        <div>
+        <div class="submit">
             <input name="submit" type="submit" value="Submit">
         </div>
 
