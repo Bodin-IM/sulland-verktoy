@@ -68,6 +68,7 @@ input[type=text] {
   padding: 12px 20px;
   margin: 8px 0;
   box-sizing: border-box;
+  font-size: 15px;
 }
 
 label {
@@ -107,6 +108,7 @@ h1 {
 .kit_select {
     width: 75%;
     height: 85%;
+    font-size: 15px;
 }
 .submit {
     padding: 20px 20px;
