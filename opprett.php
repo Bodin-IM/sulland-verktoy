@@ -18,12 +18,14 @@ $hylle = $_REQUEST['hylle'];
 $kasse = $_REQUEST['kasse'];
 $delenummer = $_REQUEST['delenummer'];
 $id_kit = $_REQUEST['id_kit'];
+
+
 $beskrivelse = $_REQUEST['beskrivelse'];
 $verktoynummer = $_REQUEST['verktoynummer'];
 $status = $_REQUEST['status'];
 
 $sql = "INSERT INTO Verktoy (hylle, kasse, delenummer, id_kit, beskrivelse, verktoynummer, status)
-VALUES ('$hylle', '$kasse', '$delenummer', '$id_kit', '$beskrivelse', '$verktoynummer', '$status')";
+VALUES ('$hylle', '$kasse', '$delenummer', IF('$id_kit' = 'no_kit', NULL,'$id_kit'), '$beskrivelse', '$verktoynummer', '$status')";
 
 if ($conn->query($sql) === TRUE) {
   echo "New record created successfully";
@@ -107,7 +109,8 @@ h1 {
 
 .kit_select {
     width: 75%;
-    height: 85%;
+    padding: 12px 20px;
+    margin: 8px 0;
     font-size: 15px;
 }
 .submit {
@@ -189,6 +192,8 @@ h1 {
         <?php
         $sql2 = "SELECT * FROM kit";
         $resultat2 = $conn->query($sql2);
+
+        $nullkit =NULL;
         ?>
             <div class="tekst"> 
                 <label for="id_kit">Kit</label> 
@@ -196,7 +201,7 @@ h1 {
             <div class="box">  
                 <?php
                 echo "<select class='kit_select' name='id_kit'>";
-
+                echo "<option value='no_kit'></option>";
                 while($rad = $resultat2->fetch_assoc()) {
                     $id_kit = $rad["id_kit"];
                     $kitnavn = $rad["kit_navn"];
