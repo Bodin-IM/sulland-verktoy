@@ -33,6 +33,22 @@ if ($conn->query($sql) === TRUE) {
 
 $conn->close();
 }
+
+if(isset($_POST["submit2"])) {
+
+   $kit_navn = $_REQUEST['kit_navn'];
+    
+    $sql = "INSERT INTO kit (kit_navn)
+    VALUES ('$kit_navn')";
+    
+    if ($conn->query($sql) === TRUE) {
+      echo "New record created successfully";
+    } else {
+      echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+    
+    $conn->close();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -59,6 +75,9 @@ label {
   display: inline-block;
 }
 
+form {
+    margin-bottom: 50px;
+}
 
 h1 {
     font-family: Arial, Helvetica, sans-serif;
@@ -212,6 +231,26 @@ h1 {
         <div class="submit">
             <input class="button" name="submit" type="submit" value="Lagre">
         </div>
+
+        </form>
+
+
+
+        <h1>Legge til Kit</h1>
+        <form method="post">
+        <div class="input">      
+            <div class="tekst">
+                     <label for="kit_navn">Kit</label>
+            </div>
+            <div class="box"> 
+                <input type="text" name="kit_navn" id="kit_navn"> 
+            </div>
+        </div>   
+
+        <div class="submit2">
+            <input class="button" name="submit" type="submit" value="Lagre">
+        </div>
+
 
         </form>
     </div>
