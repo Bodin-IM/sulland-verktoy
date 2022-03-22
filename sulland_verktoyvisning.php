@@ -8,6 +8,23 @@
     <link rel="stylesheet" href="meny.css">
     <link rel="stylesheet" href="sulland.css">
     <style>
+
+table, td {
+    
+    border: 3px solid black;
+    background-color: #f2f2f2;
+    border-collapse: collapse;
+    width: 30%;
+}
+.stil {
+    
+    display: flex;
+    justify-content: center;
+    
+}
+.beskrivelse {
+ 
+}
     </style>
 </head>
 
@@ -23,7 +40,7 @@ $kobling = new mysqli ($tjener, $brukernavn, $passord, $database);
 
 $sql = "SELECT * FROM verktoy";
 $resultat = $kobling->query($sql);
-
+echo "<div class='stil'>";
 echo "<table id='verktoytabell'>";
 echo "<tr>";
     echo "<th>id_verktøy</th>";
@@ -31,7 +48,7 @@ echo "<tr>";
     echo "<th>kasse</th>";
     echo "<th>delenummer</th>";
     echo "<th>id_kit</th>";
-    echo "<th>beskrivelse</th>";
+    echo "<th class='beskrivelse'>beskrivelse</th>";
     echo "<th>verktøynummer</th>";
     echo "<th>id_bruker</th>";
     echo "<th>status</th>";
@@ -54,7 +71,7 @@ while($rad = $resultat->fetch_assoc()) {
         echo "<td>$kasse</td>";
         echo "<td>$delenummer</td>";
         echo "<td>$id_kit</td>";
-        echo "<td>$beskrivelse</td>";
+        echo "<td class='beskrivelse'>$beskrivelse</td>";
         echo "<td>$verktøynummer</td>";
         echo "<td>$id_bruker</td>";
         echo "<td>$status</td>";
@@ -62,7 +79,7 @@ while($rad = $resultat->fetch_assoc()) {
 }
 
 echo "</table>";
-
+echo "</div>"
 ?>
 </body>
 </html>

@@ -12,6 +12,7 @@
     
 
     <?php
+    include "meny.php";
     $tjener = "10.100.0.2";
     $brukernavn = "im2a";
     $passord = "Passord2";
