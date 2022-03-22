@@ -31,7 +31,7 @@ if ($conn->query($sql) === TRUE) {
   echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
-$conn->close();
+
 }
 
 if(isset($_POST["submit2"])) {
@@ -47,7 +47,7 @@ if(isset($_POST["submit2"])) {
       echo "Error: " . $sql . "<br>" . $conn->error;
     }
     
-    $conn->close();
+   
     }
 ?>
 
@@ -100,10 +100,13 @@ h1 {
 
 .box {
     float: left;
-  width: 70%;
-  margin-top: 6px;
+  width: 75%;
+  margin-top: 6px; 
+}
 
-    
+.kit_select {
+    width: 75%;
+    height: 85%;
 }
 .submit {
     padding: 20px 20px;
@@ -181,12 +184,32 @@ h1 {
               
               
 <div class="input">
-
+        <?php
+        $sql2 = "SELECT * FROM kit";
+        $resultat2 = $conn->query($sql2);
+        ?>
             <div class="tekst"> 
                 <label for="id_kit">Kit</label> 
             </div>
-            <div class="box">    
-                <input type="text" name="id_kit" id="id_kit"> 
+            <div class="box">  
+                <?php
+                echo "<select class='kit_select' name='id_kit'>";
+
+                while($rad = $resultat2->fetch_assoc()) {
+                    $id_kit = $rad["id_kit"];
+                    $kitnavn = $rad["kit_navn"];
+
+                    echo "<option value=$id_kit>$kitnavn</option>";
+                }
+
+                echo "</select>";
+                
+                ?>
+
+
+
+
+                
             </div>
             
 </div>
@@ -248,13 +271,14 @@ h1 {
         </div>   
 
         <div class="submit2">
-            <input class="button" name="submit" type="submit" value="Lagre">
+            <input class="button" name="submit2" type="submit" value="Lagre">
         </div>
 
 
         </form>
     </div>
     </center>
+    <?php $conn->close(); ?>
 </body>
   
 </html>
