@@ -41,10 +41,14 @@
 </head>
 <body>
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
-
+<?php
+include "meny.php";
+?>
 <?php
  include "sulland_verktoyvisning.php";
 ?>
+
+
 
 
 <script>
