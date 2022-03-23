@@ -29,13 +29,20 @@ table {
     
 }
 
-.beskrivelse {
- 
+.logo {
+    position: relative;
+    height: 100px;
+    width: 100%;
+    background-color: rgb(11, 30, 38);
+    margin: 0;
 }
     </style>
 </head>
 
 <body>
+
+
+
 <?php
 
 $tjener = "10.100.0.2";
@@ -47,6 +54,8 @@ $kobling = new mysqli ($tjener, $brukernavn, $passord, $database);
 
 $sql = "SELECT * FROM verktoy";
 $resultat = $kobling->query($sql);
+echo "<div class='logo'>";
+echo "</div>";
 echo "<div class='stil'>";
 echo "<table class='table table-dark table-hover' id='verktoytabell'>";
 echo "<tr>";

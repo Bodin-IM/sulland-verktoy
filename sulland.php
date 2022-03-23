@@ -15,23 +15,17 @@
 </head>
 <body>
     <div class="forside">
-        <div class="top">
-        <?php
-        include "meny.php";
-        ?>
-        </div>
+        
+        <?php include "meny.php"; ?>
+        
 
+        
+        <?php include "sulland_verktoyvisning.php"; ?>
+        
 
-        <div class="center">
-        <?php
-        include "sulland_verktoyvisning.php";
-        ?>
-        </div>
-
-
-        <div class="bottom">
+        
         <?php include "footer.html" ?>
-        </div>
+        
     </div>
     
 </body>
