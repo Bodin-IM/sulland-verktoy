@@ -3,9 +3,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-* {
-  box-sizing: border-box;
-}
+
 
 #myInput {
   background-image: url('/css/searchicon.png');
@@ -57,6 +55,8 @@ function myFunction() {
   var input, filter, table, tr, td, i;
   input = document.getElementById("myInput");
   filter = input.value.toUpperCase();
+
+  
   table = document.getElementById("verktoytabell");
   var rows = table.getElementsByTagName("tr");
  
