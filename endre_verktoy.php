@@ -161,6 +161,9 @@ while($rad = $resultat->fetch_assoc())  {
 
 
 
+
+  
+
   echo "<div class='input'> ";
   echo" <div class='tekst'>";
   echo"kasse";
@@ -217,7 +220,7 @@ while($rad = $resultat->fetch_assoc())  {
 
 
   echo "<div class='submit'>";
- echo " <input type='submit' name='endre' value='endre'> " ;
+ echo " <input class='button'type='submit' name='endre' value='endre'> " ;
  echo "</form>";
  echo "</div>"; 
 
