@@ -12,7 +12,6 @@
     
 
     <?php
-    include "meny.php";
     $tjener = "10.100.0.2";
     $brukernavn = "im2a";
     $passord = "Passord2";
@@ -58,10 +57,12 @@
             echo "<td>$verktøynummer</td>";
             echo "<td>$id_bruker</td>";
             echo "<td>$status</td>";
-            echo "<td><form method='POST'>
-                <input type='submit' id='slett_bottun' value='$id_verktøy' name='slett'>
-                </form></td>";
-        echo "</tr>";
+            echo "<td>
+                <form method='POST'>
+                <button type='submit' name='slett' value='$id_verktøy'> Slett </button>
+                </form>
+                </td>";
+            echo "</tr>";
     }
     echo "</table>";
 
