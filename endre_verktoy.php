@@ -138,54 +138,81 @@ while($rad = $resultat->fetch_assoc())  {
 
   
   echo"<center>";
-
-
-  echo "id_verktøy";
   echo "<div class='innpakning'>";
-  echo " <input type='text' name='id_verktøy' id='id_verktøy' value='$id_verktoy' disabled>";
-  echo"hylle";
 
-
-
-
-  echo"hylle";
   echo "<div class='input'> ";
+  echo" <div class='tekst'>";
+  echo "id_verktøy";
+  echo "</div>";
+  echo"<div class='box'>";
+  echo " <input type='text' name='id_verktøy' id='id_verktøy' value='$id_verktoy' disabled>";
+  echo "</div>";
+  echo "</div>";
+
+
+  echo "<div class='input'> ";
+  echo" <div class='tekst'>";
+  echo"hylle";
+  echo "</div>";
+  echo"<div class='box'>";
   echo"<input type='text' name='hylle' id='hylle' value='$hylle'>";
   echo "</div>";
+  echo "</div>";
 
 
-  echo"kasse";
+
   echo "<div class='input'> ";
+  echo" <div class='tekst'>";
+  echo"kasse";
+  echo "</div>";
+  echo"<div class='box'>";
   echo" <input type='text' name='kasse' id='kasse'value='$kasse'>";
   echo "</div>";
+  echo "</div>";
 
 
-  echo"delenummer";
+
   echo "<div class='input'> ";
+  echo" <div class='tekst'>";
+  echo"delenummer";
+  echo "</div>";
+  echo"<div class='box'>";
   echo" <input type='text' name='delenummer' id='delenummer'value='$delenummer'>";
   echo "</div>";
+  echo "</div>";
 
 
 
-  echo"id_kit";
   echo "<div class='input'> ";
+  echo" <div class='tekst'>";
+  echo"id_kit";
+  echo "</div>";
+  echo"<div class='box'>";
   echo" <input type='text' name='id_kit' id='id_kit'value='$id_kit'>";
   echo "</div>";
+  echo "</div>";
 
 
-  echo"beskrivelse";
+
   echo "<div class='input'> ";
+  echo" <div class='tekst'>";
+  echo"beskrivelse";
+  echo "</div>";
+  echo"<div class='box'>";
   echo"  <input type='text' name='beskrivelse' id='beskrivelse'value='$beskrivelse'>";
   echo "</div>";
+  echo "</div>";
 
 
 
-
-  echo"verktoynummer";
   echo "<div class='input'> ";
+  echo" <div class='tekst'>";
+  echo"verktoynummer";
+  echo "</div>";
+  echo"<div class='box'>";
   echo"<input type='text' name='verktoynummer' id='verktoynummer' value='$verktoynummer'>";
   echo "</div>";
-  
+  echo "</div>";
 
 
 

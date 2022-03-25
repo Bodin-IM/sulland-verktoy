@@ -59,7 +59,7 @@ echo "</div>";
 echo "<div class='stil'>";
 echo "<table id='verktoytabell'>";
 echo "<tr>";
-    echo "<th>id_verktøy</th>"; 
+    //echo "<th>id_verktøy</th>";
     echo "<th>hylle</th>";
     echo "<th>kasse</th>";
     echo "<th>delenummer</th>";
@@ -82,7 +82,7 @@ while($rad = $resultat->fetch_assoc()) {
     $status = $rad["status"];
 
     echo "<tr>";
-        echo "<td>$id_verktøy</td>";
+        //echo "<td>$id_verktøy</td>";
         echo "<td>$hylle</td>";
         echo "<td>$kasse</td>";
         echo "<td>$delenummer</td>";
