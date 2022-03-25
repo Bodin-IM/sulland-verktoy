@@ -29,13 +29,20 @@ table {
     
 }
 
-.beskrivelse {
- 
+.logo {
+    position: relative;
+    height: 100px;
+    width: 100%;
+    background-color: rgb(11, 30, 38);
+    margin: 0;
 }
     </style>
 </head>
 
 <body>
+
+
+
 <?php
 
 $tjener = "10.100.0.2";
@@ -47,16 +54,18 @@ $kobling = new mysqli ($tjener, $brukernavn, $passord, $database);
 
 $sql = "SELECT * FROM verktoy";
 $resultat = $kobling->query($sql);
+echo "<div class='logo'>";
+echo "</div>";
 echo "<div class='stil'>";
-echo "<table class='table table-dark table-hover' id='verktoytabell'>";
+echo "<table id='verktoytabell'>";
 echo "<tr>";
-    echo "<th>id_verktøy</th>"; 
+    //echo "<th>id_verktøy</th>";
     echo "<th>hylle</th>";
     echo "<th>kasse</th>";
     echo "<th>delenummer</th>";
     echo "<th>id_kit</th>";
     echo "<th>verktøynummer</th>";
-    echo "<th style='width:70%'>beskrivelse</th>";
+    echo "<th style='width:80%'>beskrivelse</th>";
     echo "<th>id_bruker</th>";
     echo "<th>status</th>";
 echo "</tr>";
@@ -73,7 +82,7 @@ while($rad = $resultat->fetch_assoc()) {
     $status = $rad["status"];
 
     echo "<tr>";
-        echo "<td>$id_verktøy</td>";
+        //echo "<td>$id_verktøy</td>";
         echo "<td>$hylle</td>";
         echo "<td>$kasse</td>";
         echo "<td>$delenummer</td>";
