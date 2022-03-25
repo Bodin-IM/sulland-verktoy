@@ -36,12 +36,53 @@ table {
     background-color: rgb(11, 30, 38);
     margin: 0;
 }
+
+
+
+
+
+
+
+
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myTable {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 18px;
+}
+
+#myTable th, #myTable td {
+  text-align: left;
+  padding: 12px;
+}
+
+#myTable tr {
+  border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header, #myTable tr:hover {
+  background-color: #f1f1f1;
+}
+
+
     </style>
 </head>
 
 <body>
 
 
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
 
 <?php
 
@@ -57,15 +98,15 @@ $resultat = $kobling->query($sql);
 echo "<div class='logo'>";
 echo "</div>";
 echo "<div class='stil'>";
-echo "<table class='table table-dark table-hover' id='verktoytabell'>";
+echo "<table id='verktoytabell'>";
 echo "<tr>";
-    echo "<th>id_verktøy</th>"; 
+    //echo "<th>id_verktøy</th>";
     echo "<th>hylle</th>";
     echo "<th>kasse</th>";
     echo "<th>delenummer</th>";
     echo "<th>id_kit</th>";
     echo "<th>verktøynummer</th>";
-    echo "<th style='width:70%'>beskrivelse</th>";
+    echo "<th style='width:80%'>beskrivelse</th>";
     echo "<th>id_bruker</th>";
     echo "<th>status</th>";
 echo "</tr>";
@@ -82,7 +123,7 @@ while($rad = $resultat->fetch_assoc()) {
     $status = $rad["status"];
 
     echo "<tr>";
-        echo "<td>$id_verktøy</td>";
+        //echo "<td>$id_verktøy</td>";
         echo "<td>$hylle</td>";
         echo "<td>$kasse</td>";
         echo "<td>$delenummer</td>";
@@ -98,7 +139,40 @@ echo "</table>";
 echo "</div>"
 ?>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+
+function myFunction() {
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+
+  
+  table = document.getElementById("verktoytabell");
+  var rows = table.getElementsByTagName("tr");
+ 
+  for (i = 1; i < rows.length; i++) {
+    var cells = rows[i].getElementsByTagName("td");
+    var j;
+    var rowContainsFilter = false;
+    for (j = 0; j < cells.length; j++) {
+      if (cells[j]) {
+        if (cells[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
+          rowContainsFilter = true;
+          continue;
+        }
+      }
+    }
+
+    if (! rowContainsFilter) {
+      rows[i].style.display = "none";
+    } else {
+      rows[i].style.display = "";
+    }
+  }
+}
+
+</script>
 
 </body>
 </html>

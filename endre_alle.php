@@ -7,10 +7,48 @@
     <title>Sulland's verktøy</title>
     <link rel="stylesheet" href="meny.css">
     <link rel="stylesheet" href="sulland.css">
-    <style>
-    
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <style>
+
+table {
+    width: 80%;
+    border: 3px solid black;
+    background-color: #f2f2f2;
+    border-collapse: collapse;
+   
+}
+.stil {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    font-family: Drive,Helvetica,Arial,sans-serif;
+    position: relative;
+    left: 25%;
+    
+}
+
+.logo {
+    position: relative;
+    height: 100px;
+    width: 100%;
+    background-color: rgb(11, 30, 38);
+    margin: 0;
+}
+
+
+button {
+    background-color: transparent;
+    background-repeat: no-repeat;
+
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+}
     </style>
+    
 </head>
 <body>
 
@@ -26,9 +64,9 @@ $kobling = new mysqli ($tjener, $brukernavn, $passord, $database);
 $sql = "SELECT * FROM verktoy";
 $resultat = $kobling->query($sql);
 
-echo "<table id='verktoytabell'>";
+echo "<table class='table table-dark table-hover' id='verktoytabell'>";
 echo "<tr>";
-    echo "<th>id_verktøy</th>";
+    echo "<th>id_verktøy</th> ";
     echo "<th>hylle</th>";
     echo "<th>kasse</th>";
     echo "<th>delenummer</th>";
@@ -51,15 +89,15 @@ while($rad = $resultat->fetch_assoc()) {
     $status = $rad["status"];
 
     echo "<tr>";
-        echo "<td>$id_verktoy</td>";
-        echo "<td>$hylle</td>";
-        echo "<td>$kasse</td>";
-        echo "<td>$delenummer</td>";
-        echo "<td>$id_kit</td>";
-        echo "<td>$beskrivelse</td>";
-        echo "<td>$verktøynummer</td>";
-        echo "<td>$id_bruker</td>";
-        echo "<td>$status</td>";
+        echo "<td> <button>$id_verktoy</button></td>";
+        echo "<td> <button>$hylle</button></td>";
+        echo "<td> <button>$kasse</button></td>";
+        echo "<td> <button>$delenummer</button></td>";
+        echo "<td> <button>$id_kit</button></td>";
+        echo "<td> <button>$beskrivelse</button></td>";
+        echo "<td> <button>$verktøynummer</button></td>";
+        echo "<td> <button>$id_bruker</button></td>";
+        echo "<td> <button>$status</button></td>";
         echo "<td> <a href='endre_verktoy.php?verktoy=$id_verktoy'>ENDRE</a> </td>";
     echo "</tr>";
 }
