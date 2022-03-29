@@ -63,9 +63,7 @@ if(isset($_POST["submit2"])) {
     <style> 
 body {
     background-image: url("Bakgrunn.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+    }
 
 input[type=text] {
   width:75%;
