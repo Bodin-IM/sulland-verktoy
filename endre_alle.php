@@ -38,15 +38,6 @@ table {
 }
 
 
-button {
-    background-color: transparent;
-    background-repeat: no-repeat;
-
-    border: none;
-    cursor: pointer;
-    overflow: hidden;
-    outline: none;
-}
     </style>
     
 </head>
@@ -89,15 +80,15 @@ while($rad = $resultat->fetch_assoc()) {
     $status = $rad["status"];
 
     echo "<tr>";
-        echo "<td> <button>$id_verktoy</button></td>";
-        echo "<td> <button>$hylle</button></td>";
-        echo "<td> <button>$kasse</button></td>";
-        echo "<td> <button>$delenummer</button></td>";
-        echo "<td> <button>$id_kit</button></td>";
-        echo "<td> <button>$beskrivelse</button></td>";
-        echo "<td> <button>$verktøynummer</button></td>";
-        echo "<td> <button>$id_bruker</button></td>";
-        echo "<td> <button>$status</button></td>";
+        echo "<td>$id_verktoy</td>";
+        echo "<td>$hylle</td>";
+        echo "<td>$kasse</td>";
+        echo "<td>$delenummer</td>";
+        echo "<td>$id_kit</td>";
+        echo "<td>$beskrivelse</td>";
+        echo "<td>$verktøynummer</td>";
+        echo "<td>$id_bruker</td>";
+        echo "<td>$status</td>";
         echo "<td> <a href='endre_verktoy.php?verktoy=$id_verktoy'>ENDRE</a> </td>";
     echo "</tr>";
 }
