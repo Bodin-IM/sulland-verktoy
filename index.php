@@ -7,6 +7,13 @@
     <title>Document</title>
     <link rel="stylesheet" href="meny.css">
     <link rel="stylesheet" href="footer.css">
+    <style>
+        body {
+            background-image: url("46.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
 </head>
 <body>
     <?php  

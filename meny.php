@@ -7,4 +7,4 @@
     <li><a href="/deploy.php">Deploy</a></li>
     <li><a href="/user_admin.php">User Admin</a></li>
     <li><a href="/sok.php">søkefunksjon</a></li>
-</ul>
+</ul> 
