@@ -39,6 +39,7 @@ tr:nth-child(even) {
 }
 tr:hover {
   background: #0d313f;
+  height: 70px;
 }
 .stil {
     width: 50%;
@@ -50,11 +51,6 @@ tr:hover {
     left: 25%;
     
 }
-.rad:hover {
-  background: blue;
-}
-
-
 .logo {
     position: relative;
     height: 100px;
@@ -62,9 +58,6 @@ tr:hover {
     background-color: #0b2028;
     margin: 0;
 }
-
-
-
 
 
 
@@ -122,6 +115,7 @@ tr:hover {
   $sql = "SELECT * FROM verktoy";
   $resultat = $kobling->query($sql);
   echo "<div class='logo'>";
+  echo "<img src='SUllAND.png' alt='SUllAND' style= 'width:250px;'>";
   echo "</div>";
   echo "<div class='stil'>";
     echo "<table id='verktoytabell'>";
@@ -151,17 +145,15 @@ tr:hover {
       $status = $rad["status"];
 
         echo "<tr>";
-          echo "<div class= 'rad'>";
-            //echo "<td>$id_verktøy</td>";
-            echo "<td>$hylle</td>";
-            echo "<td>$kasse</td>";
-            echo "<td>$delenummer</td>";
-            echo "<td>$id_kit</td>";
-            echo "<td>$verktøynummer</td>";
-            echo "<td class='beskrivelse'>$beskrivelse</td>";
-            echo "<td>$id_bruker</td>";
-            echo "<td>$status</td>";
-          echo "</div>";
+          //echo "<td>$id_verktøy</td>";
+          echo "<td>$hylle</td>";
+          echo "<td>$kasse</td>";
+          echo "<td>$delenummer</td>";
+          echo "<td>$id_kit</td>";
+          echo "<td>$verktøynummer</td>";
+          echo "<td class='beskrivelse'>$beskrivelse</td>";
+          echo "<td>$id_bruker</td>";
+          echo "<td>$status</td>";
         echo "</tr>";
     }
 
