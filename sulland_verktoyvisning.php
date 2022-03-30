@@ -26,6 +26,7 @@ th, td {
 border-left: 1px solid black;
 border-right: 1px solid black;
 border-collapse: collapse;
+padding-left: 10px
 }
 tr {
   height: 4vh;
@@ -39,16 +40,16 @@ tr:nth-child(even) {
 }
 tr:hover {
   background: #0d313f;
-  height: 70px;
+  height: 60px;
 }
 .stil {
-    width: 50%;
+    width: 70%;
     height: 50%;
     display: flex;
     justify-content: center;
     font-family: Drive,Helvetica,Arial,sans-serif;
     position: relative;
-    left: 25%;
+    left: 15%;
     
 }
 .logo {
@@ -67,18 +68,23 @@ tr:hover {
   background-image: url('/css/searchicon.png');
   background-position: 10px 10px;
   background-repeat: no-repeat;
-  width: 100%;
+  width: 70%;
   font-size: 16px;
   padding: 12px 20px 12px 40px;
-  border: 1px solid #ddd;
+  border: 5px solid black;
   margin-bottom: 12px;
+  margin-top: 12px;
+  position: relative;
+  left: 15%;
 }
 
 #myTable {
   border-collapse: collapse;
-  width: 100%;
+  width: 70%;
   border: 1px solid #ddd;
   font-size: 18px;
+  position: relative;
+  left: 15%;
 }
 
 #myTable th, #myTable td {
@@ -99,7 +105,9 @@ tr:hover {
 </head>
 
 <body>
-
+<div class='logo'>
+<img src='SUllAND.png' alt='SUllAND' style= 'width:250px;'>
+</div>
 
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
 
@@ -114,9 +122,7 @@ tr:hover {
 
   $sql = "SELECT * FROM verktoy";
   $resultat = $kobling->query($sql);
-  echo "<div class='logo'>";
-  echo "<img src='SUllAND.png' alt='SUllAND' style= 'width:250px;'>";
-  echo "</div>";
+
   echo "<div class='stil'>";
     echo "<table id='verktoytabell'>";
       echo "<tr>";
@@ -162,7 +168,7 @@ tr:hover {
 ?>
 
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+<script>
 
 function myFunction() {
   var input, filter, table, tr, td, i;
