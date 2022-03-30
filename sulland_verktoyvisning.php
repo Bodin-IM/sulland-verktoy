@@ -26,6 +26,7 @@ th, td {
 border-left: 1px solid black;
 border-right: 1px solid black;
 border-collapse: collapse;
+padding-left: 10px
 }
 tr {
   height: 4vh;
@@ -39,16 +40,16 @@ tr:nth-child(even) {
 }
 tr:hover {
   background: #0d313f;
-  height: 70px;
+  height: 60px;
 }
 .stil {
-    width: 50%;
+    width: 70%;
     height: 50%;
     display: flex;
     justify-content: center;
     font-family: Drive,Helvetica,Arial,sans-serif;
     position: relative;
-    left: 25%;
+    left: 15%;
     
 }
 .logo {
