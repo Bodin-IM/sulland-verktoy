@@ -51,6 +51,15 @@ if(isset($_POST["submit2"])) {
     
    
     }
+
+
+
+if (isset($_POST['slett'])){
+
+    $selected_verktoy = $_POST['slett'];
+    $sql = "DELETE FROM verktoy WHERE id_verktoy=$selected_verktoy";
+    $resultat = $kobling->query($sql);
+}
 ?>
 
 <!DOCTYPE html>
@@ -282,7 +291,47 @@ h1 {
 
 
         </form>
+
+        <h1>Slette kit</h1>
+        <form method="post">
+        <div class="input">
+
+        <?php
+        $sql2 = "SELECT * FROM kit";
+        $resultat2 = $conn->query($sql2);
+
+     
+        ?>
+
+            <div class="tekst">
+                <label for="id_kit">slett kit</label>
+            </div>
+            <div class="box"> 
+            <?php
+                echo "<select class='kit_select' name='id_kit'>";
+              
+                while($rad = $resultat2->fetch_assoc()) {
+                    $id_kit = $rad["id_kit"];
+                    $kitnavn = $rad["kit_navn"];
+
+                    echo "<option value=$id_kit>$kitnavn</option>";
+                }
+
+                echo "</select>";
+                
+                ?>
+            </div>
+        </div>
+
+        <div class="submit3">
+            <input class="button" name="submit3" type="submit" value="slett">
+        </div>
+
+        </form>
+    
     </div>
+
+    
     </center>
     <?php $conn->close(); ?>
 </body>
