@@ -42,7 +42,6 @@
 <?php
 include "meny.php";
 ?>
-<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
 <?php
  include "sulland_verktoyvisning.php";
 ?>
