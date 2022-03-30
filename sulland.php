@@ -16,11 +16,11 @@
 <body>
     <div class="forside">
         
-        <?php include "meny.php"; ?>
+        <?php include "meny.php"?>
         
 
         
-        <?php include "sulland_verktoyvisning.php"; ?>
+        <?php include "sulland_verktoyvisning.php"?>
         
 
         
