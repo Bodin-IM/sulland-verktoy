@@ -105,7 +105,9 @@ tr:hover {
 </head>
 
 <body>
-
+<div class='logo'>;
+<img src='SUllAND.png' alt='SUllAND' style= 'width:250px;'>;
+</div>;
 
 
 
@@ -122,9 +124,7 @@ tr:hover {
 
   $sql = "SELECT * FROM verktoy";
   $resultat = $kobling->query($sql);
-  echo "<div class='logo'>";
-  echo "<img src='SUllAND.png' alt='SUllAND' style= 'width:250px;'>";
-  echo "</div>";
+
   echo "<div class='stil'>";
     echo "<table id='verktoytabell'>";
       echo "<tr>";
