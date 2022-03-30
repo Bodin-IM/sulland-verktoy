@@ -79,6 +79,7 @@ function myFunction() {
     }
   }
 }
+
 </script>
 
 </body>
