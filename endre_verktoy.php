@@ -124,7 +124,7 @@ if(isset($_GET['verktoy'])){
 $sql = "SELECT * FROM verktoy WHERE id_verktoy='$endre_id'";
 $resultat = $conn->query($sql);
 
-echo "<from method='POST'>";
+echo "<form method='POST'>";
 while($rad = $resultat->fetch_assoc())  {
   $id_verktoy = $rad["id_verktoy"];
   $hylle = $rad["hylle"];
@@ -142,10 +142,10 @@ while($rad = $resultat->fetch_assoc())  {
 
   echo "<div class='input'> ";
   echo" <div class='tekst'>";
-  echo "id_verktøy";
+  echo "id_verktoy";
   echo "</div>";
   echo"<div class='box'>";
-  echo " <input type='text' name='id_verktøy' id='id_verktøy' value='$id_verktoy' disabled>";
+  echo " <input type='text' name='id_verktoy' id='id_verktoy' value='$id_verktoy' disabled>";
   echo "</div>";
   echo "</div>";
 
@@ -220,16 +220,37 @@ while($rad = $resultat->fetch_assoc())  {
 
 
   echo "<div class='submit'>";
+
  echo " <input class='button'type='submit' name='endre' value='endre'> " ;
  echo "</form>";
  echo "</div>"; 
-
  echo"</center>";
 
 }
   
 
+if(isset($_POST["endre"])) {
 
+    $id_verktoy = $_POST["id_verktoy"];
+    $hylle = $_POST["hylle"];
+    $kasse = $_POST["kasse"];
+    $delenummer = $_POST["delenummer"];
+    $id_kit = $_POST["id_kit"];
+    $beskrivelse = $_POST["beskrivelse"];
+    $verktoynummer = $_POST["verktoynummer"];
+   
+  
+ 
+  
+  $sql = "UPDATE hylle, kasse, delenummer, id_kit, beskrivelse, verktoynummer,  SET hylle, kasse, delenummer, id_kit, beskrivelse, verktoynummer,  WHERE id_verktoy = '$id_verktoy'";
+  if($kobling->query($sql)) {
+  echo "Spørringen $sql verktøy ble endert.";
+  } else {
+  echo "Noe gikk galt med spørringen $sql
+  ($kobling->error). ";
+  }
+  
+ }
 
 ?>
 
@@ -242,4 +263,5 @@ while($rad = $resultat->fetch_assoc())  {
 
 
 </html>
+
 
