@@ -12,6 +12,12 @@
 
     <style>
 
+body {
+  background-image: url('sulland_bakgrunn.png');
+  background-size: 30vh;
+  background-opacity
+}
+
 table {
     width: 100%;
     height: 100%;
@@ -40,7 +46,6 @@ tr:nth-child(even) {
 }
 tr:hover {
   background: #0d313f;
-  height: 60px;
 }
 .stil {
     width: 70%;
@@ -105,20 +110,16 @@ tr:hover {
 </head>
 
 <body>
+  
 <div class='logo'>
 <img src='SUllAND.png' alt='SUllAND' style= 'width:250px;'>
 </div>
 
-<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Søk her..." title="Type in a name">
 
 <?php
 
-  $tjener = "10.100.0.2";
-  $brukernavn = "im2a";
-  $passord = "Passord2";
-  $database = "sulland_verktoy";
-
-  $kobling = new mysqli ($tjener, $brukernavn, $passord, $database);
+  include "conn.php";
 
   $sql = "SELECT * FROM verktoy";
   $resultat = $kobling->query($sql);

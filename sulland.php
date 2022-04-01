@@ -12,6 +12,13 @@
     <link rel="stylesheet" href="meny.css">
     <link rel="stylesheet" href="sulland.css">
     <link rel="stylesheet" href="footer.css">
+    <style>
+    body {
+    background-image: url('sulland_bakgrunn');
+    }
+
+
+    </style>
 </head>
 <body>
     <div class="forside">
