@@ -1,16 +1,6 @@
 <?php
 include "meny.php";
-$servername = "10.100.0.2";
-$username = "im2a";
-$password = "Passord2";
-$dbname = "sulland_verktoy";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
+include "conn.php";
 
 if(isset($_POST["submit3"])) {
 
@@ -19,10 +9,10 @@ if(isset($_POST["submit3"])) {
      $sql = "INSERT INTO kit (kit_navn)
      VALUES ('$kit_navn')";
      
-     if ($conn->query($sql) === TRUE) {
+     if ($kobling->query($sql) === TRUE) {
        echo "New record created successfully";
      } else {
-       echo "Error: " . $sql . "<br>" . $conn->error;
+       echo "Error: " . $sql . "<br>" . $kobling->error;
      }
      
     
