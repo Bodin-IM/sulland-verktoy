@@ -12,6 +12,10 @@
 
     <style>
 
+body {
+  background-image: ('sulland_bakgrunn');
+}
+
 table {
     width: 100%;
     height: 100%;
@@ -40,7 +44,6 @@ tr:nth-child(even) {
 }
 tr:hover {
   background: #0d313f;
-  height: 60px;
 }
 .stil {
     width: 70%;
@@ -105,6 +108,7 @@ tr:hover {
 </head>
 
 <body>
+  
 <div class='logo'>
 <img src='SUllAND.png' alt='SUllAND' style= 'width:250px;'>
 </div>
