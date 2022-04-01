@@ -1,16 +1,6 @@
 <?php
 include "meny.php";
-$servername = "10.100.0.2";
-$username = "im2a";
-$password = "Passord2";
-$dbname = "sulland_verktoy";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
+include "conn.php";
 
 if(isset($_POST["submit"])) {
 
@@ -27,10 +17,10 @@ $status = $_REQUEST['status'];
 $sql = "INSERT INTO Verktoy (hylle, kasse, delenummer, id_kit, beskrivelse, verktoynummer, status)
 VALUES ('$hylle', '$kasse', '$delenummer', IF('$id_kit' = 'no_kit', NULL,'$id_kit'), '$beskrivelse', '$verktoynummer', '$status')";
 
-if ($conn->query($sql) === TRUE) {
+if ($kobling->query($sql) === TRUE) {
   echo "New record created successfully";
 } else {
-  echo "Error: " . $sql . "<br>" . $conn->error;
+  echo "Error: " . $sql . "<br>" . $kobling->error;
 }
 
 
@@ -43,10 +33,10 @@ if(isset($_POST["submit2"])) {
     $sql = "INSERT INTO kit (kit_navn)
     VALUES ('$kit_navn')";
     
-    if ($conn->query($sql) === TRUE) {
+    if ($kobling->query($sql) === TRUE) {
       echo "New record created successfully";
     } else {
-      echo "Error: " . $sql . "<br>" . $conn->error;
+      echo "Error: " . $sql . "<br>" . $kobling->error;
     }
     
    
@@ -54,11 +44,18 @@ if(isset($_POST["submit2"])) {
 
 
 
-if (isset($_POST['slett'])){
+if (isset($_POST['submit_slett'])){
 
-    $selected_verktoy = $_POST['slett'];
-    $sql = "DELETE FROM verktoy WHERE id_verktoy=$selected_verktoy";
+    $selected_kit = $_POST['kit'];
+    $sql = "DELETE FROM kit WHERE id_kit ='$selected_kit'";
     $resultat = $kobling->query($sql);
+
+    if ($kobling->query($sql) === TRUE) {
+        echo "Deleted kit";
+      } else {
+        echo "Error: " . $sql . "<br>" . $kobling->error;
+      }
+      
 }
 ?>
 
@@ -199,7 +196,7 @@ h1 {
 <div class="input">
         <?php
         $sql2 = "SELECT * FROM kit";
-        $resultat2 = $conn->query($sql2);
+        $resultat2 = $kobling->query($sql2);
 
         $nullkit =NULL;
         ?>
@@ -298,7 +295,7 @@ h1 {
 
         <?php
         $sql2 = "SELECT * FROM kit";
-        $resultat2 = $conn->query($sql2);
+        $resultat2 = $kobling->query($sql2);
 
      
         ?>
@@ -308,7 +305,7 @@ h1 {
             </div>
             <div class="box"> 
             <?php
-                echo "<select class='kit_select' name='id_kit'>";
+                echo "<select class='kit_select' name='kit'>";
               
                 while($rad = $resultat2->fetch_assoc()) {
                     $id_kit = $rad["id_kit"];
@@ -324,7 +321,7 @@ h1 {
         </div>
 
         <div class="submit3">
-            <input class="button" name="submit3" type="submit" value="slett">
+            <input class="button" name="submit_slett" type="submit" value="Slett">
         </div>
 
         </form>
@@ -333,7 +330,7 @@ h1 {
 
     
     </center>
-    <?php $conn->close(); ?>
+    <?php $kobling->close(); ?>
 </body>
   
 </html>

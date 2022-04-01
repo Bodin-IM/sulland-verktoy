@@ -16,11 +16,7 @@
     </ul> 
 
     <?php
-    $tjener = "10.100.0.2";
-    $brukernavn = "im2a";
-    $passord = "Passord2";
-    $database = "sulland_verktoy";    
-    $kobling = new mysqli ($tjener, $brukernavn, $passord, $database);
+    include "conn.php";
     $sql = "SELECT * FROM verktoy";
     $resultat = $kobling->query($sql);
     echo "<table id='verktoytabell'>";

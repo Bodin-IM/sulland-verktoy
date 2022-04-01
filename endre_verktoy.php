@@ -98,21 +98,11 @@ include "meny.php";
 
 <?php
 
-;
+
 
 
 if(isset($_GET['verktoy'])){
-  $servername = "10.100.0.2";
-  $username = "im2a";
-  $password = "Passord2";
-  $dbname = "sulland_verktoy";
-    
-  // Create connection
-  $conn = new mysqli($servername, $username, $password, $dbname);
-  // Check connection
-  if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-  }
+  include "conn.php";
   
   $endre_id = $_GET['verktoy'];
 
@@ -122,7 +112,7 @@ if(isset($_GET['verktoy'])){
 
 
 $sql = "SELECT * FROM verktoy WHERE id_verktoy='$endre_id'";
-$resultat = $conn->query($sql);
+$resultat = $kobling->query($sql);
 
 echo "<from method='POST'>";
 while($rad = $resultat->fetch_assoc())  {
