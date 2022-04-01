@@ -113,7 +113,7 @@ tr:hover {
 <img src='SUllAND.png' alt='SUllAND' style= 'width:250px;'>
 </div>
 
-<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Søk her..." title="Type in a name">
 
 <?php
 

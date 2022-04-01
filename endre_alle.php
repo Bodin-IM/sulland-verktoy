@@ -160,7 +160,8 @@ while($rad = $resultat->fetch_assoc()) {
         echo "<td>$verktøynummer</td>";
         echo "<td>$id_bruker</td>";
         echo "<td>$status</td>";
-        echo "<td>   <button><a href='endre_verktoy.php?verktoy=$id_verktoy'>ender verktøy</a> </button></td>";
+        echo "<td>  <a href='endre_verktoy.php?verktoy=$id_verktoy'>ENDRE</a> </td>";
+        
     echo "</tr>";
 }
 
