@@ -68,8 +68,9 @@ if (isset($_POST['submit_slett'])){
 
     <style> 
 body {
-    background-image: url("Bakgrunn.jpg");
-    }
+  background-image: url('sulland_bakgrunn.png');
+  background-size: 30vh;
+}
 
 input[type=text] {
   width:75%;
