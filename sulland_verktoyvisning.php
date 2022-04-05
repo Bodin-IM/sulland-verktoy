@@ -15,7 +15,6 @@
 body {
   background-image: url('sulland_bakgrunn.png');
   background-size: 30vh;
-  background-opacity
 }
 
 table {
