@@ -94,15 +94,33 @@ h1 {
 <body>
   <?php
 include "meny.php";
-?>
+include "conn.php";
+if(isset($_POST["endre"])) {
 
-<?php
+  $id_verktoy_update = $_POST["id_verktoy"];
+  $hylle = $_POST["hylle"];
+  $kasse = $_POST["kasse"];
+  $delenummer = $_POST["delenummer"];
+  $id_kit = $_POST["id_kit"];
+  $beskrivelse = $_POST["beskrivelse"];
+  $verktoynummer = $_POST["verktoynummer"];
+ 
 
 
+
+$sql_update = "UPDATE verktoy SET hylle='$hylle', kasse='$kasse', delenummer='$delenummer', id_kit='$id_kit', beskrivelse='$beskrivelse', verktoynummer='$verktoynummer'  WHERE id_verktoy = '$id_verktoy_update'";
+if($kobling->query($sql_update)) {
+echo "verktøy ble endret.";
+
+} else {
+echo "Noe gikk galt med spørringen $sql_update($kobling->error). ";
+}
+
+}
 
 
 if(isset($_GET['verktoy'])){
-  include "conn.php";
+ 
   
   $endre_id = $_GET['verktoy'];
 
@@ -132,10 +150,9 @@ while($rad = $resultat->fetch_assoc())  {
 
   echo "<div class='input'> ";
   echo" <div class='tekst'>";
-  echo "id_verktoy";
   echo "</div>";
   echo"<div class='box'>";
-  echo " <input type='text' name='id_verktoy' id='id_verktoy' value='$id_verktoy' disabled>";
+  echo " <input type='hidden' name='id_verktoy' value='$id_verktoy'>";
   echo "</div>";
   echo "</div>";
 
@@ -219,28 +236,7 @@ while($rad = $resultat->fetch_assoc())  {
 }
   
 
-if(isset($_POST["endre"])) {
 
-    $id_verktoy = $_POST["id_verktoy"];
-    $hylle = $_POST["hylle"];
-    $kasse = $_POST["kasse"];
-    $delenummer = $_POST["delenummer"];
-    $id_kit = $_POST["id_kit"];
-    $beskrivelse = $_POST["beskrivelse"];
-    $verktoynummer = $_POST["verktoynummer"];
-   
-  
- 
-  
-  $sql = "UPDATE hylle, kasse, delenummer, id_kit, beskrivelse, verktoynummer,  SET hylle, kasse, delenummer, id_kit, beskrivelse, verktoynummer,  WHERE id_verktoy = '$id_verktoy'";
-  if($kobling->query($sql)) {
-  echo "Spørringen $sql verktøy ble endert.";
-  } else {
-  echo "Noe gikk galt med spørringen $sql
-  ($kobling->error). ";
-  }
-  
- }
 
 ?>
 

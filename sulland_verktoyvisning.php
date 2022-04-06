@@ -12,9 +12,24 @@
 
     <style>
 
+:root,
+:root.light {
+  --bg-url: url('sulland_bakgrunn.png');
+  --bg-size: 35%;
+}
+
+:root.dark {
+  --bg-url: url('sulland_bakgrunn_dark.png');
+  --bg-size: 35%;
+  --bg-color: #3E3E3D;
+}
+
 body {
-  background-image: url('sulland_bakgrunn.png');
-  background-size: 30vh;
+  margin: 0;
+  background-color: var(--bg-color);
+  background-image: var(--bg-url);
+  background-size: var(--bg-size);
+  color: var(--text-color);
 }
 
 table {
@@ -110,15 +125,47 @@ tr:hover {
 
 <body>
   
+
+<?php 
+ include "conn.php";
+
+        $sql2 = "SELECT * FROM bruker";
+        $resultat_bruker = $kobling->query($sql2);
+?>
+
 <div class='logo'>
 <img src='SUllAND.png' alt='SUllAND' style= 'width:250px;'>
+
+<select name="theme-select" id="theme-select">
+  <option value="light">Light</option>
+  <option value="dark">Dark</option>
+</select>
+
+<select name="brukere" required>
+      <option value="">velg en bruker</option>
+                <option value='no_bruker'></option>
+
+      <?php
+                while($rad = $resultat_bruker->fetch_assoc()) {
+                    $id_bruker = $rad["id_bruker"];
+                    $brukernavn = $rad["brukernavn"];
+
+                    echo "<option value=$id_bruker>$brukernavn</option>";
+                }
+
+                
+                ?>
+     
+    </select>
+
+
 </div>
 
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Søk her..." title="Type in a name">
 
 <?php
 
-  include "conn.php";
+ 
 
   $sql = "SELECT * FROM verktoy";
   $resultat = $kobling->query($sql);
@@ -168,6 +215,9 @@ tr:hover {
 ?>
 
 
+
+
+
 <script>
 
 function myFunction() {
@@ -200,6 +250,11 @@ function myFunction() {
   }
 }
 
+const setTheme = theme => document.documentElement.className = theme;
+
+document.getElementById('theme-select').addEventListener('change', function() {
+  setTheme(this.value);
+});
 </script>
 
 </body>
