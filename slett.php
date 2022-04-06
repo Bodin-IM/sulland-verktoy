@@ -19,8 +19,14 @@
         <li><a href="/sok.php">søkefunksjon</a></li>
     </ul> 
 
+
     <?php
     include "conn.php";
+    if (isset($_POST['slett'])){
+        $selected_verktoy = $_POST['slett'];
+        $sql = "DELETE FROM verktoy WHERE id_verktoy=$selected_verktoy";
+        $resultat = $kobling->query($sql);
+    }
     $sql = "SELECT * FROM verktoy";
     $resultat = $kobling->query($sql);
     echo "<table id='verktoytabell'>";
@@ -57,39 +63,45 @@
             echo "<td>$verktøynummer</td>";
             echo "<td>$id_bruker</td>";
             echo "<td>$status</td>";
-            echo "<td>
-                <form method='POST'>
-                <button class='slett_knapp' type='button' name='slett' value='$id_verktøy'> Slett </button>   
-                </form>
-                </td>";
+            echo "<td>  <button class='slett_knapp' type='button' value='$id_verktøy'> Slett </button>  </td>";
             echo "<td> <a href='endre_verktoy.php?verktoy=$id_verktøy'> ENDRE </a> </td>";
         echo "</tr>";
     }
     echo "</table>";
-    if (isset($_POST['slett'])){
-        
-        $selected_verktoy = $_POST['slett'];
-        $sql = "DELETE FROM verktoy WHERE id_verktoy=$selected_verktoy";
-        $resultat = $kobling->query($sql);
-    }
+  
     ?>
+
+
     <dialog class="modal" id="modal">
         <h2>Bekreft Sletting</h2>
-        <button  class="button close-button" > Slett </button>
+        <form method='POST'>
+             <button id="slett_button" class="slett_button" name='slett' value='' > Slett </button>
+             <button id="avbryt_button" class="avbryt_button" type='submit' name='avbryt'> Avbryt </button>
+        </form>
     </dialog>
-    <script>
-        var modal = document.querySelector("#modal");
-        var open_buttons = document.querySelectorAll(".slett_knapp");
-        var close_button = document.querySelector(".close-button");
 
+
+    <script>
+        var modal = document.querySelector("#modal"); 
+        var open_buttons = document.querySelectorAll(".slett_knapp");
+        var close_button = document.querySelector(".slett_button");
+        var slett_knapp_value
+    
         open_buttons.forEach(btn => {
             btn.addEventListener("click", () => {
+                slett_knapp_value = btn.value;
+                document.getElementById("slett_button").value = slett_knapp_value;
+
+
                 modal.showModal();
             })    
-        
         }) ;
         close_button.addEventListener("click", () => {
-        modal.close();
+
+            console.log(slett_knapp_value);
+            console.log(document.getElementById("slett_button").value)
+            
+            modal.close();
         });
 
         
