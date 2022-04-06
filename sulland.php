@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="footer.css">
     <style>
     body {
-    background-image: url('sulland_bakgrunn');
+    
     }
 
 
