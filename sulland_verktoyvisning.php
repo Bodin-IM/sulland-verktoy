@@ -19,7 +19,9 @@
 }
 
 :root.dark {
-  
+  --bg-url: url('sulland_bakgrunn_dark.png');
+  --bg-size: 35%;
+  --bg-color: #3E3E3D;
 }
 
 body {
@@ -134,6 +136,11 @@ tr:hover {
 <div class='logo'>
 <img src='SUllAND.png' alt='SUllAND' style= 'width:250px;'>
 
+<select name="theme-select" id="theme-select">
+  <option value="light">Light</option>
+  <option value="dark">Dark</option>
+</select>
+
 <select name="brukere" required>
       <option value="">velg en bruker</option>
                 <option value='no_bruker'></option>
@@ -243,6 +250,11 @@ function myFunction() {
   }
 }
 
+const setTheme = theme => document.documentElement.className = theme;
+
+document.getElementById('theme-select').addEventListener('change', function() {
+  setTheme(this.value);
+});
 </script>
 
 </body>
