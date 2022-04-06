@@ -5,7 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="slett_endre_verktøy.css">
+    <style>
+    .modal::backdrop {
+    background: rgb(0 0 0 / 0.6);
+    }
+    </style>
 </head>
 <body>
     <ul>
@@ -16,11 +20,7 @@
     </ul> 
 
     <?php
-    $tjener = "10.100.0.2";
-    $brukernavn = "im2a";
-    $passord = "Passord2";
-    $database = "sulland_verktoy";    
-    $kobling = new mysqli ($tjener, $brukernavn, $passord, $database);
+    include "conn.php";
     $sql = "SELECT * FROM verktoy";
     $resultat = $kobling->query($sql);
     echo "<table id='verktoytabell'>";
@@ -59,27 +59,43 @@
             echo "<td>$status</td>";
             echo "<td>
                 <form method='POST'>
-                <button id='slett_knapp' type='submit' name='slett' value='$id_verktøy'> Slett </button>   
+                <button class='slett_knapp' type='button' name='slett' value='$id_verktøy'> Slett </button>   
                 </form>
                 </td>";
             echo "<td> <a href='endre_verktoy.php?verktoy=$id_verktøy'> ENDRE </a> </td>";
         echo "</tr>";
     }
     echo "</table>";
-    /*if (isset($_POST['slett'])){
+    if (isset($_POST['slett'])){
         
         $selected_verktoy = $_POST['slett'];
         $sql = "DELETE FROM verktoy WHERE id_verktoy=$selected_verktoy";
         $resultat = $kobling->query($sql);
-    }*/
+    }
     ?>
-
+    <dialog class="modal" id="modal">
+        <h2>Bekreft Sletting</h2>
+        <button  class="button close-button" > Slett </button>
+    </dialog>
     <script>
-        document.getElementById("slett_knapp").onclick = function(){
-            document.getElementById("slett_knapp").style.backgroundColor = "green";
-            
-        }
+        var modal = document.querySelector("#modal");
+        var open_buttons = document.querySelectorAll(".slett_knapp");
+        var close_button = document.querySelector(".close-button");
+
+        open_buttons.forEach(btn => {
+            btn.addEventListener("click", () => {
+                modal.showModal();
+            })    
+        
+        }) ;
+        close_button.addEventListener("click", () => {
+        modal.close();
+        });
+
+        
     </script>
+
+    
 
 </body>
 </html>
