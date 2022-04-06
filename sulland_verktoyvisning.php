@@ -12,9 +12,22 @@
 
     <style>
 
+:root,
+:root.light {
+  --bg-url: url('sulland_bakgrunn.png');
+  --bg-size: 35%;
+}
+
+:root.dark {
+  
+}
+
 body {
-  background-image: url('sulland_bakgrunn.png');
-  background-size: 30vh;
+  margin: 0;
+  background-color: var(--bg-color);
+  background-image: var(--bg-url);
+  background-size: var(--bg-size);
+  color: var(--text-color);
 }
 
 table {
