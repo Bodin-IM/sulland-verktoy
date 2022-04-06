@@ -123,15 +123,42 @@ tr:hover {
 
 <body>
   
+
+<?php 
+ include "conn.php";
+
+        $sql2 = "SELECT * FROM bruker";
+        $resultat_bruker = $kobling->query($sql2);
+?>
+
 <div class='logo'>
 <img src='SUllAND.png' alt='SUllAND' style= 'width:250px;'>
+
+<select name="brukere" required>
+      <option value="">velg en bruker</option>
+                <option value='no_bruker'></option>
+
+      <?php
+                while($rad = $resultat_bruker->fetch_assoc()) {
+                    $id_bruker = $rad["id_bruker"];
+                    $brukernavn = $rad["brukernavn"];
+
+                    echo "<option value=$id_bruker>$brukernavn</option>";
+                }
+
+                
+                ?>
+     
+    </select>
+
+
 </div>
 
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Søk her..." title="Type in a name">
 
 <?php
 
-  include "conn.php";
+ 
 
   $sql = "SELECT * FROM verktoy";
   $resultat = $kobling->query($sql);
@@ -179,6 +206,9 @@ tr:hover {
     echo "</table>";
   echo "</div>"
 ?>
+
+
+
 
 
 <script>
