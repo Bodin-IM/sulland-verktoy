@@ -119,18 +119,36 @@ tr:hover {
   background-color: #f1f1f1;
 }
 
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: #333;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+#myBtn:hover {
+  background-color: #555;
+}
+
 
     </style>
 </head>
 
 <body>
-  
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 
 <?php 
  include "conn.php";
 
-        $sql2 = "SELECT * FROM bruker";
-        $resultat_bruker = $kobling->query($sql2);
 ?>
 
 <div class='logo'>
@@ -141,7 +159,14 @@ tr:hover {
   <option value="dark">Dark</option>
 </select>
 
-<select name="brukere" required>
+
+<!-- skjema valg av bruker -->
+<?php
+$sql2 = "SELECT * FROM bruker";
+$resultat_bruker = $kobling->query($sql2);
+?>
+<form id="bruker_valg" method="POST">
+<select name="bruker" required onchange="document.bruker_valg.submit()">
       <option value="">velg en bruker</option>
                 <option value='no_bruker'></option>
 
@@ -157,6 +182,20 @@ tr:hover {
                 ?>
      
     </select>
+</form>
+<?php 
+if (isset($_POST['bruker'])){
+
+  $valgt_bruker = $_POST['bruker'];
+
+  $sql2 = "SELECT * FROM bruker";
+  $resultat_bruker = $kobling->query($sql2);
+
+  
+
+
+}
+?>
 
 
 </div>
@@ -257,5 +296,26 @@ document.getElementById('theme-select').addEventListener('change', function() {
 });
 </script>
 
+<script>
+//Get the button
+var mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
 </body>
 </html>
