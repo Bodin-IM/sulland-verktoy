@@ -11,7 +11,7 @@
 <body>
     <div class="forside">
     <ul>
-        <li><a href="/sulland.php">Verktøyvisning</a></li>
+        <li><a href="/index.php">Verktøyvisning</a></li>
         <li id=''><a href="/slett.php">Admin</a></li>
     </ul> 
         <?php include "sulland_verktoyvisning.php"?>
