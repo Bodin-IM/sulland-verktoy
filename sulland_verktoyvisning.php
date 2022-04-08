@@ -129,8 +129,6 @@ tr:hover {
 <?php 
  include "conn.php";
 
-        $sql2 = "SELECT * FROM bruker";
-        $resultat_bruker = $kobling->query($sql2);
 ?>
 
 <div class='logo'>
@@ -141,7 +139,14 @@ tr:hover {
   <option value="dark">Dark</option>
 </select>
 
-<select name="brukere" required>
+
+<!-- skjema valg av bruker -->
+<?php
+$sql2 = "SELECT * FROM bruker";
+$resultat_bruker = $kobling->query($sql2);
+?>
+<form id="bruker_valg" method="POST">
+<select name="bruker" required onchange="document.bruker_valg.submit()">
       <option value="">velg en bruker</option>
                 <option value='no_bruker'></option>
 
@@ -157,6 +162,20 @@ tr:hover {
                 ?>
      
     </select>
+</form>
+<?php 
+if (isset($_POST['bruker'])){
+
+  $valgt_bruker = $_POST['bruker'];
+
+  $sql2 = "SELECT * FROM bruker";
+  $resultat_bruker = $kobling->query($sql2);
+
+  
+
+
+}
+?>
 
 
 </div>
