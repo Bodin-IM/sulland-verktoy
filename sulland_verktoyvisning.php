@@ -205,7 +205,23 @@ tr:hover {
           echo "<td>$id_kit</td>";
           echo "<td>$verktøynummer</td>";
           echo "<td class='beskrivelse'>$beskrivelse</td>";
-          echo "<td>$id_bruker</td>";
+          echo "<td>";
+          
+
+          <?php
+          
+
+          if  $id_bruker=(0){
+            echo "$id_bruker";
+          }
+
+
+          else
+                   
+          $id_bruker;
+          
+          ?>
+          echo "</td>";
           echo "<td>$status</td>";
         echo "</tr>";
     }
