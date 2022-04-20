@@ -22,4 +22,8 @@ ul {
     background-color: #111;
   }
 
-  
+  select {
+    height: 40px;
+    width: 150px;
+    
+  }
