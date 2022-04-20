@@ -5,18 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-    .modal::backdrop {
-    background: rgb(0 0 0 / 0.6);
-    }
-    </style>
+    <link rel="stylesheet" href="slett_endre_verktøy.css">
 </head>
 <body>
     <ul>
         <li><a href="/opprett.php">Opprett</a></li>
         <li><a href="/deploy.php">Deploy</a></li>
-        <li><a href="/user_admin.php">User Admin</a></li>
-        <li><a href="/sok.php">søkefunksjon</a></li>
+        <li><a href="/user_admin.php">Ny Bruker</a></li>
     </ul> 
 
 
@@ -91,16 +86,10 @@
             btn.addEventListener("click", () => {
                 slett_knapp_value = btn.value;
                 document.getElementById("slett_button").value = slett_knapp_value;
-
-
                 modal.showModal();
             })    
         }) ;
         close_button.addEventListener("click", () => {
-
-            console.log(slett_knapp_value);
-            console.log(document.getElementById("slett_button").value)
-            
             modal.close();
         });
 

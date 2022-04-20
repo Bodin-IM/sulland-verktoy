@@ -1,7 +1,3 @@
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,30 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="meny.css">
-    <link rel="stylesheet" href="sulland.css">
     <link rel="stylesheet" href="footer.css">
     <style>
-    body {
-    
-    }
-
-
+         body {
+            background-image: url("46.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            }
     </style>
 </head>
 <body>
-    <div class="forside">
-        
-        <?php include "meny.php"?>
-        
+    <?php  
+    include "meny.php";
+    ?>
 
-        
-        <?php include "sulland_verktoyvisning.php"?>
-        
-
-        
-        <?php include "footer.html" ?>
-        
-    </div>
     
+
+    <?php
+     include "footer.html" 
+    ?>
+
 </body>
 </html>
