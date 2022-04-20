@@ -146,7 +146,7 @@ $sql2 = "SELECT * FROM bruker";
 $resultat_bruker = $kobling->query($sql2);
 ?>
 <form id="bruker_valg" method="POST">
-<select name="bruker" required onchange="document.bruker_valg.submit()">
+<select name="bruker" required onchange="document.bruker_valg.submit()" >
       <option value="">velg en bruker</option>
                 <option value='no_bruker'></option>
 
