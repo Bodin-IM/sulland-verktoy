@@ -191,7 +191,7 @@ tr:hover {
             echo "<td>$id_bruker</td>";
             echo "<td>$status</td>";
             echo "<td>  <button class='slett_knapp' type='button' value='$id_verktøy'> Slett </button>  </td>";
-            echo "<td> <a href='endre_verktoy.php?verktoy=$id_verktøy'> ENDRE </a> </td>";
+            echo "<td> <button><a href='endre_verktoy.php?verktoy=$id_verktøy'> ENDRE </a></button>  </td>";
         echo "</tr>";
     }
     echo "</table>";
