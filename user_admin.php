@@ -4,19 +4,32 @@ include "conn.php";
 
 if(isset($_POST["submit3"])) {
 
-    $brukernavn = $_REQUEST['brukernavn'];
+    $brukernavn = $_POST['brukernavn'];
      
-     $sql = "INSERT INTO kit (kit_navn)
-     VALUES ('$kit_navn')";
+     $sql = "INSERT INTO bruker (brukernavn) VALUES ('$brukernavn')";
      
      if ($kobling->query($sql) === TRUE) {
-       echo "New record created successfully";
+       echo "Ny bruker er lagt til";
      } else {
        echo "Error: " . $sql . "<br>" . $kobling->error;
      }
      
     
      }
+
+     if (isset($_POST['submit_slett'])){
+
+      $selected_bruker = $_POST['bruker'];
+      $sql = "DELETE FROM bruker WHERE id_bruker ='$selected_bruker'";
+      $resultat = $kobling->query($sql);
+  
+      if ($kobling->query($sql) === TRUE) {
+          echo "Slettet bruker";
+        } else {
+          echo "Error: " . $sql . "<br>" . $kobling->error;
+        }
+        
+  }
  ?>
 
 
@@ -111,6 +124,13 @@ h1 {
   background-color: #555555;
   color: white;
 }
+
+.bruker_select {
+    width: 75%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    font-size: 15px;
+}
             </style>
         </head>
         <body>
@@ -133,6 +153,46 @@ h1 {
         
 
         </form>
+
+       
+        <form method="post">
+        <div class="input">
+
+        <?php
+        $sql2 = "SELECT * FROM bruker";
+        $resultat2 = $kobling->query($sql2);
+
+     
+        ?>
+
+            <div class="tekst">
+                <label for="id_bruker">slett bruker</label>
+            </div>
+            <div class="box"> 
+            <?php
+                echo "<select class='bruker_select' name='bruker'>";
+              
+                while($rad = $resultat2->fetch_assoc()) {
+                    $id_bruker = $rad["id_bruker"];
+                    $brukernavn = $rad["brukernavn"];
+
+                    echo "<option value=$id_bruker>$brukernavn</option>";
+                }
+
+                echo "</select>";
+                
+                ?>
+            </div>
+              <div class="submit3">
+                <input class="button" name="submit_slett" type="submit" value="Slett">
+              </div>
+        </div>
+
+        
+
+        </form>
+
+
     </div>
     </center>
         </body>
