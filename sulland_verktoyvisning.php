@@ -153,7 +153,7 @@ tr:hover {
 ?>
 
 <div class='logo'>
-<img src='SUllAND.png' alt='SUllAND' style= 'width:250px;'>
+<a href="https://www.sulland.no/"><img src='SUllAND.png' alt='SUllAND' style= 'width:250px;'></a>
 
 
 
