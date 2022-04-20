@@ -247,19 +247,18 @@ if (isset($_POST['bruker'])){
           echo "<td>";
           
 
-          <?php
+          
           
 
-          if  $id_bruker=(0){
+          if  ($id_bruker == NULL){
+            echo "<button>lån</button>";
+          } else{
             echo "$id_bruker";
           }
-
-
-          else
                    
-          $id_bruker;
           
-          ?>
+          
+          
           echo "</td>";
           echo "<td>$status</td>";
         echo "</tr>";
@@ -267,7 +266,7 @@ if (isset($_POST['bruker'])){
 
     echo "</table>";
   echo "</div>"
-?>
+    ?>
 
 
 
