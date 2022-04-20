@@ -154,10 +154,6 @@ tr:hover {
 <div class='logo'>
 <img src='SUllAND.png' alt='SUllAND' style= 'width:250px;'>
 
-<select name="theme-select" id="theme-select">
-  <option value="light">Light</option>
-  <option value="dark">Dark</option>
-</select>
 
 
 <!-- skjema valg av bruker -->
@@ -196,6 +192,17 @@ if (isset($_POST['bruker'])){
 
 }
 ?>
+
+
+
+
+<select name="theme-select" id="theme-select">
+  <option value="light">Light</option>
+  <option value="dark">Dark</option>
+</select>
+
+
+
 
 
 </div>

@@ -23,7 +23,22 @@ ul {
   }
 
   select {
-    height: 40px;
-    width: 150px;
+    height: 70px;
+    width: 240px;
     
   }
+
+  .logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  #bruker_valg {
+   font-size: 30px;
+  }
+
+#theme-select {
+  font-size: 30px;
+}
