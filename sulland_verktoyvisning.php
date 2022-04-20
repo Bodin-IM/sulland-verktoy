@@ -15,12 +15,13 @@
 :root,
 :root.light {
   --bg-url: url('sulland_bakgrunn.png');
-  --bg-size: 35%;
+  --bg-size: 20%;
+  --opa:
 }
 
 :root.dark {
   --bg-url: url('sulland_bakgrunn_dark.png');
-  --bg-size: 35%;
+  --bg-size: 20%;
   --bg-color: #3E3E3D;
 }
 
