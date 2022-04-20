@@ -7,24 +7,15 @@
     <title>Document</title>
     <link rel="stylesheet" href="meny.css">
     <link rel="stylesheet" href="footer.css">
-    <style>
-         body {
-            background-image: url("46.png");
-            background-repeat: no-repeat;
-            background-size: cover;
-            }
-    </style>
 </head>
 <body>
-    <?php  
-    include "meny.php";
-    ?>
-
-    
-
-    <?php
-     include "footer.html" 
-    ?>
-
+    <div class="forside">
+    <ul>
+        <li><a href="/index.php">Verktøyvisning</a></li>
+        <li id=''><a href="/slett.php">Admin</a></li>
+    </ul> 
+        <?php include "sulland_verktoyvisning.php"?>
+        <?php include "footer.html" ?>
+    </div>
 </body>
 </html>
