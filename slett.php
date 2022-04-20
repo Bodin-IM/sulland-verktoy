@@ -24,7 +24,7 @@
 
 body {
   margin: 0;
-  background-color: var(--bg-color);
+  background-color: black;
   background-image: var(--bg-url);
   background-size: var(--bg-size);
   color: var(--text-color);
@@ -142,8 +142,12 @@ tr:hover {
     </style>
 </head>
 <body>
+    
     <?php
     include "meny.php";
+    ?>
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Søk her..." title="Type in a name">
+    <?php
     include "conn.php";
     if (isset($_POST['slett'])){
         $selected_verktoy = $_POST['slett'];
@@ -191,10 +195,44 @@ tr:hover {
         echo "</tr>";
     }
     echo "</table>";
-  
     ?>
+    
+    <!-- START Søke Funksjon -->
+    <script>
+        function myFunction() {
+        var input, filter, table, tr, td, i;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("verktoytabell");
+        var rows = table.getElementsByTagName("tr");
+        for (i = 1; i < rows.length; i++) {
+            var cells = rows[i].getElementsByTagName("td");
+            var j;
+            var rowContainsFilter = false;
+            for (j = 0; j < cells.length; j++) {
+            if (cells[j]) {
+                if (cells[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
+                rowContainsFilter = true;
+                continue;
+                }
+            }
+            }
+            if (! rowContainsFilter) {
+            rows[i].style.display = "none";
+            } else {
+            rows[i].style.display = "";
+            }
+        }
+        }
+        const setTheme = theme => document.documentElement.className = theme;
+        document.getElementById('theme-select').addEventListener('change', function() {
+        setTheme(this.value);
+        });
+    </script>
+    <!-- END Søke Funksjon -->
 
-
+    
+    <!-- START Slett Funksjon -->
     <dialog class="modal" id="modal">
         <h2>Bekreft Sletting</h2>
         <form method='POST'>
@@ -202,38 +240,7 @@ tr:hover {
              <button id="avbryt_button" class="avbryt_button" type='submit' name='avbryt'> Avbryt </button>
         </form>
     </dialog>
-
-
     <script>
-        function myFunction() {
-  var input, filter, table, tr, td, i;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-
-  
-  table = document.getElementById("verktoytabell");
-  var rows = table.getElementsByTagName("tr");
- 
-  for (i = 1; i < rows.length; i++) {
-    var cells = rows[i].getElementsByTagName("td");
-    var j;
-    var rowContainsFilter = false;
-    for (j = 0; j < cells.length; j++) {
-      if (cells[j]) {
-        if (cells[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
-          rowContainsFilter = true;
-          continue;
-        }
-      }
-    }
-
-    if (! rowContainsFilter) {
-      rows[i].style.display = "none";
-    } else {
-      rows[i].style.display = "";
-    }
-  }
-}
         var modal = document.querySelector("#modal"); 
         var open_buttons = document.querySelectorAll(".slett_knapp");
         var close_button = document.querySelector(".slett_button");
@@ -249,9 +256,8 @@ tr:hover {
         close_button.addEventListener("click", () => {
             modal.close();
         });
-
-        
     </script>
+    <!-- END Slett Funksjon -->
 
     
 
