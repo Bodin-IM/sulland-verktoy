@@ -16,13 +16,14 @@
 :root.light {
   --bg-url: url('sulland_bakgrunn.png');
   --bg-size: 20%;
-  --opa:
+  --sok-bord: 5px solid #cccccc;
 }
 
 :root.dark {
   --bg-url: url('sulland_bakgrunn_dark.png');
   --bg-size: 20%;
   --bg-color: #3E3E3D;
+  --sok-bord: 5px solid #262626;
 }
 
 body {
@@ -30,7 +31,6 @@ body {
   background-color: var(--bg-color);
   background-image: var(--bg-url);
   background-size: var(--bg-size);
-  color: var(--text-color);
 }
 
 table {
@@ -41,6 +41,7 @@ table {
     border-collapse: collapse;
     background: #0b2028;
     color: #f2f2f2;
+    box-shadow: 5px 10px; 
    
 }
 th, td {
@@ -91,7 +92,7 @@ tr:hover {
   width: 70%;
   font-size: 16px;
   padding: 12px 20px 12px 40px;
-  border: 5px solid black;
+  border: var(--sok-bord);
   margin-bottom: 12px;
   margin-top: 12px;
   position: relative;
