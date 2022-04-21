@@ -1,29 +1,73 @@
+/* css for meny-en på verktøyvisning side */
 ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-  }
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
   
-  li {
-    float: left;
-  }
+li {
+  float: left;
+}
   
-  li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  }
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
   
-  li a:hover {
-    background-color: #111;
-  }
+li a:hover {
+  background-color: #111;
+}
+
+
+
+/* START css for meny-en på admin side */
+#meny{
+  width: 100%;
+  background-color: #333;
+  display: flex;
+  flex-direction: row;
+}
+#meny a {
+  display: flex;
+  color: #f2f2f2;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+#meny a:hover{
+  background: rgba(0, 0, 0, 0.616);
+}
+#log_ut{
+  color: greenyellow;
+  margin-left: auto;
+
+
+}
+/* END css for meny-en på admin side */
 
   select {
-    height: 40px;
-    width: 150px;
+    height: 70px;
+    width: 240px;
     
   }
+
+  .logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  #bruker_valg {
+   font-size: 30px;
+  }
+
+#theme-select {
+  font-size: 30px;
+}

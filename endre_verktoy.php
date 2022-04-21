@@ -32,6 +32,11 @@ form {
 h1 {
     font-family: Arial, Helvetica, sans-serif;
 }
+
+h2 {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 .input {
     width: 100%;
     display: flex;
@@ -95,29 +100,6 @@ h1 {
   <?php
 include "meny.php";
 include "conn.php";
-if(isset($_POST["endre"])) {
-
-  $id_verktoy_update = $_POST["id_verktoy"];
-  $hylle = $_POST["hylle"];
-  $kasse = $_POST["kasse"];
-  $delenummer = $_POST["delenummer"];
-  $id_kit = $_POST["id_kit"];
-  $beskrivelse = $_POST["beskrivelse"];
-  $verktoynummer = $_POST["verktoynummer"];
- 
-
-
-
-$sql_update = "UPDATE verktoy SET hylle='$hylle', kasse='$kasse', delenummer='$delenummer', id_kit='$id_kit', beskrivelse='$beskrivelse', verktoynummer='$verktoynummer'  WHERE id_verktoy = '$id_verktoy_update'";
-if($kobling->query($sql_update)) {
-echo "verktøy ble endret.";
-
-} else {
-echo "Noe gikk galt med spørringen $sql_update($kobling->error). ";
-}
-
-}
-
 
 if(isset($_GET['verktoy'])){
  
@@ -234,7 +216,33 @@ while($rad = $resultat->fetch_assoc())  {
  echo"</center>";
 
 }
-  
+
+if(isset($_POST["endre"])) {
+
+  $id_verktoy_update = $_POST["id_verktoy"];
+  $hylle = $_POST["hylle"];
+  $kasse = $_POST["kasse"];
+  $delenummer = $_POST["delenummer"];
+  $id_kit = $_POST["id_kit"];
+  $beskrivelse = $_POST["beskrivelse"];
+  $verktoynummer = $_POST["verktoynummer"];
+ 
+
+
+
+$sql_update = "UPDATE verktoy SET hylle='$hylle', kasse='$kasse', delenummer='$delenummer', id_kit='$id_kit', beskrivelse='$beskrivelse', verktoynummer='$verktoynummer'  WHERE id_verktoy = '$id_verktoy_update'";
+if($kobling->query($sql_update)) {
+echo "<center>";
+echo "<h2>verktøy ble endret.</h2>";
+echo "</center>";
+
+} else {
+echo "<center>";
+echo "<h2>Noe gikk galt med spørringen $sql_update($kobling->error). </h2>";
+echo "</center>";
+}
+
+}
 
 
 
