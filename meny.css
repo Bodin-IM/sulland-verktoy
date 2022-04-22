@@ -27,10 +27,12 @@ li a:hover {
 
 /* START css for meny-en på admin side */
 #meny{
-  width: 100%;
-  background-color: #333;
+  width: 73%;
+  background-color: #032530;
   display: flex;
   flex-direction: row;
+  position: relative;
+  left: 15%;
 }
 #meny a {
   display: flex;
@@ -44,29 +46,26 @@ li a:hover {
   background: rgba(0, 0, 0, 0.616);
 }
 #log_ut{
-  color: greenyellow;
   margin-left: auto;
-
-
 }
 /* END css for meny-en på admin side */
 
-  select {
-    height: 70px;
-    width: 240px;
-    
-  }
+select {
+  height: 70px;
+  width: 240px;
+  
+}
 
-  .logo {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
+.logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
 
-  #bruker_valg {
-   font-size: 30px;
-  }
+#bruker_valg {
+  font-size: 30px;
+}
 
 #theme-select {
   font-size: 30px;

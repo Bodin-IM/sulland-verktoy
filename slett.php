@@ -23,21 +23,23 @@
 }
 
 body {
-  margin: 0;
-  background-color: black;
-  background-image: var(--bg-url);
+  background-color: white;
   background-size: var(--bg-size);
   color: var(--text-color);
+  font-family:Arial, Helvetica, sans-serif;
 }
 
 table {
-    width: 100%;
-    height: 100%;
-    border: 1px solid black;
-    background-color: #f2f2f2;
-    border-collapse: collapse;
-    background: #0b2028;
-    color: #f2f2f2;
+  width: 73%;
+  height: 100%;
+  border: 1px solid black;
+  background-color: #f2f2f2;
+  border-collapse: collapse;
+  background: #0b2028;
+  color: #f2f2f2;
+  position: relative;
+  left: 15%;
+
    
 }
 th, td {
@@ -136,7 +138,10 @@ tr:hover {
 #myBtn:hover {
   background-color: #555;
 }
-
+.endre_knapp a{
+  text-decoration: none;
+  color: black;
+}
 
     
     </style>
@@ -190,8 +195,8 @@ tr:hover {
             echo "<td>$verktøynummer</td>";
             echo "<td>$id_bruker</td>";
             echo "<td>$status</td>";
-            echo "<td>  <button class='slett_knapp' type='button' value='$id_verktøy'> Slett </button>  </td>";
-            echo "<td> <button><a href='endre_verktoy.php?verktoy=$id_verktøy'> ENDRE </a></button>  </td>";
+            echo "<td>  <button class='slett_knapp' type='button' value='$id_verktøy'> SLETT </button>  </td>";
+            echo "<td> <button class='endre_knapp'><a href='endre_verktoy.php?verktoy=$id_verktøy'> ENDRE </a></button>  </td>";
         echo "</tr>";
     }
     echo "</table>";
