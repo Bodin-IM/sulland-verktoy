@@ -171,7 +171,7 @@ h1 {
             <div class="box"> 
             <?php
                 echo "<select class='bruker_select' name='bruker'>";
-              
+                echo "<option value='no_kit'></option>";
                 while($rad = $resultat2->fetch_assoc()) {
                     $id_bruker = $rad["id_bruker"];
                     $brukernavn = $rad["brukernavn"];
