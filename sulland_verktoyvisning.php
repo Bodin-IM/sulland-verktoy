@@ -79,6 +79,7 @@ tr:hover {
     width: 100%;
     background-color: #0b2028;
     margin: 0;
+    color: white;
 }
 
 
@@ -154,7 +155,7 @@ tr:hover {
 ?>
 
 <div class='logo'>
-<a href="https://www.sulland.no/"><img src='SUllAND.png' alt='SUllAND' style= 'width:250px;'></a>
+<h1 style="font-family: Helvetica; font-size: 400%" >SUllAND</h1>
 
 
 
