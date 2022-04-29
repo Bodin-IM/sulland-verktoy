@@ -151,7 +151,6 @@ tr:hover {
 
 <?php 
  include "conn.php";
-
 ?>
 
 <div class='logo'>
