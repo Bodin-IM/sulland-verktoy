@@ -163,6 +163,8 @@ tr:hover {
 $sql2 = "SELECT * FROM bruker";
 $resultat_bruker = $kobling->query($sql2);
 ?>
+
+<!-- kjører POST bruker når vi endrer valgt bruker -->
 <form id="bruker_valg" method="POST">
 <select name="bruker" required onchange="document.bruker_valg.submit()" >
       <option value="">velg en bruker</option>
@@ -182,6 +184,8 @@ $resultat_bruker = $kobling->query($sql2);
     </select>
 </form>
 <?php 
+
+// tar imot post fra valgt bruker
 if (isset($_POST['bruker'])){
 
   $valgt_bruker = $_POST['bruker'];
@@ -283,6 +287,8 @@ if (isset($_POST['bruker'])){
 
 <script>
 
+
+// search function
 function myFunction() {
   var input, filter, table, tr, td, i;
   input = document.getElementById("myInput");
@@ -313,8 +319,9 @@ function myFunction() {
   }
 }
 
-const setTheme = theme => document.documentElement.className = theme;
 
+// select theme
+const setTheme = theme => document.documentElement.className = theme;
 document.getElementById('theme-select').addEventListener('change', function() {
   setTheme(this.value);
 });
