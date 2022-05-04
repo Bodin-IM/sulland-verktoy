@@ -190,20 +190,17 @@ if (isset($_POST['bruker'])){
 
   $valgt_bruker = $_POST['bruker'];
 
-  $sql2 = "SELECT * FROM bruker";
-  $resultat_bruker = $kobling->query($sql2);
-
 
 } else {
   $valgt_bruker = NULL;
 }
 
 
-if (isset($_POST['id_bruker'])){
+if (isset($_POST['submit_lan'])){
 
-    $id_bruker = $_POST['id_bruker'];
+    $id_verktoylan = $_POST['verktoy_lan'];
 
-    $sql_lånupdate = "UPDATE * FROM id_bruker";
+    $sql_lånupdate = "UPDATE verktoy set id_bruker = $valgt_bruker WHERE id_verktoy=$id_verktoylan";
 
 }
 
