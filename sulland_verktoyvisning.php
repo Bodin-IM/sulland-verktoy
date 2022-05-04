@@ -193,10 +193,21 @@ if (isset($_POST['bruker'])){
   $sql2 = "SELECT * FROM bruker";
   $resultat_bruker = $kobling->query($sql2);
 
-  
 
+} else {
+  $valgt_bruker = NULL;
+}
+
+
+if (isset($_POST['id_bruker'])){
+
+    $id_bruker = $_POST['id_bruker'];
+
+    $sql_lånupdate = "UPDATE * FROM id_bruker";
 
 }
+
+
 ?>
 
 
@@ -260,13 +271,10 @@ if (isset($_POST['bruker'])){
           echo "<td class='beskrivelse'>$beskrivelse</td>";
           echo "<td>";
           
-
-          
-          
-
           if  ($id_bruker == NULL){
-            echo "<form action='' method='post'>
-            <button>lån</button>
+            echo "<form method='post'>
+              <input type='hidden' value='$id_verktøy' name='verktoy_lan'>
+              <input type='submit' value='Lån' name='submit_lan'>
             </form>";
           } else{
             echo "$brukernavn";
