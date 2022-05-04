@@ -219,7 +219,7 @@ if (isset($_POST['bruker'])){
 
  
 
-  $sql = "SELECT * FROM verktoy";
+  $sql = "SELECT * FROM verktoy LEFT JOIN bruker ON verktoy.id_bruker=bruker.id_bruker";
   $resultat = $kobling->query($sql);
 
   echo "<div class='stil'>";
@@ -233,7 +233,7 @@ if (isset($_POST['bruker'])){
         echo "<th style='width:5%'>id_kit</th>";
         echo "<th style='width:11%'>verktøynummer</th>";
         echo "<th style='width:80%'>beskrivelse</th>";
-        echo "<th>id_bruker</th>";
+        echo "<th>Lånt av</th>";
         echo "<th>status</th>";
 
       echo "</tr>";
@@ -248,6 +248,7 @@ if (isset($_POST['bruker'])){
       $verktøynummer = $rad["verktoynummer"];
       $id_bruker = $rad["id_bruker"];
       $status = $rad["status"];
+      $brukernavn = $rad["brukernavn"];
 
         echo "<tr>";
           //echo "<td>$id_verktøy</td>";
@@ -264,9 +265,11 @@ if (isset($_POST['bruker'])){
           
 
           if  ($id_bruker == NULL){
-            echo "<button>lån</button>";
+            echo "<form action='' method='post'>
+            <button>lån</button>
+            </form>";
           } else{
-            echo "$id_bruker";
+            echo "$brukernavn";
           }
                    
           
