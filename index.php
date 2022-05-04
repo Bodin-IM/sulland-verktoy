@@ -12,7 +12,7 @@
     <div class="forside">
     <ul>
         <li><a href="/index.php">Verktøyvisning</a></li>
-        <li id="admin"><a href="/admin.php">Admin</a></li>
+        <li id="admin"><a href="/logg_inn_admin.php">Logg Inn</a></li>
     </ul> 
         <?php include "sulland_verktoyvisning.php"; mysqli_close($kobling)?>
         <?php include "footer.html";?>
