@@ -142,8 +142,7 @@ tr:hover {
   background-color: #555;
 }
 
-.laneliste {
-  position: static;
+.laneliste { 
   background-color: pink;
   width: 12%;
   margin: 30px;
@@ -215,16 +214,20 @@ if (isset($_POST['bruker'])){
 
 </div>
 
+<div class="laneliste">
+<table id="lanekurv">
+  <th>hylle</th>
+</table>
 
-<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Søk her..." title="Type in a name">
-<div id="lanekurv" class="laneliste"></div>
+</div>
+
 <?php
 
  
 
   $sql = "SELECT * FROM verktoy";
   $resultat = $kobling->query($sql);
-
+  echo "<input type='text' id='myInput' onkeyup='myFunction()' placeholder='Søk her...' title='Type in a name'>";
   echo "<div class='stil'>";
     echo "<table id='verktoytabell'>";
       echo "<tr>";
@@ -290,12 +293,12 @@ if (isset($_POST['bruker'])){
 
 <script>
 
-var divinnhold;
+var divinnhold = "";
 
 function handle(id) {
 
   var tr_innhold = document.getElementById(id).innerHTML;
-  divinnhold +=  "<div>" + tr_innhold + "</div>";
+  divinnhold +=  "<tr>" + tr_innhold + "</tr>";
 
   document.getElementById("lanekurv").innerHTML = divinnhold;
 }
