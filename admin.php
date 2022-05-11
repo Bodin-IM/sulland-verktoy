@@ -23,6 +23,7 @@
     }
     $sql = "SELECT * FROM verktoy";
     $resultat = $kobling->query($sql);
+    
     echo "<table id='verktoytabell'>";
     echo "<tr>";
         echo "<th>id_verktøy</th>";

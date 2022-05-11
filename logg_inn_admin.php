@@ -1,14 +1,14 @@
 <?php
     include "conn.php";
     if (isset($_POST['logg_inn'])){
-        $sql = "SELECT password FROM admin";
-        $resultat = $kobling->query($sql);
+        if ($passord = ($_POST['passord'])){
+            
+            header("Location: admin.php");
+        }
     }
     
     
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
