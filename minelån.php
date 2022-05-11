@@ -1,7 +1,3 @@
-<?php 
-session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -169,10 +165,8 @@ $resultat_bruker = $kobling->query($sql2);
 ?>
 
 <!-- kjører POST bruker når vi endrer valgt bruker -->
-
-
 <form id="bruker_valg" method="POST">
-<select name="bruker" required onchange="this.form.submit()" >
+<select name="bruker" required onchange="document.bruker_valg.submit()" >
       <option value="">velg en bruker</option>
                 <option value='no_bruker'></option>
 
@@ -189,35 +183,24 @@ $resultat_bruker = $kobling->query($sql2);
      
     </select>
 </form>
-
-
-
 <?php 
 
 // tar imot post fra valgt bruker
 if (isset($_POST['bruker'])){
 
-  $_SESSION["valgt_bruker"] = $_POST['bruker'];
-  echo "<h1>";
-  echo $_SESSION['valgt_bruker'] ;
-  echo "</h1>";
+  $valgt_bruker = $_POST['bruker'];
+
 
 } else {
   $valgt_bruker = NULL;
-  echo "<h1>NULL";
-  echo  $_SESSION["valgt_bruker"];
-  echo "</h1>";
 }
 
 
 if (isset($_POST['submit_lan'])){
 
     $id_verktoylan = $_POST['verktoy_lan'];
-    $insert_bruker = $_SESSION["valgt_bruker"];
 
-    $sql_lånupdate = "UPDATE verktoy SET id_bruker = $insert_bruker WHERE id_verktoy=$id_verktoylan";
-
-    $kobling->query($sql_lånupdate);
+    $sql_lånupdate = "UPDATE verktoy set id_bruker = $valgt_bruker WHERE id_verktoy=$id_verktoylan";
 
 }
 
