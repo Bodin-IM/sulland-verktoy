@@ -65,7 +65,6 @@
     echo "</table>";
 
     mysqli_close($kobling);
-
     ?>
     <!-- END PHP Hente Data Fra Databasen -->
 

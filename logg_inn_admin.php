@@ -1,14 +1,23 @@
 <?php
     include "conn.php";
     if (isset($_POST['logg_inn'])){
-        if ($passord = ($_POST['passord'])){
-            
-            header("Location: admin.php");
+        $po = $_POST['passord'];
+        $sql = "SELECT * FROM sulland_verktoy.admin WHERE admin.password='$po'";
+        $result = $kobling->query($sql);
+        if(mysqli_num_rows($result)==1){
+            header('Location: admin.php');
+            exit();
+        }
+        else{
+            echo "feil";
+            exit();
         }
     }
     
     
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +30,7 @@
     <div>
         <h1>Logg Inn Som Admin</h1>
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-            <input type="text" name="passord" placeholder="Passord" required>
+            <input type="password" name="passord" placeholder="Passord" required>
             <button type='submit' name='logg_inn'>Logg inn</button>
         </form>
     </div>
