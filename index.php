@@ -15,6 +15,7 @@
         <li id="admin"><a href="/logg_inn_admin.php">Logg Inn</a></li>
     </ul> 
         <?php include "sulland_verktoyvisning.php"; mysqli_close($kobling)?>
+        <br>
         <?php include "footer.html";?>
         
     </div>
