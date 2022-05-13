@@ -216,10 +216,7 @@ if (isset($_POST['submit_lan']) and isset($_SESSION["valgt_bruker"])   ){
 
 
 
-} if ( ){
-  echo "<h1> <- Du må velge en bruker</h1>";
-}
-
+} 
 
 
 ?>
