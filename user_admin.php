@@ -1,4 +1,8 @@
 <?php
+if(!isset($_SERVER['HTTP_REFERER'])){
+  header('location: logg_inn_admin.php');
+  exit;
+}
 include "meny.php";
 include "conn.php";
 

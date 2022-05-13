@@ -11,6 +11,13 @@
 <body>
     <!-- START PHP Hente Data Fra Databasen -->
     <?php
+    if(!isset($_SERVER['HTTP_REFERER'])){
+        header('location: logg_inn_admin.php');
+        exit;
+    }
+    //if(!defined('logg_in')){
+        //exit('stop');
+    //}
     include "meny.php";
     ?>
     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Søk her..." title="Type in a name">

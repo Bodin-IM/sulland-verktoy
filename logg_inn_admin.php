@@ -5,12 +5,14 @@
         $sql = "SELECT * FROM sulland_verktoy.admin WHERE admin.password='$po'";
         $result = $kobling->query($sql);
         if(mysqli_num_rows($result)==1){
+            //define('logg_in', TRUE);
             header('Location: admin.php');
-            exit();
+            //require 'admin.php';
+            die();
         }
         else{
             echo "feil";
-            exit();
+            die();
         }
     }
     
