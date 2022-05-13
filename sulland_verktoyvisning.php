@@ -173,9 +173,7 @@ $resultat_bruker = $kobling->query($sql2);
 
 <form id="bruker_valg" method="POST">
 <select name="bruker" required onchange="this.form.submit()" >
-      <option value="">velg en bruker</option>
-                <option value='no_bruker'></option>
-
+      <option value="no_bruker">velg en bruker</option>
       <?php
                 while($rad = $resultat_bruker->fetch_assoc()) {
                     $id_bruker = $rad["id_bruker"];
@@ -203,14 +201,11 @@ if (isset($_POST['bruker'])){
   echo "</h1>";
 
 } else {
-  $valgt_bruker = NULL;
-  echo "<h1>NULL";
-  echo  $_SESSION["valgt_bruker"];
-  echo "</h1>";
+
 }
 
 
-if (isset($_POST['submit_lan'])){
+if (isset($_POST['submit_lan']) and isset($_SESSION["valgt_bruker"])   ){
 
     $id_verktoylan = $_POST['verktoy_lan'];
     $insert_bruker = $_SESSION["valgt_bruker"];
@@ -219,7 +214,12 @@ if (isset($_POST['submit_lan'])){
 
     $kobling->query($sql_lånupdate);
 
+
+
+} if ( ){
+  echo "<h1> <- Du må velge en bruker</h1>";
 }
+
 
 
 ?>
