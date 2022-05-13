@@ -154,8 +154,13 @@ include "meny.php";
 <br>
 <?php
 
-if (isset($_POST[''])) {
-    
+if (isset($_POST['submit_fjern_lan'])) {
+  $id_verktoylan = $_POST['verktoy_lan'];
+  
+
+  $sql_lånupdate = "UPDATE verktoy SET id_bruker = NULL WHERE id_verktoy=$id_verktoylan";
+
+  $kobling->query($sql_lånupdate);
 }
 $sql = "SELECT* FROM verktoy JOIN bruker ON verktoy.id_bruker=bruker.id_bruker";
 
@@ -172,6 +177,7 @@ while($rad = $resultat->fetch_assoc()) {
     $verktoynummer = $rad["verktoynummer"];
     $id_bruker = $rad["id_bruker"];
     $brukernavn = $rad["brukernavn"];
+    $id_verktøy = $rad["id_verktoy"];
    
 
 
@@ -179,8 +185,21 @@ while($rad = $resultat->fetch_assoc()) {
         echo "<td> $verktoynummer </td>";
         echo "<td> $id_bruker </td>";
         echo "<td> $brukernavn </td>";
+        echo "<td>" ;     
+            if  ($id_bruker != NULL){
+              echo "<form method='post'>
+                <input type='hidden' value='$id_verktøy' name='verktoy_lan'>
+                <input type='submit' value='Fjern Lån' name='submit_fjern_lan'>
+              </form>";
+            } else{
+              echo "$brukernavn";
+            }
+        
+        echo " </td>";
+
        
     echo "</tr>";
+    
 }
 
 echo "</table>";
