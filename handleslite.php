@@ -95,7 +95,7 @@ tr:hover {
   padding: 12px 20px 12px 40px;
   border: var(--sok-bord);
   margin-bottom: 12px;
-  margin-top: 12px;
+  margin-top: 90px;
   position: relative;
   left: 15%;
 }
@@ -142,12 +142,25 @@ tr:hover {
   background-color: #555;
 }
 
-.laneliste { 
-  background-color: pink;
-  width: 12%;
+/* disse to  ------------------------ NEDENFOR */
+.laneliste.scroll { 
+  max-width: 12%;
   margin: 30px;
+  position: fixed;
 }
 
+#lanekurv {
+  max-width: 100%;
+  
+}
+/* DU MÅ FIKSE #LANEKURV OG .LANELISTE.
+ LANELISTE ER RIKTIG STØRRELSE, MEN LANEKURV OVERSKREDER STØRRELSEN
+ DEN BLIR BEDT OM. PRØV NOE FOR Å FÅ LANEKURV TIL Å IKKE BLI STØRRE ENN 
+ LANELISTE. PRØV NOEN VARIASJONER AV "MAX-WIDTH" ELLER NOE LIGNENDE.
+ SPØR MAGNE. 
+ 
+ --------------- GJØR OM HANDLELISTE TIL EN KNAPP MED ETT POP-UP VINDU ISTEDENFOR -----------------
+ */
 
     </style>
 </head>
@@ -217,6 +230,14 @@ if (isset($_POST['bruker'])){
 <div class="laneliste">
 <table id="lanekurv">
   <th>hylle</th>
+  <th>kasse</th>
+  <th>delenummer</th>
+  <th>id_kit</th>
+  <th>verktøynummer</th>
+  <th>beskrivelse</th>
+  <th>beskrivelse</th>
+  <th>id_bruker</th>
+  <th>status</th>
 </table>
 
 </div>
