@@ -173,7 +173,7 @@ $resultat_bruker = $kobling->query($sql2);
 
 <form id="bruker_valg" method="POST">
 <select name="bruker" required onchange="this.form.submit()" >
-      <option value="no_bruker">velg en bruker</option>
+      <option value="no_bruker">Endre bruker</option>
       <?php
                 while($rad = $resultat_bruker->fetch_assoc()) {
                     $id_bruker = $rad["id_bruker"];
@@ -258,7 +258,7 @@ if (isset($_POST['submit_lan']) and isset($_SESSION["valgt_bruker"])   ){
 
  
 
-  $sql = "SELECT * FROM verktoy LEFT JOIN bruker ON verktoy.id_bruker=bruker.id_bruker";
+  $sql = "SELECT * FROM verktoy LEFT JOIN bruker ON verktoy.id_bruker=bruker.id_bruker LEFT JOIN kit ON verktoy.id_kit = kit.id_kit";
   $resultat = $kobling->query($sql);
 
   echo "<div class='stil'>";
@@ -266,14 +266,14 @@ if (isset($_POST['submit_lan']) and isset($_SESSION["valgt_bruker"])   ){
       echo "<tr>";
 
         //echo "<th>id_verktøy</th>";
-        echo "<th>hylle</th>";
-        echo "<th style='width:5%'>kasse</th>";
-        echo "<th>delenummer</th>";
-        echo "<th style='width:5%'>id_kit</th>";
-        echo "<th style='width:11%'>verktøynummer</th>";
-        echo "<th style='width:80%'>beskrivelse</th>";
+        echo "<th>Hylle</th>";
+        echo "<th style='width:5%'>Kasse</th>";
+        echo "<th>Delenummer</th>";
+        echo "<th style='width:5%'>Kit</th>";
+        echo "<th style='width:11%'>Verktøynummer</th>";
+        echo "<th style='width:80%'>Beskrivelse</th>";
         echo "<th>Lånt av</th>";
-        echo "<th>status</th>";
+        echo "<th>Status</th>";
 
       echo "</tr>";
 
@@ -282,7 +282,7 @@ if (isset($_POST['submit_lan']) and isset($_SESSION["valgt_bruker"])   ){
       $hylle = $rad["hylle"];
       $kasse = $rad["kasse"];
       $delenummer = $rad["delenummer"];
-      $id_kit = $rad["id_kit"];
+      $kit_navn = $rad["kit_navn"];
       $beskrivelse = $rad["beskrivelse"];
       $verktøynummer = $rad["verktoynummer"];
       $id_bruker = $rad["id_bruker"];
@@ -294,7 +294,7 @@ if (isset($_POST['submit_lan']) and isset($_SESSION["valgt_bruker"])   ){
           echo "<td>$hylle</td>";
           echo "<td>$kasse</td>";
           echo "<td>$delenummer</td>";
-          echo "<td>$id_kit</td>";
+          echo "<td>$kit_navn</td>";
           echo "<td>$verktøynummer</td>";
           echo "<td class='beskrivelse'>$beskrivelse</td>";
           echo "<td>";
