@@ -227,7 +227,12 @@ if (isset($_POST['submit_lan']) and isset($_SESSION["valgt_bruker"])   ){
 
 
 
-} 
+} elseif (isset($_POST['submit_lan']) and !isset($_SESSION["valgt_bruker"])   ){
+  echo "
+  <script>
+    alert('velg bruker');
+  </script> ";
+}
 
 
 
