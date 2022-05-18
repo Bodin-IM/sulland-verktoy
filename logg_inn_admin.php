@@ -1,13 +1,13 @@
 <?php
+    session_start();
     include "conn.php";
     if (isset($_POST['logg_inn'])){
+        $_SESSION['logged_in'] = TRUE;
         $po = $_POST['passord'];
         $sql = "SELECT * FROM sulland_verktoy.admin WHERE admin.password='$po'";
         $result = $kobling->query($sql);
         if(mysqli_num_rows($result)==1){
-            //define('logg_in', TRUE);
             header('Location: admin.php');
-            //require 'admin.php';
             die();
         }
         else{
@@ -15,10 +15,7 @@
             die();
         }
     }
-    
-    
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">

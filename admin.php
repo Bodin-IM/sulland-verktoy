@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,15 +12,18 @@
     <link rel="stylesheet" href="meny.css">
 </head>
 <body>
-    <!-- START PHP Hente Data Fra Databasen -->
+    <!-- START PHP Hente Data Fra Databasen --> 
     <?php
-    if(!isset($_SERVER['HTTP_REFERER'])){
+    if ($_SESSION['logged_in'] == TRUE) {
+    }
+    else {
         header('location: logg_inn_admin.php');
         exit;
     }
-    //if(!defined('logg_in')){
-        //exit('stop');
-    //}
+    /*if(!isset($_SERVER['HTTP_REFERER'])){
+        header('location: logg_inn_admin.php');
+        exit;
+    }*/
     include "meny.php";
     ?>
     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Søk her..." title="Type in a name">
