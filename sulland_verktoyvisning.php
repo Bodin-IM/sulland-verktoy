@@ -192,19 +192,30 @@ $resultat_bruker = $kobling->query($sql2);
 
 <?php 
 
+
+
 // tar imot post fra valgt bruker
 if (isset($_POST['bruker'])){
 
   $_SESSION["valgt_bruker"] = $_POST['bruker'];
-  echo "<h1>";
-  echo $_SESSION['valgt_bruker'] ;
-  echo "</h1>";
+  $id = $_SESSION['valgt_bruker'];
 
-} else {
+  $sql3 = "SELECT * FROM bruker WHERE id_bruker = $id";
+  $resultat_valgtbruker = $kobling->query($sql3);
+  $rad = $resultat_valgtbruker->fetch_assoc();
+  $valgt_brukernavn = $rad['brukernavn'];
+  $_SESSION["brukernavn"] = $valgt_brukernavn;
 
+} 
+echo "<h1>";
+if (isset($_SESSION['valgt_bruker'])){
+ 
+  echo $_SESSION["brukernavn"];
+
+}else {
+echo 'Velg en bruker';
 }
-
-
+echo "</h1>";
 if (isset($_POST['submit_lan']) and isset($_SESSION["valgt_bruker"])   ){
 
     $id_verktoylan = $_POST['verktoy_lan'];
@@ -216,9 +227,7 @@ if (isset($_POST['submit_lan']) and isset($_SESSION["valgt_bruker"])   ){
 
 
 
-} if ( ){
-  echo "<h1> <- Du må velge en bruker</h1>";
-}
+} 
 
 
 
