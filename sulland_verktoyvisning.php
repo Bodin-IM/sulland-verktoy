@@ -287,7 +287,7 @@ if (isset($_POST['submit_lan']) and isset($_SESSION["valgt_bruker"])   ){
       $status = $rad["status"];
       $brukernavn = $rad["brukernavn"];
 
-        echo "<tr>";
+       echo "<tr>";
           //echo "<td>$id_verktøy</td>";
           echo "<td>$hylle</td>";
           echo "<td>$kasse</td>";
@@ -330,11 +330,8 @@ function myFunction() {
   var input, filter, table, tr, td, i;
   input = document.getElementById("myInput");
   filter = input.value.toUpperCase();
-
-  
   table = document.getElementById("verktoytabell");
   var rows = table.getElementsByTagName("tr");
- 
   for (i = 1; i < rows.length; i++) {
     var cells = rows[i].getElementsByTagName("td");
     var j;
