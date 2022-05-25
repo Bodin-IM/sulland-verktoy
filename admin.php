@@ -117,7 +117,7 @@ tr:hover {
         $sql = "DELETE FROM verktoy WHERE id_verktoy=$selected_verktoy";
         $resultat = $kobling->query($sql);
     }
-    $sql = "SELECT * FROM verktoy LEFT JOIN bruker ON verktoy.id_bruker=bruker.id_bruker";
+    $sql = "SELECT * FROM verktoy LEFT JOIN bruker ON verktoy.id_bruker=bruker.id_bruker LEFT JOIN kit ON verktoy.id_kit = kit.id_kit";
     $resultat = $kobling->query($sql);
 
     echo "<div class='stil'>";
@@ -127,7 +127,7 @@ tr:hover {
                 echo "<th>Hylle</th>";
                 echo "<th>Kasse</th>";
                 echo "<th>Delenummer</th>";
-                echo "<th>ID_kit</th>";
+                echo "<th>Kit</th>";
                 echo "<th>Beskrivelse</th>";
                 echo "<th>Verktøynummer</th>";
                 echo "<th>Bruker</th>";
@@ -146,12 +146,13 @@ tr:hover {
             $id_bruker = $rad["id_bruker"];
             $status = $rad["status"];
             $brukernavn = $rad["brukernavn"];
+            $kit_navn = $rad["kit_navn"];
             echo "<tr>";
             //echo "<td>$id_verktøy</td>";
             echo "<td>$hylle</td>";
             echo "<td>$kasse</td>";
             echo "<td>$delenummer</td>";
-            echo "<td>$id_kit</td>";
+            echo "<td>$kit_navn</td>";
             echo "<td>$beskrivelse</td>";
             echo "<td>$verktøynummer</td>";
             echo "<td>$brukernavn</td>";
