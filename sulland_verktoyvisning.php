@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -189,9 +188,6 @@ $resultat_bruker = $kobling->query($sql2);
 
 
 <?php 
-
-
-
 // tar imot post fra valgt bruker
 if (isset($_POST['bruker'])){
 
@@ -203,6 +199,9 @@ if (isset($_POST['bruker'])){
   $rad = $resultat_valgtbruker->fetch_assoc();
   $valgt_brukernavn = $rad['brukernavn'];
   $_SESSION["brukernavn"] = $valgt_brukernavn;}
+
+
+
 
 
 echo "<h1>";
@@ -287,7 +286,7 @@ if (isset($_POST['submit_lan']) and isset($_SESSION["valgt_bruker"])   ){
       $status = $rad["status"];
       $brukernavn = $rad["brukernavn"];
 
-       echo "<tr>";
+        echo "<tr>";
           //echo "<td>$id_verktøy</td>";
           echo "<td>$hylle</td>";
           echo "<td>$kasse</td>";
@@ -318,7 +317,15 @@ if (isset($_POST['submit_lan']) and isset($_SESSION["valgt_bruker"])   ){
   echo "</div>"
     ?>
 
-
+<?php
+if($_SESSION['feilmelding_minelan'] == TRUE){
+  unset ($_SESSION["feilmelding_minelan"]);
+  echo "
+    <script>
+      alert('velg bruker');
+    </script> ";
+}
+?>
 
 
 
@@ -330,8 +337,11 @@ function myFunction() {
   var input, filter, table, tr, td, i;
   input = document.getElementById("myInput");
   filter = input.value.toUpperCase();
+
+  
   table = document.getElementById("verktoytabell");
   var rows = table.getElementsByTagName("tr");
+ 
   for (i = 1; i < rows.length; i++) {
     var cells = rows[i].getElementsByTagName("td");
     var j;
