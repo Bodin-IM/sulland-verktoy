@@ -2,11 +2,8 @@
 session_start();
 
 if (!isset($_SESSION["valgt_bruker"])){
+    
     header('Location: index.php');
-    echo "
-    <script>
-      alert('velg bruker');
-    </script> ";
 }
 
 ?>
