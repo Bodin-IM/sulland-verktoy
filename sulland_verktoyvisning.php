@@ -1,6 +1,4 @@
-<?php 
-session_start();
-?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -204,9 +202,9 @@ if (isset($_POST['bruker'])){
   $resultat_valgtbruker = $kobling->query($sql3);
   $rad = $resultat_valgtbruker->fetch_assoc();
   $valgt_brukernavn = $rad['brukernavn'];
-  $_SESSION["brukernavn"] = $valgt_brukernavn;
+  $_SESSION["brukernavn"] = $valgt_brukernavn;}
 
-} 
+
 echo "<h1>";
 if (isset($_SESSION['valgt_bruker'])){
  
