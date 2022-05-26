@@ -29,18 +29,16 @@
 <body>
     <div>
         <h1>logg inn som admin</h1>
-        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-            <input type="password" name="passord" placeholder="Passord" required>
-            <button type='submit' name='logg_inn'>Logg inn</button>
-        </form>
-        
         <?php    
             if (isset($_SESSION['feilmelding'])){ 
             echo $_SESSION['feilmelding']; }
             session_unset();
             session_destroy();
         ?>
-
+        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+            <input type="password" name="passord" placeholder="Passord" required>
+            <button type='submit' name='logg_inn'>Logg inn</button>
+        </form>
     </div>
 </body>
 </html>
