@@ -10,89 +10,6 @@ session_start();
     <title>Document</title>
     <link rel="stylesheet" href="slett_endre_verktøy.css">
     <link rel="stylesheet" href="meny.css">
-    <style>
-
-body {
-  margin: 0;
-}
-table {
-    width: 100%;
-    height: 100%;
-    border: 1px solid black;
-    background-color: #f2f2f2;
-    border-collapse: collapse;
-    background: #0b2028;
-    color: #f2f2f2;
-    box-shadow: 5px 5px 5px 5px #032530; 
-   
-}
-th, td {
-border-left: 1px solid black;
-border-right: 1px solid black;
-border-collapse: collapse;
-padding-left: 10px
-}
-tr {
-  height: 4vh;
-  
-}
-tr:nth-child(odd) {
-  background: #032530;
-}
-tr:nth-child(even) {
-  background: #0b2028;
-}
-tr:hover {
-  background: #0d313f;
-}   
-.stil {
-    width: 70%;
-    height: 50%;
-    display: flex;
-    justify-content: center;
-    font-family: Drive,Helvetica,Arial,sans-serif;
-    position: relative;
-    left: 4.5%;
-    
-}
-
-#myInput {
-  background-image: url('/css/searchicon.png');
-  background-position: 10px 10px;
-  background-repeat: no-repeat;
-  width: 68.5%;
-  font-size: 16px;
-  padding: 12px 20px 12px 40px;
-  border: 5px solid #cccccc;
-  margin-bottom: 12px;
-  margin-top: 12px;
-  position: relative;
-  left: 15%;
-}
-
-#myTable {
-  border-collapse: collapse;
-  width: 70%;
-  border: 1px solid #ddd;
-  font-size: 18px;
-  position: relative;
-  left: 15%;
-}
-
-#myTable th, #myTable td {
-  text-align: left;
-  padding: 12px;
-}
-
-#myTable tr {
-  border-bottom: 1px solid #ddd;
-}
-
-#myTable tr.header, #myTable tr:hover {
-  background-color: #f1f1f1;
-}
-
-    </style>
 </head>
 <body>
     <!-- START PHP Hente Data Fra Databasen --> 
@@ -117,21 +34,21 @@ tr:hover {
         $sql = "DELETE FROM verktoy WHERE id_verktoy=$selected_verktoy";
         $resultat = $kobling->query($sql);
     }
-    $sql = "SELECT * FROM verktoy";
+    $sql = "SELECT * FROM verktoy LEFT JOIN bruker ON verktoy.id_bruker=bruker.id_bruker LEFT JOIN kit ON verktoy.id_kit = kit.id_kit";
     $resultat = $kobling->query($sql);
 
     echo "<div class='stil'>";
         echo "<table id='verktoytabell'>";
             echo "<tr>";
-                echo "<th>id_verktøy</th>";
-                echo "<th>hylle</th>";
-                echo "<th>kasse</th>";
-                echo "<th>delenummer</th>";
-                echo "<th>id_kit</th>";
-                echo "<th>beskrivelse</th>";
-                echo "<th>verktøynummer</th>";
-                echo "<th>id_bruker</th>";
-                echo "<th>status</th>";
+                //echo "<th>id_verktøy</th>";
+                echo "<th>Hylle</th>";
+                echo "<th>Kasse</th>";
+                echo "<th>Delenummer</th>";
+                echo "<th>Kit</th>";
+                echo "<th>Beskrivelse</th>";
+                echo "<th>Verktøynummer</th>";
+                echo "<th>Bruker</th>";
+                echo "<th>Status</th>";
                 echo "<th>Slett Verktøy</th>";
                 echo "<th>Endre Verktøy</th>";
             echo "</tr>";
@@ -145,15 +62,17 @@ tr:hover {
             $verktøynummer = $rad["verktoynummer"];
             $id_bruker = $rad["id_bruker"];
             $status = $rad["status"];
+            $brukernavn = $rad["brukernavn"];
+            $kit_navn = $rad["kit_navn"];
             echo "<tr>";
-            echo "<td>$id_verktøy</td>";
+            //echo "<td>$id_verktøy</td>";
             echo "<td>$hylle</td>";
             echo "<td>$kasse</td>";
             echo "<td>$delenummer</td>";
-            echo "<td>$id_kit</td>";
+            echo "<td>$kit_navn</td>";
             echo "<td>$beskrivelse</td>";
             echo "<td>$verktøynummer</td>";
-            echo "<td>$id_bruker</td>";
+            echo "<td>$brukernavn</td>";
             echo "<td>$status</td>";
             echo "<td>  <button class='slett_knapp' type='button' value='$id_verktøy'> SLETT </button>  </td>";
             echo "<td> <button class='endre_knapp'><a href='endre_verktoy.php?verktoy=$id_verktøy'> ENDRE </a></button>  </td>";
