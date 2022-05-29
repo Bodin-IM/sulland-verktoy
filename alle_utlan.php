@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -148,6 +151,13 @@ color: white;
 <body>
     <br>
 <?php
+
+if ($_SESSION['logged_in'] == TRUE) {
+}
+else {
+    header('location: logg_inn_admin.php');
+    exit;
+}
 include "conn.php";
 include "meny.php";
 ?>

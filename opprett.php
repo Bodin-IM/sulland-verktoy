@@ -1,5 +1,8 @@
 <?php
-if(!isset($_SERVER['HTTP_REFERER'])){
+session_start();
+if ($_SESSION['logged_in'] == TRUE) {
+}
+else {
     header('location: logg_inn_admin.php');
     exit;
 }

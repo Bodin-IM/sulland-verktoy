@@ -10,8 +10,8 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-image: url("bakgrunn_admin.jpg");
-  background-size: 2000px;
+  /*background-image: url("bakgrunn_admin.jpg");
+  background-size: 2000px;*/
 }
 #mother_div {
   width: 73%;
