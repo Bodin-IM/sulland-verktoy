@@ -1,0 +1,76 @@
+.modal::backdrop {
+  background: rgb(0 0 0 / 0.6);
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-image: url("bakgrunn_admin.jpg");
+  background-size: 2000px;
+}
+#mother_div {
+  width: 73%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  font-family: 'Montserrat';
+}
+
+#verktoytabell {
+  width: 100%;
+  height: 100%;
+  border: 1px solid black;
+  background-color: #f2f2f2;
+  border-collapse: collapse;
+  background: #0b2028;
+  color: #f2f2f2;
+}
+th, td {
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+}
+tr {
+  height: 4vh;
+}
+tr:nth-child(odd) {
+  background: #032530;
+}
+tr:nth-child(even) {
+  background: #0b2028;
+}
+tr:hover {
+  background: #000000;
+}   
+
+#myInput {
+  width: 72%;
+  height: 40px;
+  font-size: 18px;
+  border: 5px solid #000000;
+  margin-bottom: 12px;
+  margin-top: 12px;
+}
+
+.endre_knapp{
+  text-decoration: none;
+  color: black;
+}
+
+.slett_knapp{
+  cursor: pointer;
+}
+
+.slett_button{
+  cursor: pointer;
+}
+
+.avbryt_button{
+  cursor: pointer;
+}

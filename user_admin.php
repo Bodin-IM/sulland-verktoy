@@ -49,7 +49,7 @@ if(isset($_POST["submit3"])) {
         <html lang="en">
         <head>
             <title>Ny Bruker</title>
-            <link rel="stylesheet" href="meny.css">
+            <link rel="stylesheet" href="admin_meny.css">
 
             <style>
 body {

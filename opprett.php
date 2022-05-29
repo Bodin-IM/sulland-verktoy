@@ -68,7 +68,7 @@ if (isset($_POST['submit_slett'])){
   
 <head>
     <title>Opprett</title>
-    <link rel="stylesheet" href="meny.css">
+    <link rel="stylesheet" href="admin_meny.css">
 
     <style> 
 body {

@@ -30,36 +30,6 @@ li a:hover {
 }
 /* END css for meny-en på verktøyvisning side */
 
-
-/* START css for meny-en på admin side */
-#meny{
-  width: 73%;
-  background-color: #032530;
-  display: flex;
-  flex-direction: row;
-  position: relative;
-  left: 15%;
-}
-#meny a {
-  display: flex;
-  color: #f2f2f2;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-#meny a:hover{
-  background: rgba(0, 0, 0, 0.616);
-}
-#log_ut{
-  margin-left: auto;
-}
-
-#andre_passord{
-  
-}
-/* END css for meny-en på admin side */
-
 select {
   height: 70px;
   width: 240px;

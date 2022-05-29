@@ -1,0 +1,99 @@
+body {
+    /*background-image: url("bakgrunn_admin.jpg");
+    background-size: 2000px;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.form{
+    background-color: #032530;
+    width: 73%;
+    height: 500px;
+    display: flex;
+    justify-content: start;
+    margin-top: 15px;
+}
+
+.center{
+    background-color: none;
+    width: 100%;
+    height: 100%;
+}
+.innpakning{
+    background-color: none;
+    width: 100%;
+    height: 95%;
+}
+.input{
+    width: 100%;
+    height: 9%;
+    background-color: none;
+    display: flex;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.tekst{
+    width: 25%;
+    background-color: none;
+    font-size: 25px;
+    font-family: 'Montserrat';
+    color: white;
+}
+
+.box{
+    background-color: none;
+    width: 75%;
+    height: 100%;
+    display: flex;
+    justify-content: start;
+}
+
+.data{
+    background-color: white;
+    width: 70%;
+    height: 95%;
+    border-radius: 6px;
+    font-family: 'Montserrat';
+    font-size: 20px;
+}
+
+.submit{
+    background-color: none;
+    margin-top: 15px;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+}
+
+.button{
+    width: 10%;
+    height: 100%;
+    border-radius: 50px;
+    border-width: 1px;
+    font-family: 'Montserrat';
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.button:hover{
+    background-color: black;
+    color: white;
+}
+
+.melding_box{
+    width: 400px;
+    height: 100px;
+}
+
+.melding{
+    color: black;
+    font-family: 'Montserrat';
+    font-size: 25px;
+}
+
