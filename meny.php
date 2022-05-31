@@ -26,7 +26,6 @@
 <script>
     function click_on_dots() {
         document.getElementById("nav").classList.toggle("nav2");
-        
     }
 </script>
 
