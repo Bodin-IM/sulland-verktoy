@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="sulland.css">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
     <style>
 
 :root,
@@ -258,22 +257,24 @@ if (isset($_POST['submit_lan']) and isset($_SESSION["valgt_bruker"])   ){
   $sql = "SELECT * FROM verktoy LEFT JOIN bruker ON verktoy.id_bruker=bruker.id_bruker LEFT JOIN kit ON verktoy.id_kit = kit.id_kit ORDER BY hylle, kasse";
   $resultat = $kobling->query($sql);
 
-  echo "<div class='stil'>";
-    echo "<table id='verktoytabell'>";
-      echo "<tr>";
-
-        //echo "<th>id_verktøy</th>";
-        echo "<th>Hylle</th>";
-        echo "<th style='width:5%'>Kasse</th>";
-        echo "<th>Delenummer</th>";
-        echo "<th style='width:5%'>Kit</th>";
-        echo "<th style='width:11%'>Verktøynummer</th>";
-        echo "<th style='width:80%'>Beskrivelse</th>";
-        echo "<th>Lånt av</th>";
-        echo "<th>Status</th>";
-
-      echo "</tr>";
-
+  ?>
+  <div class='stil'>
+    <table id='verktoytabell'>
+      <thead>
+        <tr>
+        
+          <th data-type="number">Hylle</th>
+          <th style='width:5%'>Kasse</th>
+          <th>Delenummer</th>
+          <th style='width:5%'>Kit</th>
+          <th style='width:11%'>Verktøynummer</th>
+          <th style='width:80%'>Beskrivelse</th>
+          <th>Lånt av</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+ <?php
     while($rad = $resultat->fetch_assoc()) {
       $id_verktøy = $rad["id_verktoy"];
       $hylle = $rad["hylle"];
@@ -287,7 +288,6 @@ if (isset($_POST['submit_lan']) and isset($_SESSION["valgt_bruker"])   ){
       $brukernavn = $rad["brukernavn"];
 
         echo "<tr>";
-          //echo "<td>$id_verktøy</td>";
           echo "<td>$hylle</td>";
           echo "<td>$kasse</td>";
           echo "<td>$delenummer</td>";
@@ -312,7 +312,7 @@ if (isset($_POST['submit_lan']) and isset($_SESSION["valgt_bruker"])   ){
           echo "<td>$status</td>";
         echo "</tr>";
     }
-
+    echo "</tbody>";
     echo "</table>";
   echo "</div>"
     ?>
@@ -369,9 +369,9 @@ const setTheme = theme => document.documentElement.className = theme;
 document.getElementById('theme-select').addEventListener('change', function() {
   setTheme(this.value);
 });
-</script>
 
-<script>
+
+
 //Get the button
 var mybutton = document.getElementById("myBtn");
 
@@ -391,6 +391,80 @@ function topFunction() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 }
+
+//sortering av tabell funksjon
+document.addEventListener('DOMContentLoaded', function () {
+                const table = document.getElementById('verktoytabell');
+                const headers = table.querySelectorAll('th');
+                const tableBody = table.querySelector('tbody');
+                const rows = tableBody.querySelectorAll('tr');
+
+                // Track sort directions
+                const directions = Array.from(headers).map(function (header) {
+                    return '';
+                });
+
+                // Transform the content of given cell in given column
+                const transform = function (index, content) {
+                    // Get the data type of column
+                    const type = headers[index].getAttribute('data-type');
+                    switch (type) {
+                        case 'number':
+                            return parseFloat(content);
+                        case 'string':
+                        default:
+                            return content;
+                    }
+                };
+
+                const sortColumn = function (index) {
+                    // Get the current direction
+                    const direction = directions[index] || 'asc';
+
+                    // A factor based on the direction
+                    const multiplier = direction === 'asc' ? 1 : -1;
+
+                    const newRows = Array.from(rows);
+
+                    newRows.sort(function (rowA, rowB) {
+                        const cellA = rowA.querySelectorAll('td')[index].innerHTML;
+                        const cellB = rowB.querySelectorAll('td')[index].innerHTML;
+
+                        const a = transform(index, cellA);
+                        const b = transform(index, cellB);
+
+                        switch (true) {
+                            case a > b:
+                                return 1 * multiplier;
+                            case a < b:
+                                return -1 * multiplier;
+                            case a === b:
+                                return 0;
+                        }
+                    });
+
+                    // Remove old rows
+                    [].forEach.call(rows, function (row) {
+                        tableBody.removeChild(row);
+                    });
+
+                    // Reverse the direction
+                    directions[index] = direction === 'asc' ? 'desc' : 'asc';
+
+                    // Append new row
+                    newRows.forEach(function (newRow) {
+                        tableBody.appendChild(newRow);
+                    });
+                };
+
+                [].forEach.call(headers, function (header, index) {
+                    header.addEventListener('click', function () {
+                        sortColumn(index);
+                    });
+                });
+            });
+
+
 </script>
 </body>
 </html>
