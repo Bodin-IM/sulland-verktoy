@@ -73,10 +73,15 @@ if (isset($_POST['submit_slett'])){
     <title>Opprett</title>
     <link rel="stylesheet" href="admin_meny.css">
 
-    <style> 
-body {
-  background-image: url('sulland_bakgrunn.png');
-  background-size: 30vh;
+<style> 
+
+    body {
+    /*background-image: url("bakgrunn_admin.jpg");
+    background-size: 2000px;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 input[type=text] {
@@ -87,38 +92,72 @@ input[type=text] {
   font-size: 15px;
 }
 
-label {
-  padding: 12px 12px 12px 0;
-  display: inline-block;
+.form{
+    background-color: #032530;
+    width: 73%;
+    height: 500px;
+    display: flex;
+    justify-content: start;
+    margin-top: 15px;
+}
+.form2{
+    background-color: #032530;
+    width: 73%;
+    height: 150px;
+    display: flex;
+    justify-content: start;
+    margin-top: 15px;
+    
 }
 
-form {
-    margin-bottom: 50px;
-}
-
-h1 {
-    font-family: Arial, Helvetica, sans-serif;
-}
-.input {
+.center{
+    background-color: none;
     width: 100%;
+    height: 100%;
+}
+
+.innpakning{
+    background-color: none;
+    width: 100%;
+    height: 95%;
+}
+
+.input{
+    width: 100%;
+    height: 9%;
+    background-color: none;
     display: flex;
     flex-direction: row;
-   
-}
-.tekst {
-    float: left;
-  width: 200px;
-  margin-top: 6px;
-  text-align: right;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 25px;
-  font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    float: right;
 }
 
-.box {
-    float: left;
-  width: 75%;
-  margin-top: 6px; 
+.tekst{
+    width: 25%;
+    background-color: none;
+    font-size: 25px;
+    font-family: 'Montserrat';
+    color: white;
+}
+
+.box{
+    background-color: none;
+    width: 75%;
+    height: 100%;
+    display: flex;
+    justify-content: start;
+    
+}
+
+.data{
+    background-color: white;
+    width: 70%;
+    height: 95%;
+    border-radius: 6px;
+    font-family: 'Montserrat';
+    font-size: 20px;
 }
 
 .kit_select {
@@ -127,30 +166,50 @@ h1 {
     margin: 8px 0;
     font-size: 15px;
 }
-.submit {
-    padding: 20px 20px;
+
+.submit{
+    background-color: none;
+    margin-top: 15px;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
 }
 
-.button {
-  background-color: #4CAF50; /* Green */
-  border: none;
-  color: white;
-  padding: 8px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  transition-duration: 0.4s;
-  cursor: pointer;
-  background-color: white;
-  color: black;
-  border: 2px solid #555555;
+.button{
+    width: 20%;
+    height: 100%;
+    border-radius: 50px;
+    border-width: 1px;
+    font-family: 'Montserrat';
+    font-size: 25px;
+    cursor: pointer;
+}
+.button2{
+    width: 100%;
+    height: 25%;
+    border-radius: 50px;
+    border-width: 1px;
+    font-family: 'Montserrat';
+    font-size: 25px;
+    cursor: pointer;
 }
 
-.button:hover {
-  background-color: #555555;
-  color: white;
+
+.button:hover{
+    background-color: black;
+    color: white;
+}
+
+.melding_box{
+    width: 400px;
+    height: 100px;
+}
+
+.melding{
+    color: black;
+    font-family: 'Montserrat';
+    font-size: 25px;
 }
 </style>
 
@@ -159,10 +218,12 @@ h1 {
 <body>
 
     
-    <center>
+    
         <h1>Legge til verktøy</h1>
+    <form class='form' method="post">
+    <center>
     <div class="innpakning">
-        <form method="post">
+        
               
 <div class="input">      
             <div class="tekst">
@@ -274,13 +335,13 @@ h1 {
         <div class="submit">
             <input class="button" name="submit" type="submit" value="Lagre">
         </div>
-
+        <br>
         </form>
 
 
 
         <h1>Legge til Kit</h1>
-        <form method="post">
+        <form class='form2' method="post">
         <div class="input">      
             <div class="tekst">
                      <label for="kit_navn">Kit</label>
@@ -291,14 +352,14 @@ h1 {
         </div>   
 
         <div class="submit2">
-            <input class="button" name="submit2" type="submit" value="Lagre">
+            <input class="button2" name="submit2" type="submit" value="Lagre">
         </div>
 
 
         </form>
 
         <h1>Slette kit</h1>
-        <form method="post">
+        <form class='form2' method="post">
         <div class="input">
 
         <?php
@@ -329,7 +390,7 @@ h1 {
         </div>
 
         <div class="submit3">
-            <input class="button" name="submit_slett" type="submit" value="Slett">
+            <input class="button2" name="submit_slett" type="submit" value="Slett">
         </div>
 
         </form>
