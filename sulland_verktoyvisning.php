@@ -262,7 +262,7 @@ if (isset($_POST['submit_lan']) and isset($_SESSION["valgt_bruker"])   ){
     <table id='verktoytabell'>
       <thead>
         <tr>
-          <th data-type="number"> id_verktøy</th>
+        
           <th data-type="number">Hylle</th>
           <th style='width:5%'>Kasse</th>
           <th>Delenummer</th>
@@ -288,7 +288,6 @@ if (isset($_POST['submit_lan']) and isset($_SESSION["valgt_bruker"])   ){
       $brukernavn = $rad["brukernavn"];
 
         echo "<tr>";
-          echo "<td>$id_verktøy</td>";
           echo "<td>$hylle</td>";
           echo "<td>$kasse</td>";
           echo "<td>$delenummer</td>";
