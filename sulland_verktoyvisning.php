@@ -1,6 +1,3 @@
-<?php 
-session_start();
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -191,9 +188,6 @@ $resultat_bruker = $kobling->query($sql2);
 
 
 <?php 
-
-
-
 // tar imot post fra valgt bruker
 if (isset($_POST['bruker'])){
 
@@ -204,9 +198,12 @@ if (isset($_POST['bruker'])){
   $resultat_valgtbruker = $kobling->query($sql3);
   $rad = $resultat_valgtbruker->fetch_assoc();
   $valgt_brukernavn = $rad['brukernavn'];
-  $_SESSION["brukernavn"] = $valgt_brukernavn;
+  $_SESSION["brukernavn"] = $valgt_brukernavn;}
 
-} 
+
+
+
+
 echo "<h1>";
 if (isset($_SESSION['valgt_bruker'])){
  
@@ -258,7 +255,7 @@ if (isset($_POST['submit_lan']) and isset($_SESSION["valgt_bruker"])   ){
 
  
 
-  $sql = "SELECT * FROM verktoy LEFT JOIN bruker ON verktoy.id_bruker=bruker.id_bruker LEFT JOIN kit ON verktoy.id_kit = kit.id_kit";
+  $sql = "SELECT * FROM verktoy LEFT JOIN bruker ON verktoy.id_bruker=bruker.id_bruker LEFT JOIN kit ON verktoy.id_kit = kit.id_kit ORDER BY hylle, kasse";
   $resultat = $kobling->query($sql);
 
   echo "<div class='stil'>";
@@ -320,7 +317,15 @@ if (isset($_POST['submit_lan']) and isset($_SESSION["valgt_bruker"])   ){
   echo "</div>"
     ?>
 
-
+<?php
+if($_SESSION['feilmelding_minelan'] == TRUE){
+  unset ($_SESSION["feilmelding_minelan"]);
+  echo "
+    <script>
+      alert('velg bruker');
+    </script> ";
+}
+?>
 
 
 

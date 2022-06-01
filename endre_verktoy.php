@@ -1,101 +1,11 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     
-    <link rel="stylesheet" href="meny.css">
-
-    <style> 
-body {
-    background-image: url("Bakgrunn.jpg");
-}
-
-input[type=text] {
-  width:75%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
-  font-size: 15px;
-}
-
-label {
-  padding: 12px 12px 12px 0;
-  display: inline-block;
-}
-
-form {
-    margin-bottom: 50px;
-}
-
-h1 {
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-h2 {
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.input {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-   
-}
-.tekst {
-    float: left;
-  width: 200px;
-  margin-top: 6px;
-  text-align: right;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 25px;
-  font-weight: bold;
-}
-
-.box {
-    float: left;
-  width: 75%;
-  margin-top: 6px; 
-}
-
-.kit_select {
-    width: 75%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    font-size: 15px;
-}
-.submit {
-    padding: 20px 20px;
-}
-
-.button {
-  background-color: #4CAF50; /* Green */
-  border: none;
-  color: white;
-  padding: 8px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  transition-duration: 0.4s;
-  cursor: pointer;
-  background-color: white;
-  color: black;
-  border: 2px solid #555555;
-}
-
-.button:hover {
-  background-color: #555555;
-  color: white;
-}
-</style>
-
+    <link rel="stylesheet" href="admin_meny.css">
+    <link rel="stylesheet" href="endre_verktøy.css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 </head>
-
-
-
 <body>
   <?php
 include "meny.php";
@@ -114,7 +24,7 @@ if(isset($_GET['verktoy'])){
 $sql = "SELECT * FROM verktoy WHERE id_verktoy='$endre_id'";
 $resultat = $kobling->query($sql);
 
-echo "<form method='POST'>";
+echo "<form class='form' method='POST'>";
 while($rad = $resultat->fetch_assoc())  {
   $id_verktoy = $rad["id_verktoy"];
   $hylle = $rad["hylle"];
@@ -127,92 +37,75 @@ while($rad = $resultat->fetch_assoc())  {
   $status = $rad["status"];
 
   
-  echo"<center>";
-  echo "<div class='innpakning'>";
+  echo"<center class='center'>";
+    echo "<div class='innpakning'>";
 
-  echo "<div class='input'> ";
-  echo" <div class='tekst'>";
-  echo "</div>";
-  echo"<div class='box'>";
-  echo " <input type='hidden' name='id_verktoy' value='$id_verktoy'>";
-  echo "</div>";
-  echo "</div>";
-
-
-  echo "<div class='input'> ";
-  echo" <div class='tekst'>";
-  echo"hylle";
-  echo "</div>";
-  echo"<div class='box'>";
-  echo"<input type='text' name='hylle' id='hylle' value='$hylle'>";
-  echo "</div>";
-  echo "</div>";
+      echo "<div class='input'> ";
+        echo" <div class='tekst'>"; echo"</div>";
+        echo"<div class='box'>";
+          echo " <input class='data' type='hidden' name='id_verktoy' value='$id_verktoy'>";
+        echo "</div>";
+      echo "</div>";
 
 
+      echo "<div class='input'> ";
+        echo" <div class='tekst'>";
+          echo"Hylle";
+        echo "</div>";
+        echo"<div class='box'>";
+          echo"<input class='data' type='text' name='hylle' id='hylle' value='$hylle'>";
+        echo "</div>";
+      echo "</div>";
 
+      echo "<div class='input'> ";
+        echo" <div class='tekst'>";
+          echo"Kasse";
+        echo "</div>";
+        echo"<div class='box'>";
+          echo" <input class='data' type='text' name='kasse' id='kasse'value='$kasse'>";
+        echo "</div>";
+      echo "</div>";
 
-  
+      echo "<div class='input'> ";
+        echo" <div class='tekst'>";
+          echo"Delenummer";
+        echo "</div>";
+        echo"<div class='box'>";
+          echo" <input class='data' type='text' name='delenummer' id='delenummer'value='$delenummer'>";
+        echo "</div>";
+      echo "</div>";
 
-  echo "<div class='input'> ";
-  echo" <div class='tekst'>";
-  echo"kasse";
-  echo "</div>";
-  echo"<div class='box'>";
-  echo" <input type='text' name='kasse' id='kasse'value='$kasse'>";
-  echo "</div>";
-  echo "</div>";
+      echo "<div class='input'> ";
+        echo" <div class='tekst'>";
+          echo"Id kit";
+        echo "</div>";
+        echo"<div class='box'>";
+          echo" <input class='data' type='text' name='id_kit' id='id_kit'value='$id_kit'>";
+        echo "</div>";
+      echo "</div>";
 
+      echo "<div class='input'> ";
+        echo" <div class='tekst'>";
+          echo"Beskrivelse";
+        echo "</div>";
+        echo"<div class='box'>";
+          echo"  <input class='data' type='text' name='beskrivelse' id='beskrivelse'value='$beskrivelse'>";
+        echo "</div>";
+      echo "</div>";
 
+      echo "<div class='input'> ";
+        echo" <div class='tekst'>";
+          echo"Verktoynummer";
+        echo "</div>";
+        echo"<div class='box'>";
+          echo"<input class='data' type='text' name='verktoynummer' id='verktoynummer' value='$verktoynummer'>";
+        echo "</div>";
+      echo "</div>";
 
-  echo "<div class='input'> ";
-  echo" <div class='tekst'>";
-  echo"delenummer";
-  echo "</div>";
-  echo"<div class='box'>";
-  echo" <input type='text' name='delenummer' id='delenummer'value='$delenummer'>";
-  echo "</div>";
-  echo "</div>";
-
-
-
-  echo "<div class='input'> ";
-  echo" <div class='tekst'>";
-  echo"id_kit";
-  echo "</div>";
-  echo"<div class='box'>";
-  echo" <input type='text' name='id_kit' id='id_kit'value='$id_kit'>";
-  echo "</div>";
-  echo "</div>";
-
-
-
-  echo "<div class='input'> ";
-  echo" <div class='tekst'>";
-  echo"beskrivelse";
-  echo "</div>";
-  echo"<div class='box'>";
-  echo"  <input type='text' name='beskrivelse' id='beskrivelse'value='$beskrivelse'>";
-  echo "</div>";
-  echo "</div>";
-
-
-
-  echo "<div class='input'> ";
-  echo" <div class='tekst'>";
-  echo"verktoynummer";
-  echo "</div>";
-  echo"<div class='box'>";
-  echo"<input type='text' name='verktoynummer' id='verktoynummer' value='$verktoynummer'>";
-  echo "</div>";
-  echo "</div>";
-
-
-
-  echo "<div class='submit'>";
-
- echo " <input class='button'type='submit' name='endre' value='endre'> " ;
- echo "</form>";
- echo "</div>"; 
+      echo "<div class='submit'>";
+        echo " <input class='button' type='submit' name='endre' value='Endre'> " ;
+    echo "</form>";
+  echo "</div>"; 
  echo"</center>";
 
 }
@@ -227,13 +120,10 @@ if(isset($_POST["endre"])) {
   $beskrivelse = $_POST["beskrivelse"];
   $verktoynummer = $_POST["verktoynummer"];
  
-
-
-
 $sql_update = "UPDATE verktoy SET hylle='$hylle', kasse='$kasse', delenummer='$delenummer', id_kit='$id_kit', beskrivelse='$beskrivelse', verktoynummer='$verktoynummer'  WHERE id_verktoy = '$id_verktoy_update'";
 if($kobling->query($sql_update)) {
-echo "<center>";
-echo "<h2>verktøy ble endret.</h2>";
+echo "<center class='melding_box'>";
+echo "<h2 class='melding'>Verktøyet Ble Endret</h2>";
 echo "</center>";
 
 } else {
@@ -241,21 +131,10 @@ echo "<center>";
 echo "<h2>Noe gikk galt med spørringen $sql_update($kobling->error). </h2>";
 echo "</center>";
 }
-
 }
 
-
-
 ?>
-
-
-
-
-
 </body>
-
-
-
 </html>
 
 

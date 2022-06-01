@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +15,7 @@
     <div class="forside">
     <ul>
         <li><a href="/index.php">Verktøyvisning</a></li>
+        <li><a href="/bruker_sjekk.php">Mine lån</a></li>
         <li id="admin"><a href="/logg_inn_admin.php">Logg Inn</a></li>
     </ul> 
         <?php include "sulland_verktoyvisning.php"; mysqli_close($kobling)?>
