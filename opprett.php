@@ -119,12 +119,24 @@ input[type=text] {
 .innpakning{
     background-color: none;
     width: 100%;
-    height: 95%;
+   
 }
 
 .input{
     width: 100%;
     height: 9%;
+    background-color: none;
+    display: flex;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    float: right;
+}
+
+.input2{
+    width: 100%;
+    height: 30%;
     background-color: none;
     display: flex;
     flex-direction: row;
@@ -342,7 +354,7 @@ input[type=text] {
 
         <h1>Legge til Kit</h1>
         <form class='form2' method="post">
-        <div class="input">      
+        <div class="input2">      
             <div class="tekst">
                      <label for="kit_navn">Kit</label>
             </div>
@@ -360,7 +372,7 @@ input[type=text] {
 
         <h1>Slette kit</h1>
         <form class='form2' method="post">
-        <div class="input">
+        <div class="input2">
 
         <?php
         $sql2 = "SELECT * FROM kit";
