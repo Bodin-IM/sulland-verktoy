@@ -85,6 +85,7 @@ while($rad = $resultat->fetch_assoc())  {
         echo "<label for='id_kit'>Kit</label> ";
         echo "</div>";  
         echo"<div class='box'>";
+        echo"<div class='kit_select'>";
         
                 echo "<select class='kit_select' name='id_kit'>";
                 echo "<option value='no_kit'></option>";
@@ -97,7 +98,7 @@ while($rad = $resultat->fetch_assoc())  {
 
                 echo "</select>";
       
-
+      echo "</div>";
       echo "</div>";  
       echo "</div>";
 
