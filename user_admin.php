@@ -1,7 +1,10 @@
 <?php
-if(!isset($_SERVER['HTTP_REFERER'])){
-  header('location: logg_inn_admin.php');
-  exit;
+session_start();
+if ($_SESSION['logged_in'] == TRUE) {
+}
+else {
+    header('location: logg_inn_admin.php');
+    exit;
 }
 include "meny.php";
 include "conn.php";
@@ -49,7 +52,7 @@ if(isset($_POST["submit3"])) {
         <html lang="en">
         <head>
             <title>Ny Bruker</title>
-            <link rel="stylesheet" href="meny.css">
+            <link rel="stylesheet" href="admin_meny.css">
 
             <style>
 body {

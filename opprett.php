@@ -1,5 +1,8 @@
 <?php
-if(!isset($_SERVER['HTTP_REFERER'])){
+session_start();
+if ($_SESSION['logged_in'] == TRUE) {
+}
+else {
     header('location: logg_inn_admin.php');
     exit;
 }
@@ -68,7 +71,7 @@ if (isset($_POST['submit_slett'])){
   
 <head>
     <title>Opprett</title>
-    <link rel="stylesheet" href="meny.css">
+    <link rel="stylesheet" href="admin_meny.css">
 
     <style> 
 body {
