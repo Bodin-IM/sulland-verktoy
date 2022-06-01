@@ -4,13 +4,9 @@ body{
     margin: 0;
     display: flex;
     justify-content: center;
+    background-color: aliceblue;
     /*background-image: url("admin_bak.jpg");
     background-size: 3000px;*/
-}
-
-#bakgrunn{
-    width: 100%;
-    height: auto;
 }
 
 .bakgrunn2{

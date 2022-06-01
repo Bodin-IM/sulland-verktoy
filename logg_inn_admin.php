@@ -29,7 +29,6 @@
     <link rel="stylesheet" href="logg_inn.css">
 </head>
 <body>
-    <img id="bakgrunn" src="admin_bak.jpg" alt="">
     <div id="mother_div">
         <div id="tittel">
             <h1>logg inn som admin</h1>
