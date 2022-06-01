@@ -3,7 +3,7 @@
 }
 
 body {
-  background-image: url('SUllAND_admin_bak.png');
+  background-color: #C8C8C8;
   height: 100%;
   width: 100%;
   margin: 0;
@@ -59,9 +59,10 @@ tr:hover {
   margin-top: 12px;
 }
 
-.endre_knapp{
+.lagre_knapp{
   text-decoration: none;
   color: black;
+  cursor: pointer;
 }
 
 .slett_knapp{

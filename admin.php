@@ -14,6 +14,7 @@ session_start();
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 </head>
 <body>
+
   <!-- START PHP Hente Data Fra Databasen --> 
   <?php
   if ($_SESSION['logged_in'] == TRUE) {
@@ -42,7 +43,6 @@ session_start();
   echo "<div id='mother_div'>";
       echo "<table id='verktoytabell'>";
           echo "<tr>";
-              //echo "<th>id_verktøy</th>";
               echo "<th>Hylle</th>";
               echo "<th>Kasse</th>";
               echo "<th>Delenummer</th>";
@@ -66,19 +66,22 @@ session_start();
           $status = $rad["status"];
           $brukernavn = $rad["brukernavn"];
           $kit_navn = $rad["kit_navn"];
-          echo "<tr>";
-          //echo "<td>$id_verktøy</td>";
-          echo "<td>$hylle</td>";
-          echo "<td>$kasse</td>";
-          echo "<td>$delenummer</td>";
-          echo "<td>$kit_navn</td>";
-          echo "<td>$beskrivelse</td>";
-          echo "<td>$verktøynummer</td>";
-          echo "<td>$brukernavn</td>";
-          echo "<td>$status</td>";
-          echo "<td>  <button class='slett_knapp' type='button' value='$id_verktøy'> SLETT </button>  </td>";
-          echo "<td> <button class='endre_knapp'><a class='endre_knapp' href='endre_verktoy.php?verktoy=$id_verktøy'> ENDRE </a></button></td>";
-      echo "</tr>";
+        echo "<form method='POST'"; 
+            echo "<tr>";
+                echo "<td name='hylle_innhold' contenteditable='true'>$hylle</td>";
+                echo "<td name='kasse_innhold' contenteditable='true'>$kasse</td>";
+                echo "<td name='delenummer_innhold' contenteditable='true'>$delenummer</td>";
+                echo "<td>$kit_navn</td>";
+                echo "<td name='beskrivelse_innhold' contenteditable='true'>$beskrivelse</td>";
+                echo "<td name='verktoynummer_innhold' contenteditable='true'>$verktøynummer</td>";
+                echo "<td>$brukernavn</td>";
+                echo "<td name='status_innhold' contenteditable='true'>$status</td>";
+                echo "<td>  <button class='slett_knapp' type='button' value='$id_verktøy'> SLETT </button>  </td>";
+                echo "<td> <button name='lagre_knapp' class='lagre_knapp'>LAGRE</button></td>";
+                echo "<td name='id_verktøy_innhold' contenteditable='true'>$id_verktøy</td>";
+            echo "</tr>";  
+        echo "</form>";
+        
       }
       echo "</table>";
   echo "</div>";
@@ -149,5 +152,21 @@ session_start();
       });
   </script>
   <!-- END Slett Funksjon -->
+
+    <!-- START endre Funksjon -->
+    <?php
+        if (isset($_POST['lagre_knapp'])) {
+            $id_verktoy_update = $_POST['id_verktøy_innhold'];
+            $hylle1 = $_POST['hylle_innhold'];
+            $kasse1 = $_POST['kasse_innhold'];
+            $delenummer1 = $_POST['delenummer_innhold'];
+            $beskrivelse1 = $_POST['beskrivelse_innhold'];
+            $verktoynummer1 = $_POST['verktoynummer_innhold'];
+
+            $sql_update = "UPDATE verktoy SET hylle='$hylle1' kasse='$kasse1', delenummer='$delenummer1', beskrivelse='$beskrivelse1', verktoynummer='$verktoynummer1'   WHERE id_verktoy = '$id_verktoy_update'";
+            $result = $kobling->query($sql_update);
+        };
+    ?>
+    <!-- END endre Funksjon -->
 </body>
 </html>
