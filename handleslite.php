@@ -144,13 +144,12 @@ tr:hover {
 
 /* disse to  ------------------------ NEDENFOR */
 .laneliste.scroll { 
-  max-width: 12%;
-  margin: 30px;
+  left: 15%;
   position: fixed;
 }
 
 #lanekurv {
-  max-width: 100%;
+  max-width: 30%;
   
 }
 /* DU MÅ FIKSE #LANEKURV OG .LANELISTE.
@@ -227,6 +226,14 @@ if (isset($_POST['bruker'])){
 
 </div>
 
+<div>
+<form action="handleliste.php" method="POST">
+  <input id='input_handleliste' type="hidden" name="verktoy_handleliste" value="">
+  <input type="submit" name="submit_handleliste">
+</form>  
+</div>
+
+<!-- handleliste -->
 <div class="laneliste">
 <table id="lanekurv">
   <th>hylle</th>
@@ -236,8 +243,6 @@ if (isset($_POST['bruker'])){
   <th>verktøynummer</th>
   <th>beskrivelse</th>
   <th>beskrivelse</th>
-  <th>id_bruker</th>
-  <th>status</th>
 </table>
 
 </div>
@@ -310,19 +315,28 @@ if (isset($_POST['bruker'])){
 
 
 
-
-
 <script>
 
-var divinnhold = "";
 
+
+
+var send_table = document.getElementById("lanekurv");
+var input_table = document.getElementById("input_handleliste").value;
+
+// onclick for hver TR i verktøyvisning
 function handle(id) {
+  var tr = document.getElementById(id); // velger rett TR
+   //table.appendChild(tr); // legger til TR inn i table til handleliste
+   send_table.appendChild(tr); // legger til TR inn i table til handleliste
 
-  var tr_innhold = document.getElementById(id).innerHTML;
-  divinnhold +=  "<tr>" + tr_innhold + "</tr>";
 
-  document.getElementById("lanekurv").innerHTML = divinnhold;
+   input_table += tr;
+
+   console.log(send_table);
+
+   console.log(input_table);
 }
+
 
 function myFunction() {
   var input, filter, table, tr, td, i;

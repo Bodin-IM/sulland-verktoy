@@ -4,13 +4,9 @@ body{
     margin: 0;
     display: flex;
     justify-content: center;
+    background-color: #032530;
     /*background-image: url("admin_bak.jpg");
     background-size: 3000px;*/
-}
-
-#bakgrunn{
-    width: 100%;
-    height: auto;
 }
 
 .bakgrunn2{
@@ -27,7 +23,7 @@ body{
     display: flex;
     flex-direction: column;
     border-radius: 10px;
-    background-color: #032530;
+    background-color: #babfc0;
     margin-top: 25px;
 }
 
@@ -74,7 +70,7 @@ body{
     background-color: #032530;
     color: rgb(255, 0, 0);
     width: 45%;
-    height: 33%;
+    height: 34%;
     border-radius: 4px;
     border-width: 0px;
     margin-right: 10px;
