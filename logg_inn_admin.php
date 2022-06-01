@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="logg_inn.css">
 </head>
 <body>
+    <img id="bakgrunn" src="admin_bak.jpg" alt="">
     <div id="mother_div">
         <div id="tittel">
             <h1>logg inn som admin</h1>
@@ -43,10 +44,15 @@
         </div>
         <div id="form">
             <form id="form_box" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-                <input class="input" type="password" name="passord" placeholder="Passord" required>
+                <input onclick="skriv_passord()" class="input" type="password" name="passord" placeholder="Skriv inn passord" required>
                 <button class="input_button"  type='submit' name='logg_inn'>Logg inn</button>
             </form>
         </div>
     </div>
+    <script>
+        function skriv_passord() {
+        document.getElementById("bakgrunn").className = ("bakgrunn2");
+        }
+    </script>
 </body>
 </html>
