@@ -125,6 +125,7 @@ while($rad = $resultat->fetch_assoc())  {
   $verktoynummer = $rad["verktoynummer"];
   $id_bruker = $rad["id_bruker"];
   $status = $rad["status"];
+  $kit_navn = $rad["kit_navn"];
 
   
   echo"<center>";
@@ -180,7 +181,28 @@ while($rad = $resultat->fetch_assoc())  {
   echo"id_kit";
   echo "</div>";
   echo"<div class='box'>";
-  echo" <input type='text' name='id_kit' id='id_kit'value='$id_kit'>";
+
+  $sql2 = "SELECT * FROM kit";
+  $resultat2 = $kobling->query($sql2);
+
+  $nullkit =NULL;
+
+  echo "<select class='kit_select' name='id_kit'>";
+
+  echo "<option value=''></option>"; // default option
+  while($rad = $resultat2->fetch_assoc()) {
+      $id_kit = $rad["id_kit"];
+      $kitnavn = $rad["kit_navn"];
+      
+      echo "<option value=$id_kit>$kitnavn</option>";
+  }
+
+  echo "</select>";
+
+
+
+
+  
   echo "</div>";
   echo "</div>";
 
@@ -197,12 +219,13 @@ while($rad = $resultat->fetch_assoc())  {
 
 
 
+  
   echo "<div class='input'> ";
   echo" <div class='tekst'>";
   echo"verktoynummer";
   echo "</div>";
   echo"<div class='box'>";
-  echo"<input type='text' name='verktoynummer' id='verktoynummer' value='$verktoynummer'>";
+  echo"  <input type='text' name='verktoynummer' id='verktoynummer'value='$verktoynummer'>";
   echo "</div>";
   echo "</div>";
 
@@ -226,6 +249,7 @@ if(isset($_POST["endre"])) {
   $id_kit = $_POST["id_kit"];
   $beskrivelse = $_POST["beskrivelse"];
   $verktoynummer = $_POST["verktoynummer"];
+ 
  
 
 
