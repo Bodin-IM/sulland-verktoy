@@ -26,6 +26,7 @@
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
             <input type="text" name="endre_passord" placeholder="Nytt Passord" required>
             <button type='submit' name='endre'>Endre</button>
+            <input type="date" name="" id="" value=''>
         </form>
     </div>
 </body>

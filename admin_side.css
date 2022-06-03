@@ -36,6 +36,7 @@ th, td {
   border-right: 1px solid black;
   border-collapse: collapse;
   text-align: center;
+  
 }
 tr {
   height: 4vh;
@@ -75,4 +76,18 @@ tr:hover {
 
 .avbryt_button{
   cursor: pointer;
+}
+
+#data{
+  background-color: #032530;
+  width: 95%;
+  height: 95%;
+  border-width: 0px;
+  border-color: rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
+  text-align: center;
+}
+
+#data:hover{
+  background: #000000;
 }
