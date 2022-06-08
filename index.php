@@ -8,8 +8,8 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sulland - verktøy</title>
-    <link rel="stylesheet" href="meny.css">
-    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="css/meny.css">
+    <link rel="stylesheet" href="css/footer.css">
     
 </head>
 <body>
