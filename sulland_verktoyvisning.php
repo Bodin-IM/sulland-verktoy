@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sulland's verktøy</title>
+    <title>Sulland - verktøy</title>
     <link rel="stylesheet" href="meny.css">
     <link rel="stylesheet" href="sulland.css">
 
@@ -165,7 +165,6 @@ $resultat_bruker = $kobling->query($sql2);
 ?>
 
 <!-- kjører POST bruker når vi endrer valgt bruker -->
-
 
 <form id="bruker_valg" method="POST">
 <select name="bruker" required onchange="this.form.submit()" >
