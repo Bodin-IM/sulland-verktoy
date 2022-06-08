@@ -8,17 +8,18 @@
 </head>
 <body>
 
+
+<table>
 <?php 
 
-if(isset($_POST['submit_handleliste'])) {
-    $table = $_POST['verktoy_handleliste'];
-    echo "OK";
-    
-    
-    echo "$table";
-}
 
+if(isset($_POST['submit_handleliste'])) {
+    $table = $_POST['verktoy_handleliste'];      
+    echo $table;
+    
+}
 ?>
+</table>
 
 </body>
 </html>
