@@ -166,7 +166,6 @@ $resultat_bruker = $kobling->query($sql2);
 
 <!-- kjører POST bruker når vi endrer valgt bruker -->
 
-
 <form id="bruker_valg" method="POST">
 <select name="bruker" required onchange="this.form.submit()" >
       <option value="no_bruker">Endre bruker</option>
