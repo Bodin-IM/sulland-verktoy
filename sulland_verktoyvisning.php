@@ -315,14 +315,17 @@ if (isset($_POST['submit_lan']) and isset($_SESSION["valgt_bruker"])   ){
     echo "</table>";
   echo "</div>"
     ?>
-
+<!-- min lån sjekker -->
 <?php
-if($_SESSION['feilmelding_minelan'] == TRUE){
-  unset ($_SESSION["feilmelding_minelan"]);
+if($_SESSION['feilmelding_minelan'] == NULL){
+  // gjør ingenting
+} elseif ($_SESSION['feilmelding_minelan'] == TRUE) {
+  $_SESSION['feilmelding_minelan'] = NULL;
   echo "
     <script>
       alert('velg bruker');
     </script> ";
+  
 }
 ?>
 
