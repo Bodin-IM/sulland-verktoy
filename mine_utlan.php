@@ -50,15 +50,20 @@ if (isset($_POST['submit_fjern_lan'])) {
 }
 $id_bruker = $_SESSION['valgt_bruker'];
 
-$sql = "SELECT * FROM verktoy JOIN bruker ON verktoy.id_bruker=bruker.id_bruker WHERE verktoy.id_bruker=$id_bruker";
+$sql = "SELECT * FROM verktoy JOIN bruker ON verktoy.id_bruker=bruker.id_bruker LEFT JOIN kit ON verktoy.id_kit = kit.id_kit WHERE verktoy.id_bruker=$id_bruker";
 
 $resultat = $kobling->query($sql);
 echo "<div class='stil'>";
 echo "<table>";
 echo "<tr>";
-    echo "<th> verktoy </th>";
-    echo "<th> id_bruker </th>";
-    echo "<th> brukernavn </th>";
+    echo "<th> Status </th>";
+    echo "<th> Verktoynummer </th>";
+    echo "<th> Delenummer </td>";
+    echo "<th> Hylle </th>";
+    echo "<th> Kasse </th>";
+    echo "<th> Kit </th>";
+    echo "<th> beskrivelse </th>";
+    echo "<th> Brukernavn </th>";
 echo "</tr>";
 
 
@@ -66,15 +71,24 @@ echo "</tr>";
 
 while($rad = $resultat->fetch_assoc()) {
     $verktoynummer = $rad["verktoynummer"];
-    $id_bruker = $rad["id_bruker"];
+    $hylle = $rad["hylle"];
     $brukernavn = $rad["brukernavn"];
     $id_verktøy = $rad["id_verktoy"];
-   
+    $kasse = $rad["kasse"];
+    $delenummer = $rad["delenummer"];
+    $beskrivelse = $rad["beskrivelse"];
+    $status = $rad["status"];
+    $kit_navn = $rad["kit_navn"];
 
 
     echo "<tr>";
+        echo "<td> $status </td>";
         echo "<td> $verktoynummer </td>";
-        echo "<td> $id_bruker </td>";
+        echo "<td> $delenummer </td>";
+        echo "<td> $hylle </td>";
+        echo "<td> $kasse </td>";
+        echo "<td> $kit_navn </td>";
+        echo "<td> $beskrivelse </td>";
         echo "<td> $brukernavn </td>";
         echo "<td>";     
             
