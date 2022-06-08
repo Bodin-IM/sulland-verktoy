@@ -43,8 +43,8 @@ if(isset($_POST["submit3"])) {
         <html lang="en">
         <head>
             <title>Sulland - verktøy</title>
-            <link rel="stylesheet" href="admin_meny.css">
-            <link rel="stylesheet" href="user_admin.css">
+            <link rel="stylesheet" href="css/admin_meny.css">
+            <link rel="stylesheet" href="css/user_admin.css">
             <style>
 
         /*      

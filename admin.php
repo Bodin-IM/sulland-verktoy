@@ -8,8 +8,8 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sulland - verktøy</title>
-    <link rel="stylesheet" href="admin_side.css">
-    <link rel="stylesheet" href="admin_meny.css">
+    <link rel="stylesheet" href="css/admin_side.css">
+    <link rel="stylesheet" href="css/admin_meny.css">
     <!-- En link for å hente font fra google  --> 
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 </head>
