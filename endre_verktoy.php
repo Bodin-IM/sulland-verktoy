@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="admin_meny.css">
     <link rel="stylesheet" href="endre_verktøy.css">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <title>Sulland - verktøy</title>
 </head>
 <body>
   <?php

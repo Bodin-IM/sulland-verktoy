@@ -42,7 +42,7 @@ if(isset($_POST["submit3"])) {
         <!DOCTYPE html>
         <html lang="en">
         <head>
-            <title>Ny Bruker</title>
+            <title>Sulland - verktøy</title>
             <link rel="stylesheet" href="admin_meny.css">
             <link rel="stylesheet" href="user_admin.css">
             <style>

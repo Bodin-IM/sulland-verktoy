@@ -72,7 +72,7 @@ if (isset($_POST['submit_slett'])){
 <html lang="en">
   
 <head>
-    <title>Opprett</title>
+    <title>Sulland - verktøy</title>
     <link rel="stylesheet" href="admin_meny.css">
     <link rel="stylesheet" href="opprett.css">
 
