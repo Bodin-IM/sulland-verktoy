@@ -9,6 +9,7 @@ else {
 include "meny.php";
 include "conn.php";
 
+//legge til verktøy
 if(isset($_POST["submit"])) {
 
 $hylle = $_REQUEST['hylle'];
@@ -33,6 +34,7 @@ if ($kobling->query($sql) === TRUE) {
 
 }
 
+//lege til kit
 if(isset($_POST["submit2"])) {
 
    $kit_navn = $_REQUEST['kit_navn'];
@@ -50,7 +52,7 @@ if(isset($_POST["submit2"])) {
     }
 
 
-
+//slette kit
 if (isset($_POST['submit_slett'])){
 
     $selected_kit = $_POST['kit'];
@@ -70,9 +72,9 @@ if (isset($_POST['submit_slett'])){
 <html lang="en">
   
 <head>
-    <title>Opprett</title>
-    <link rel="stylesheet" href="admin_meny.css">
-    <link rel="stylesheet" href="opprett.css">
+    <title>Sulland - verktøy</title>
+    <link rel="stylesheet" href="css/admin_meny.css">
+    <link rel="stylesheet" href="css/opprett.css">
 
 </head>
   
@@ -138,7 +140,7 @@ if (isset($_POST['submit_slett'])){
                 echo "<select class='kit_select' name='id_kit'>";
                 echo "<option value='no_kit'></option>";
                 while($rad = $resultat2->fetch_assoc()) {
-                    $id_kit = $rad["id_kit"];
+                    $id_kit= $rad["id_kit"];
                     $kitnavn = $rad["kit_navn"];
 
                     echo "<option value=$id_kit>$kitnavn</option>";
@@ -223,6 +225,8 @@ if (isset($_POST['submit_slett'])){
         <form class='form2' method="post">
         <div class="input2">
 
+        
+        <!-- Slette kit -->
         <?php
         $sql2 = "SELECT * FROM kit";
         $resultat2 = $kobling->query($sql2);
