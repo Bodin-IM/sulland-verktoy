@@ -138,7 +138,7 @@ if (isset($_POST['submit_slett'])){
                 echo "<select class='kit_select' name='id_kit'>";
                 echo "<option value='no_kit'></option>";
                 while($rad = $resultat2->fetch_assoc()) {
-                    $id_kit = $rad["id_kit"];
+                    $id_kit= $rad["id_kit"];
                     $kitnavn = $rad["kit_navn"];
 
                     echo "<option value=$id_kit>$kitnavn</option>";

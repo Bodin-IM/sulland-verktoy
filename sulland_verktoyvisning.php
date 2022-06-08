@@ -1,4 +1,6 @@
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -145,7 +147,7 @@ tr:hover {
 
     </style>
 </head>
-
+<!-- en button tag so gjør at du kommer deg till toppen av siden-->
 <body>
 <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 
