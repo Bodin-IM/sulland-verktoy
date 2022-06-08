@@ -1,11 +1,13 @@
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sulland's verktøy</title>
+    <title>Sulland - verktøy</title>
     <link rel="stylesheet" href="meny.css">
     <link rel="stylesheet" href="sulland.css">
 
@@ -145,7 +147,7 @@ tr:hover {
 
     </style>
 </head>
-
+<!-- en button tag so gjør at du kommer deg till toppen av siden-->
 <body>
 <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 
@@ -165,7 +167,6 @@ $resultat_bruker = $kobling->query($sql2);
 ?>
 
 <!-- kjører POST bruker når vi endrer valgt bruker -->
-
 
 <form id="bruker_valg" method="POST">
 <select name="bruker" required onchange="this.form.submit()" >
@@ -316,14 +317,17 @@ if (isset($_POST['submit_lan']) and isset($_SESSION["valgt_bruker"])   ){
     echo "</table>";
   echo "</div>"
     ?>
-
+<!-- min lån sjekker -->
 <?php
-if($_SESSION['feilmelding_minelan'] == TRUE){
-  unset ($_SESSION["feilmelding_minelan"]);
+if($_SESSION['feilmelding_minelan'] == NULL){
+  // gjør ingenting
+} elseif ($_SESSION['feilmelding_minelan'] == TRUE) {
+  $_SESSION['feilmelding_minelan'] = NULL;
   echo "
     <script>
       alert('velg bruker');
     </script> ";
+  
 }
 ?>
 
