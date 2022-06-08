@@ -236,7 +236,7 @@ if (isset($_POST['submit_lan']) and isset($_SESSION["valgt_bruker"])   ){
 
 
 
-
+<!-- Select theme mode -->
 <select name="theme-select" id="theme-select">
   <option value="light">Light</option>
   <option value="dark">Dark</option>
@@ -247,7 +247,7 @@ if (isset($_POST['submit_lan']) and isset($_SESSION["valgt_bruker"])   ){
 
 
 </div>
-
+<!-- Søkefungsjon -->
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Søk her..." title="Type in a name">
 
 <?php
