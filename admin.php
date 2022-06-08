@@ -8,8 +8,8 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="admin_side.css">
-    <link rel="stylesheet" href="admin_meny.css">
+    <link rel="stylesheet" href="css/admin_side.css">
+    <link rel="stylesheet" href="css/admin_meny.css">
     <!-- En link for å hente font fra google  --> 
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 </head>
@@ -39,7 +39,7 @@ session_start();
   //END Slett Funksjon//
 
   //START Endre Funksjon//
-  if (isset($_POST['lagre_knapp'])) {
+  if (isset($_POST['lagre_knapp']) || isset($_POST['kits'])) {
     $id_verktoy_update = $_POST['id_verktøy_innhold'];
     $hylle1 = $_POST['hylle_innhold'];
     $kasse1 = $_POST['kasse_innhold'];
@@ -54,7 +54,7 @@ session_start();
   //END Endre Funksjon//
 
   //START Endre Kit Funksjon//
-  if (isset($_POST['lagre_kit_knapp'])) {
+  if (isset($_POST['kits'])) {
     $id_verktoy_update2 = $_POST['id_verktøy_innhold'];
     $get_kit = $_POST['kits'];
 
@@ -76,11 +76,9 @@ session_start();
               echo "<th>Verktøynummer</th>";
               echo "<th>Bruker</th>";
               echo "<th>Status</th>";
+              echo "<th>Kit</th>";
               echo "<th>Slett Verktøy</th>";
               echo "<th>Endre Verktøy</th>";
-              echo "<th>Kit</th>";
-              echo "<th>Kit</th>";
-              echo "<th>Endre Kit</th>";
           echo "</tr>";
       while($rad = $resultat->fetch_assoc()) {
           $id_verktøy = $rad["id_verktoy"];
@@ -96,7 +94,7 @@ session_start();
           $brukernavn = $rad["brukernavn"];
           
         echo "<form method='POST'>"; 
-            echo "<tr >";
+            echo "<tr>";
  
                 echo "<td>";
                 echo "<input class='data' type='text' name='hylle_innhold' value='$hylle'>";
@@ -124,12 +122,9 @@ session_start();
                 echo "<input class='data' type='text' name='status_innhold' value='$status'>";
                 echo "</td>";
 
-                echo "<td>  <button class='slett_knapp' type='button' value='$id_verktøy'> SLETT </button>  </td>";
-                echo "<td> <button name='lagre_knapp' class='lagre_knapp'>LAGRE</button></td>";
-
                 echo "<td style='width:10%'>";
-                echo "<select class='data' name='kits'>";  
-                echo "<option value='no_kit'>Velg kit</option>"; 
+                echo "<select class='data' name='kits' onchange='this.form.submit()'>";  
+                echo "<option value='no_kit'>$kitnavn_kit_tabel</option>"; 
                 $sql3 = "SELECT * FROM kit";
                 $resultat3 = $kobling->query($sql3);
                 while ($rad = $resultat3->fetch_assoc()) {
@@ -140,11 +135,8 @@ session_start();
                 echo "</select>";
                 echo "</td>";
 
-                echo "<td name='kit_navn_rad' style='width:10%'>";
-                echo "$kitnavn_kit_tabel";
-                echo "</td>";
-
-                echo "<td> <button name='lagre_kit_knapp' class='lagre_knapp'>LAGRE Kit</button></td>";
+                echo "<td>  <button class='slett_knapp' type='button' value='$id_verktøy'> Slett </button>  </td>";
+                echo "<td> <button name='lagre_knapp' class='lagre_knapp'>Lagre</button></td>";
 
                 echo "<td>";
                 echo "<input type='hidden' name='id_verktøy_innhold' value='$id_verktøy'>";
