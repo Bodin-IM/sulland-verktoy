@@ -174,8 +174,6 @@ tr:hover {
 <div class='logo'>
 <h1 style="font-family: Helvetica; font-size: 400%" >SUllAND</h1>
 
-
-
 <!-- skjema valg av bruker -->
 <?php
 $sql2 = "SELECT * FROM bruker";
@@ -185,16 +183,13 @@ $resultat_bruker = $kobling->query($sql2);
 <select name="bruker" required onchange="document.bruker_valg.submit()" >
       <option value="">velg en bruker</option>
                 <option value='no_bruker'></option>
-
       <?php
                 while($rad = $resultat_bruker->fetch_assoc()) {
                     $id_bruker = $rad["id_bruker"];
                     $brukernavn = $rad["brukernavn"];
-
                     echo "<option value=$id_bruker>$brukernavn</option>";
                 }
-
-                
+               
                 ?>
      
     </select>
@@ -207,23 +202,13 @@ if (isset($_POST['bruker'])){
   $sql2 = "SELECT * FROM bruker";
   $resultat_bruker = $kobling->query($sql2);
 
-  
-
 
 }
 ?>
-
-
-
-
-<select name="theme-select" id="theme-select">
-  <option value="light">Light</option>
-  <option value="dark">Dark</option>
-</select>
-
-
-
-
+  <select name="theme-select" id="theme-select">
+    <option value="light">Light</option>
+    <option value="dark">Dark</option>
+  </select>
 </div>
 
 <div>
@@ -321,20 +306,20 @@ if (isset($_POST['bruker'])){
 
 
 var send_table = document.getElementById("lanekurv");
-var input_table = document.getElementById("input_handleliste").value;
-
+var input_table = document.getElementById("input_handleliste");
+var innhold = "";
 // onclick for hver TR i verktøyvisning
 function handle(id) {
   var tr = document.getElementById(id); // velger rett TR
    //table.appendChild(tr); // legger til TR inn i table til handleliste
    send_table.appendChild(tr); // legger til TR inn i table til handleliste
 
-
    input_table += tr;
-
-   console.log(send_table);
-
-   console.log(input_table);
+   innhold += JSON.stringify(tr);
+   document.getElementById("input_handleliste").value = innhold;
+ 
+   console.log(innhold);
+ 
 }
 
 

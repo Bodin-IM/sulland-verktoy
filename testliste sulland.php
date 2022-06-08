@@ -7,101 +7,11 @@
     <title>Sulland's verktøy</title>
     <link rel="stylesheet" href="meny.css">
     <link rel="stylesheet" href="sulland.css">
+    <link rel="stylesheet" href="testliste_sulland.css">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <style>
-
-table {
-    width: 100%;
-    height: 100%;
-    border: 1px solid black;
-    background-color: #f2f2f2;
-    border-collapse: collapse;
-    background: #0b2028;
-    color: #f2f2f2;
-   
-}
-th, td {
-border-left: 1px solid black;
-border-right: 1px solid black;
-border-collapse: collapse;
-padding-left: 10px
-}
-tr {
-  height: 4vh;
-  
-}
-tr:nth-child(odd) {
-  background: #032530;
-}
-tr:nth-child(even) {
-  background: #0b2028;
-}
-tr:hover {
-  background: #0d313f;
-  height: 60px;
-}
-.stil {
-    width: 70%;
-    height: 50%;
-    display: flex;
-    justify-content: center;
-    font-family: Drive,Helvetica,Arial,sans-serif;
-    position: relative;
-    left: 15%;
     
-}
-.logo {
-    position: relative;
-    height: 100px;
-    width: 100%;
-    background-color: #0b2028;
-    margin: 0;
-}
-
-
-
-
-
-#myInput {
-  background-image: url('/css/searchicon.png');
-  background-position: 10px 10px;
-  background-repeat: no-repeat;
-  width: 70%;
-  font-size: 16px;
-  padding: 12px 20px 12px 40px;
-  border: 5px solid black;
-  margin-bottom: 12px;
-  margin-top: 12px;
-  position: relative;
-  left: 15%;
-}
-
-#myTable {
-  border-collapse: collapse;
-  width: 70%;
-  border: 1px solid #ddd;
-  font-size: 18px;
-  position: relative;
-  left: 15%;
-}
-
-#myTable th, #myTable td {
-  text-align: left;
-  padding: 12px;
-}
-
-#myTable tr {
-  border-bottom: 1px solid #ddd;
-}
-
-#myTable tr.header, #myTable tr:hover {
-  background-color: #f1f1f1;
-}
-
-
-    </style>
 </head>
 
 <body>
@@ -167,40 +77,8 @@ tr:hover {
   echo "</div>"
 ?>
 
+<script src="testliste_sulland.js"></script>
 
-<script>
-
-function myFunction() {
-  var input, filter, table, tr, td, i;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-
-  
-  table = document.getElementById("verktoytabell");
-  var rows = table.getElementsByTagName("tr");
- 
-  for (i = 1; i < rows.length; i++) {
-    var cells = rows[i].getElementsByTagName("td");
-    var j;
-    var rowContainsFilter = false;
-    for (j = 0; j < cells.length; j++) {
-      if (cells[j]) {
-        if (cells[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
-          rowContainsFilter = true;
-          continue;
-        }
-      }
-    }
-
-    if (! rowContainsFilter) {
-      rows[i].style.display = "none";
-    } else {
-      rows[i].style.display = "";
-    }
-  }
-}
-
-</script>
 
 </body>
 </html>
