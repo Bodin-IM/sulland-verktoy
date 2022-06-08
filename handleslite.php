@@ -144,13 +144,12 @@ tr:hover {
 
 /* disse to  ------------------------ NEDENFOR */
 .laneliste.scroll { 
-  max-width: 12%;
-  margin: 30px;
+  left: 15%;
   position: fixed;
 }
 
 #lanekurv {
-  max-width: 100%;
+  max-width: 30%;
   
 }
 /* DU MÅ FIKSE #LANEKURV OG .LANELISTE.
@@ -175,8 +174,6 @@ tr:hover {
 <div class='logo'>
 <h1 style="font-family: Helvetica; font-size: 400%" >SUllAND</h1>
 
-
-
 <!-- skjema valg av bruker -->
 <?php
 $sql2 = "SELECT * FROM bruker";
@@ -186,16 +183,13 @@ $resultat_bruker = $kobling->query($sql2);
 <select name="bruker" required onchange="document.bruker_valg.submit()" >
       <option value="">velg en bruker</option>
                 <option value='no_bruker'></option>
-
       <?php
                 while($rad = $resultat_bruker->fetch_assoc()) {
                     $id_bruker = $rad["id_bruker"];
                     $brukernavn = $rad["brukernavn"];
-
                     echo "<option value=$id_bruker>$brukernavn</option>";
                 }
-
-                
+               
                 ?>
      
     </select>
@@ -208,25 +202,23 @@ if (isset($_POST['bruker'])){
   $sql2 = "SELECT * FROM bruker";
   $resultat_bruker = $kobling->query($sql2);
 
-  
-
 
 }
 ?>
-
-
-
-
-<select name="theme-select" id="theme-select">
-  <option value="light">Light</option>
-  <option value="dark">Dark</option>
-</select>
-
-
-
-
+  <select name="theme-select" id="theme-select">
+    <option value="light">Light</option>
+    <option value="dark">Dark</option>
+  </select>
 </div>
 
+<div>
+<form action="handleliste.php" method="POST">
+  <input id='input_handleliste' type="hidden" name="verktoy_handleliste" value="">
+  <input type="submit" name="submit_handleliste">
+</form>  
+</div>
+
+<!-- handleliste -->
 <div class="laneliste">
 <table id="lanekurv">
   <th>hylle</th>
@@ -236,8 +228,6 @@ if (isset($_POST['bruker'])){
   <th>verktøynummer</th>
   <th>beskrivelse</th>
   <th>beskrivelse</th>
-  <th>id_bruker</th>
-  <th>status</th>
 </table>
 
 </div>
@@ -310,19 +300,28 @@ if (isset($_POST['bruker'])){
 
 
 
-
-
 <script>
 
-var divinnhold = "";
 
+
+
+var send_table = document.getElementById("lanekurv");
+var input_table = document.getElementById("input_handleliste");
+var innhold = "";
+// onclick for hver TR i verktøyvisning
 function handle(id) {
+  var tr = document.getElementById(id); // velger rett TR
+   //table.appendChild(tr); // legger til TR inn i table til handleliste
+   send_table.appendChild(tr); // legger til TR inn i table til handleliste
 
-  var tr_innhold = document.getElementById(id).innerHTML;
-  divinnhold +=  "<tr>" + tr_innhold + "</tr>";
-
-  document.getElementById("lanekurv").innerHTML = divinnhold;
+   input_table += tr;
+   innhold += JSON.stringify(tr);
+   document.getElementById("input_handleliste").value = innhold;
+ 
+   console.log(innhold);
+ 
 }
+
 
 function myFunction() {
   var input, filter, table, tr, td, i;

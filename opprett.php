@@ -72,97 +72,19 @@ if (isset($_POST['submit_slett'])){
 <head>
     <title>Opprett</title>
     <link rel="stylesheet" href="admin_meny.css">
-
-    <style> 
-body {
-  background-image: url('sulland_bakgrunn.png');
-  background-size: 30vh;
-}
-
-input[type=text] {
-  width:75%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
-  font-size: 15px;
-}
-
-label {
-  padding: 12px 12px 12px 0;
-  display: inline-block;
-}
-
-form {
-    margin-bottom: 50px;
-}
-
-h1 {
-    font-family: Arial, Helvetica, sans-serif;
-}
-.input {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-   
-}
-.tekst {
-    float: left;
-  width: 200px;
-  margin-top: 6px;
-  text-align: right;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 25px;
-  font-weight: bold;
-}
-
-.box {
-    float: left;
-  width: 75%;
-  margin-top: 6px; 
-}
-
-.kit_select {
-    width: 75%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    font-size: 15px;
-}
-.submit {
-    padding: 20px 20px;
-}
-
-.button {
-  background-color: #4CAF50; /* Green */
-  border: none;
-  color: white;
-  padding: 8px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  transition-duration: 0.4s;
-  cursor: pointer;
-  background-color: white;
-  color: black;
-  border: 2px solid #555555;
-}
-
-.button:hover {
-  background-color: #555555;
-  color: white;
-}
-</style>
+    <link rel="stylesheet" href="opprett.css">
 
 </head>
   
 <body>
 
     
-    <center>
+    
         <h1>Legge til verktøy</h1>
+    <form class='form' method="post">
+    <center>
     <div class="innpakning">
-        <form method="post">
+        
               
 <div class="input">      
             <div class="tekst">
@@ -274,14 +196,14 @@ h1 {
         <div class="submit">
             <input class="button" name="submit" type="submit" value="Lagre">
         </div>
-
+        <br>
         </form>
 
 
 
         <h1>Legge til Kit</h1>
-        <form method="post">
-        <div class="input">      
+        <form class='form2' method="post">
+        <div class="input2">      
             <div class="tekst">
                      <label for="kit_navn">Kit</label>
             </div>
@@ -291,15 +213,15 @@ h1 {
         </div>   
 
         <div class="submit2">
-            <input class="button" name="submit2" type="submit" value="Lagre">
+            <input class="button2" name="submit2" type="submit" value="Lagre">
         </div>
 
 
         </form>
 
         <h1>Slette kit</h1>
-        <form method="post">
-        <div class="input">
+        <form class='form2' method="post">
+        <div class="input2">
 
         <?php
         $sql2 = "SELECT * FROM kit";
@@ -329,7 +251,7 @@ h1 {
         </div>
 
         <div class="submit3">
-            <input class="button" name="submit_slett" type="submit" value="Slett">
+            <input class="button2" name="submit_slett" type="submit" value="Slett">
         </div>
 
         </form>

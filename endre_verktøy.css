@@ -97,3 +97,13 @@ body {
     font-size: 25px;
 }
 
+
+.kit_select {
+    border-radius: 6px;
+    background-color: none;
+    width: 84%;
+    height: 100%;
+    display: flex;
+    justify-content: start;
+}
+
