@@ -15,8 +15,12 @@ session_start();
 </head>
 <body>
 
+
+
   <!-- START PHP Hente Data Fra Databasen --> 
   <?php
+
+
   if ($_SESSION['logged_in'] == TRUE) {
   }
   else {
@@ -30,6 +34,21 @@ session_start();
   <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Søk her..." title="Type in a name">
   <?php
   include "conn.php";
+
+
+  // select all kits
+  $sql3 = "SELECT * FROM kit";
+  $resultat3 = $kobling->query($sql3);
+  $kits = "";
+  while ($rad = $resultat3->fetch_assoc()) {
+    $id_kit = $rad["id_kit"];
+    $kitnavn = $rad["kit_navn"];
+
+    $kit = "<option value=$id_kit>$kitnavn</option>";
+    $kits .= $kit;
+}
+
+
   //START Slett Funksjon//
   if (isset($_POST['slett'])){
       $selected_verktoy = $_POST['slett'];
@@ -93,63 +112,59 @@ session_start();
           $status = $rad["status"];
           $brukernavn = $rad["brukernavn"];
           
-        echo "<form method='POST'>"; 
-            echo "<tr>";
+        echo "<form method='POST'> 
+            <tr>
  
-                echo "<td>";
-                echo "<input class='data' type='text' name='hylle_innhold' value='$hylle'>";
-                echo "</td>";
+                <td>
+                <input class='data' type='text' name='hylle_innhold' value='$hylle'>
+                </td>
 
-                echo "<td>";
-                echo "<input class='data' type='text' name='kasse_innhold' value='$kasse'>";
-                echo "</td>";
+                <td>
+                <input class='data' type='text' name='kasse_innhold' value='$kasse'>
+                </td>
 
-                echo "<td>";
-                echo "<input class='data' type='text' name='delenummer_innhold' value='$delenummer'>";
-                echo "</td>";
+                <td>
+                <input class='data' type='text' name='delenummer_innhold' value='$delenummer'>
+                </td>
 
-                echo "<td>";
-                echo "<input class='data' type='text' name='beskrivelse_innhold' value='$beskrivelse'>";
-                echo "</td>";
+                <td>
+                <input class='data' type='text' name='beskrivelse_innhold' value='$beskrivelse'>
+                </td>
 
-                echo "<td>";
-                echo "<input class='data' type='text' name='verktoynummer_innhold' value='$verktøynummer'>";
-                echo "</td>";
+                <td>
+                <input class='data' type='text' name='verktoynummer_innhold' value='$verktøynummer'>
+                </td>
 
-                echo "<td>$brukernavn</td>";
+                <td>$brukernavn</td>
 
-                echo "<td>";
-                echo "<input class='data' type='text' name='status_innhold' value='$status'>";
-                echo "</td>";
+                <td>
+                <input class='data' type='text' name='status_innhold' value='$status'>
+                </td>
 
-                echo "<td style='width:10%'>";
-                echo "<select class='data' name='kits' onchange='this.form.submit()'>";  
-                echo "<option value='no_kit'>$kitnavn_kit_tabel</option>"; 
-                $sql3 = "SELECT * FROM kit";
-                $resultat3 = $kobling->query($sql3);
-                while ($rad = $resultat3->fetch_assoc()) {
-                    $id_kit = $rad["id_kit"];
-                    $kitnavn = $rad["kit_navn"];
-                    echo "<option value=$id_kit>$kitnavn</option>";
-                }
-                echo "</select>";
-                echo "</td>";
+                <td style='width:10%'>
+                <select class='data' name='kits' onchange='this.form.submit()'>
+                <option value='no_kit'>$kitnavn_kit_tabel</option>
+                <option value='no_kit'></option>
+                $kits <!-- alle kits fra database -->
+            
+                </select>
+                </td>
 
-                echo "<td>  <button class='slett_knapp' type='button' value='$id_verktøy'> Slett </button>  </td>";
-                echo "<td> <button name='lagre_knapp' class='lagre_knapp'>Lagre</button></td>";
+                <td>  <button class='slett_knapp' type='button' value='$id_verktøy'> Slett </button>  </td>
+                <td> <button name='lagre_knapp' class='lagre_knapp'>Lagre</button></td>
 
-                echo "<td>";
-                echo "<input type='hidden' name='id_verktøy_innhold' value='$id_verktøy'>";
-                echo "</td>";
+                <td>
+                <input type='hidden' name='id_verktøy_innhold' value='$id_verktøy'>
+                </td>
                 
-            echo "</tr>";  
-        echo "</form>";
+            </tr>
+        </form>";
         
       }
       echo "</table>";
   echo "</div>";
 
-  mysqli_close($kobling);
+  //mysqli_close($kobling);
   ?>
   <!-- END PHP Hente Data Fra Databasen -->
 
