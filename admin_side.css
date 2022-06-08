@@ -15,7 +15,7 @@ body {
   background-size: 2000px;*/
 }
 #mother_div {
-  width: 73%;
+  width: 100%;
   height: 50%;
   display: flex;
   justify-content: center;
@@ -41,15 +41,15 @@ th, td {
 tr {
   height: 4vh;
 }
+tr:hover {
+  background: black;
+}
 tr:nth-child(odd) {
   background: #032530;
 }
 tr:nth-child(even) {
   background: #0b2028;
-}
-tr:hover {
-  background: #000000;
-}   
+} 
 
 #myInput {
   width: 72%;
@@ -78,7 +78,7 @@ tr:hover {
   cursor: pointer;
 }
 
-#data{
+.data{
   background-color: #032530;
   width: 95%;
   height: 95%;
@@ -86,8 +86,9 @@ tr:hover {
   border-color: rgb(255, 255, 255);
   color: rgb(255, 255, 255);
   text-align: center;
+  font-family: 'Montserrat';
 }
 
-#data:hover{
+.data:hover{
   background: #000000;
 }

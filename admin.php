@@ -26,6 +26,7 @@ session_start();
 
   include "meny.php";
   ?>
+  <!-- Søke Feltet -->
   <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Søk her..." title="Type in a name">
   <?php
   include "conn.php";
@@ -41,16 +42,26 @@ session_start();
   if (isset($_POST['lagre_knapp'])) {
     $id_verktoy_update = $_POST['id_verktøy_innhold'];
     $hylle1 = $_POST['hylle_innhold'];
-    /*$kasse1 = $_POST['kasse_innhold'];
+    $kasse1 = $_POST['kasse_innhold'];
     $delenummer1 = $_POST['delenummer_innhold'];
     $beskrivelse1 = $_POST['beskrivelse_innhold'];
-    $verktoynummer1 = $_POST['verktoynummer_innhold'];*/
+    $verktoynummer1 = $_POST['verktoynummer_innhold'];
+    $status1 = $_POST['status_innhold'];
 
-    $sql_update = "UPDATE verktoy SET hylle='$hylle1' WHERE id_verktoy = '$id_verktoy_update'";
+    $sql_update = "UPDATE verktoy SET hylle='$hylle1', kasse='$kasse1', delenummer='$delenummer1', beskrivelse='$beskrivelse1', verktoynummer='$verktoynummer1', status='$status1' WHERE id_verktoy = '$id_verktoy_update'";
     $result = $kobling->query($sql_update);
   }
   //END Endre Funksjon//
 
+  //START Endre Kit Funksjon//
+  if (isset($_POST['lagre_kit_knapp'])) {
+    $id_verktoy_update2 = $_POST['id_verktøy_innhold'];
+    $get_kit = $_POST['kits'];
+
+    $sql_update2 = "UPDATE verktoy SET id_kit='$get_kit' WHERE id_verktoy = '$id_verktoy_update2'";
+    $result2 = $kobling->query($sql_update2);
+  }
+  //END Endre Kit Funksjon//
 
   $sql = "SELECT * FROM verktoy LEFT JOIN bruker ON verktoy.id_bruker=bruker.id_bruker LEFT JOIN kit ON verktoy.id_kit = kit.id_kit";
   $resultat = $kobling->query($sql);
@@ -61,46 +72,84 @@ session_start();
               echo "<th>Hylle</th>";
               echo "<th>Kasse</th>";
               echo "<th>Delenummer</th>";
-              echo "<th>Kit</th>";
               echo "<th>Beskrivelse</th>";
               echo "<th>Verktøynummer</th>";
               echo "<th>Bruker</th>";
               echo "<th>Status</th>";
               echo "<th>Slett Verktøy</th>";
               echo "<th>Endre Verktøy</th>";
+              echo "<th>Kit</th>";
+              echo "<th>Kit</th>";
+              echo "<th>Endre Kit</th>";
           echo "</tr>";
       while($rad = $resultat->fetch_assoc()) {
           $id_verktøy = $rad["id_verktoy"];
           $hylle = $rad["hylle"];
           $kasse = $rad["kasse"];
           $delenummer = $rad["delenummer"];
-          $id_kit = $rad["id_kit"];
+          $idkit = $rad["id_kit"];
+          $kitnavn_kit_tabel = $rad["kit_navn"];
           $beskrivelse = $rad["beskrivelse"];
           $verktøynummer = $rad["verktoynummer"];
           $id_bruker = $rad["id_bruker"];
           $status = $rad["status"];
           $brukernavn = $rad["brukernavn"];
-          $kit_navn = $rad["kit_navn"];
+          
         echo "<form method='POST'>"; 
-            echo "<tr>";
+            echo "<tr >";
+ 
                 echo "<td>";
-                echo "<input id='data' type='text' name='hylle_innhold' value='$hylle'>";
+                echo "<input class='data' type='text' name='hylle_innhold' value='$hylle'>";
                 echo "</td>";
 
-                echo "<td name='kasse_innhold' contenteditable='true'>$kasse</td>";
-                echo "<td name='delenummer_innhold' contenteditable='true'>$delenummer</td>";
-                echo "<td>$kit_navn</td>";
-                echo "<td name='beskrivelse_innhold' contenteditable='true'>$beskrivelse</td>";
-                echo "<td name='verktoynummer_innhold' contenteditable='true'>$verktøynummer</td>";
+                echo "<td>";
+                echo "<input class='data' type='text' name='kasse_innhold' value='$kasse'>";
+                echo "</td>";
+
+                echo "<td>";
+                echo "<input class='data' type='text' name='delenummer_innhold' value='$delenummer'>";
+                echo "</td>";
+
+                echo "<td>";
+                echo "<input class='data' type='text' name='beskrivelse_innhold' value='$beskrivelse'>";
+                echo "</td>";
+
+                echo "<td>";
+                echo "<input class='data' type='text' name='verktoynummer_innhold' value='$verktøynummer'>";
+                echo "</td>";
+
                 echo "<td>$brukernavn</td>";
-                echo "<td name='status_innhold' contenteditable='true'>$status</td>";
+
+                echo "<td>";
+                echo "<input class='data' type='text' name='status_innhold' value='$status'>";
+                echo "</td>";
+
                 echo "<td>  <button class='slett_knapp' type='button' value='$id_verktøy'> SLETT </button>  </td>";
                 echo "<td> <button name='lagre_knapp' class='lagre_knapp'>LAGRE</button></td>";
 
+                echo "<td style='width:10%'>";
+                echo "<select class='data' name='kits'>";  
+                echo "<option value='no_kit'>Velg kit</option>"; 
+                $sql3 = "SELECT * FROM kit";
+                $resultat3 = $kobling->query($sql3);
+                while ($rad = $resultat3->fetch_assoc()) {
+                    $id_kit = $rad["id_kit"];
+                    $kitnavn = $rad["kit_navn"];
+                    echo "<option value=$id_kit>$kitnavn</option>";
+                }
+                echo "</select>";
+                echo "</td>";
+
+                echo "<td name='kit_navn_rad' style='width:10%'>";
+                echo "$kitnavn_kit_tabel";
+                echo "</td>";
+
+                echo "<td> <button name='lagre_kit_knapp' class='lagre_knapp'>LAGRE Kit</button></td>";
 
                 echo "<td>";
                 echo "<input type='hidden' name='id_verktøy_innhold' value='$id_verktøy'>";
                 echo "</td>";
+                
             echo "</tr>";  
         echo "</form>";
         
