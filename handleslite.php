@@ -14,7 +14,7 @@
 
 :root,
 :root.light {
-  --bg-url: url('sulland_bakgrunn.png');
+  --bg-url: url('img/sulland_bakgrunn.png');
   --bg-size: 20%;
   --sok-bord: 5px solid #cccccc;
 }
