@@ -167,7 +167,6 @@ tr:hover {
   <!-- kjører POST bruker når vi endrer valgt bruker -->
 
 
-
 <form id="bruker_valg" method="POST">
 <select name="bruker" required onchange="this.form.submit()" >
       <option value="no_bruker">Endre bruker</option>
@@ -238,18 +237,18 @@ tr:hover {
 
 
 
-
-  <select name="theme-select" id="theme-select">
-    <option value="light">Light</option>
-    <option value="dark">Dark</option>
-  </select>
+<!-- Select theme mode -->
+<select name="theme-select" id="theme-select">
+  <option value="light">Light</option>
+  <option value="dark">Dark</option>
+</select>
 
 
 
 
 
 </div>
-
+<!-- Søkefungsjon -->
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Søk her..." title="Type in a name">
 
 <?php
