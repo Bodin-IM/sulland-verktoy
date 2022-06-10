@@ -12,7 +12,8 @@
 
     if(isset($_POST['submit_handleliste'])) {
         $valgte_verktoy = $_POST['verktoy_handleliste'];  
-        include "conn.php"    ;
+        echo "$valgte_verktoy";
+        include "conn.php";
         $sql = "SELECT * FROM verktoy LEFT JOIN bruker ON verktoy.id_bruker=bruker.id_bruker LEFT JOIN kit ON verktoy.id_kit = kit.id_kit WHERE id_verktoy IN($valgte_verktoy) ORDER BY hylle, kasse";
 
         $resultat = $kobling->query($sql);
@@ -47,6 +48,7 @@
             $brukernavn = $rad["brukernavn"];
       
               echo "<tr>";
+                echo "<td>$id_verktøy</td>";
                 echo "<td>$hylle</td>";
                 echo "<td>$kasse</td>";
                 echo "<td>$delenummer</td>";

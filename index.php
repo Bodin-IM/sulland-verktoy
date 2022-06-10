@@ -1,5 +1,6 @@
 <?php 
 session_start();
+$_SESSION['feilmelding_minelan'] = NULL;
 ?>
 <!DOCTYPE html>
 <html lang="en">

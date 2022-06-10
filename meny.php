@@ -3,8 +3,8 @@
     <div id="meny">
         <div><a href="admin.php">Home</a></div>
         <div><a href="opprett.php">Opprett</a></div>
-        <div><a href="user_admin.php">Ny Bruker</a></div>
-        <div><a href="alle_utlan.php">Alle Utlån</a></div>
+        <div><a href="user_admin.php">Ny bruker</a></div>
+        <div><a href="alle_utlan.php">Alle utlån</a></div>
     </div>
 
     <div id="meny2">

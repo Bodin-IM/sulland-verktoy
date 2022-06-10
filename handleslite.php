@@ -168,6 +168,7 @@ tr:hover {
 <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 
 <?php 
+session_start();
  include "conn.php";
 ?>
 
@@ -214,7 +215,10 @@ if (isset($_POST['bruker'])){
 <div>
 <form action="handleliste.php" method="POST">
   <input id='input_handleliste' type="hidden" name="verktoy_handleliste" value="">
-  <input type="submit" name="submit_handleliste">
+  <input value="Vis handleliste" type="submit" name="submit_handleliste">
+  <h1>Antall verktøy i låneliste:</h1>
+  <h1>0</h1>
+
 </form>  
 </div>
 
@@ -309,12 +313,12 @@ function handle(id) {
   valgte_verktoy.push(id)
    //table.appendChild(tr); // legger til TR inn i table til handleliste
    //send_table.appendChild(tr); // legger til TR inn i table til handleliste
-
    //input_table += tr;
    //innhold += JSON.stringify(tr);
-   document.getElementById("input_handleliste").value = valgte_verktoy;
- 
-   console.log(valgte_verktoy);
+
+  document.getElementById("input_handleliste").value = valgte_verktoy;
+  
+  console.log(valgte_verktoy);
  
 }
 

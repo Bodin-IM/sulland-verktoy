@@ -164,7 +164,7 @@ session_start();
       echo "</table>";
   echo "</div>";
 
-  //mysqli_close($kobling);
+  mysqli_close($kobling);
   ?>
   <!-- END PHP Hente Data Fra Databasen -->
 
