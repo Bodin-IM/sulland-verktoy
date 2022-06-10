@@ -1,18 +1,18 @@
 <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 <div id="mother_div">
     <div id="meny">
-        <div><a href="/admin.php">Home</a></div>
-        <div><a href="/opprett.php">Opprett</a></div>
-        <div><a href="/user_admin.php">Ny Bruker</a></div>
-        <div><a href="/alle_utlan.php">Alle Utlån</a></div>
+        <div><a href="admin.php">Home</a></div>
+        <div><a href="opprett.php">Opprett</a></div>
+        <div><a href="user_admin.php">Ny bruker</a></div>
+        <div><a href="alle_utlan.php">Alle utlån</a></div>
     </div>
 
     <div id="meny2">
         <div id="nav" class="nav">
             <div id="dark_modde" class="the_As"><a href="#">Dark Mode</a></div>
             <div id="light_mode" class="the_As"><a href="#">Light Mode</a></div>
-            <div id="andre_passord" class="the_As"><a href="/Endre_Passord.php">Passord</a></div>
-            <div id="log_ut" class="the_As"><a href="/log_ut.php">Logg ut</a></div>
+            <div id="andre_passord" class="the_As"><a href="endre_passord.php">Passord</a></div>
+            <div id="log_ut" class="the_As"><a href="log_ut.php">Logg ut</a></div>
         </div>
 
         <div id="dots_box" class="dots_box" onclick="click_on_dots()">

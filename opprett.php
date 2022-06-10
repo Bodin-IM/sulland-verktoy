@@ -72,9 +72,9 @@ if (isset($_POST['submit_slett'])){
 <html lang="en">
   
 <head>
-    <title>Opprett</title>
-    <link rel="stylesheet" href="admin_meny.css">
-    <link rel="stylesheet" href="opprett.css">
+    <title>Sulland - verktøy</title>
+    <link rel="stylesheet" href="css/admin_meny.css">
+    <link rel="stylesheet" href="css/opprett.css">
 
 </head>
   
@@ -140,7 +140,7 @@ if (isset($_POST['submit_slett'])){
                 echo "<select class='kit_select' name='id_kit'>";
                 echo "<option value='no_kit'></option>";
                 while($rad = $resultat2->fetch_assoc()) {
-                    $id_kit = $rad["id_kit"];
+                    $id_kit= $rad["id_kit"];
                     $kitnavn = $rad["kit_navn"];
 
                     echo "<option value=$id_kit>$kitnavn</option>";
