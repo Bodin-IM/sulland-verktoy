@@ -237,14 +237,6 @@ tr:hover {
 
 
 
-<!-- Select theme mode -->
-<select name="theme-select" id="theme-select">
-  <option value="light">Light</option>
-  <option value="dark">Dark</option>
-</select>
-
-
-
 
 
 </div>
