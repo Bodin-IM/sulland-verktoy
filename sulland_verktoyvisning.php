@@ -204,7 +204,7 @@ tr:hover {
 
 
 
-  echo "<h1>";
+  echo "<h1 class = 'velg_bruker_tekst'>";
   if (isset($_SESSION['valgt_bruker'])){
  
   echo $_SESSION["brukernavn"];

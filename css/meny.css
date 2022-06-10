@@ -43,6 +43,7 @@ select {
   align-items: center;
   justify-content: space-between;
   
+  
 }
 
 #bruker_valg {
@@ -51,4 +52,7 @@ select {
 
 #theme-select {
   font-size: 30px;
+}
+.velg_bruker_tekst {
+  margin-right: 30%;
 }
