@@ -25,7 +25,7 @@ if (!isset($_SESSION["valgt_bruker"])){
 </head>
 <body>
 <ul>
-        <li><a href="index.php">Verktøyvisning</a></li>
+        <li><a href="index.php">Tilbake</a></li>
         <li id="admin"><a href="logg_inn_admin.php">Logg Inn</a></li>
     </ul>    
 <br>

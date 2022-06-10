@@ -176,14 +176,15 @@ $resultat = $kobling->query($sql);
 echo "<div class='stil'>";
 echo "<table>";
 echo "<tr>";
-    echo "<th> Status </th>";
-    echo "<th> Verktoynummer </th>";
-    echo "<th> Delenummer </td>";
     echo "<th> Hylle </th>";
     echo "<th> Kasse </th>";
+    echo "<th> Delenummer </td>";
     echo "<th> Kit </th>";
-    echo "<th> beskrivelse </th>";
+    echo "<th> Verktøynummer </th>";
+    echo "<th> Beskrivelse </th>";
     echo "<th> Brukernavn </th>";
+    echo "<th> Fjern Lån </th>";
+    echo "<th> Status </th>";
     echo "</tr>";
     
 
@@ -201,12 +202,11 @@ while($rad = $resultat->fetch_assoc()) {
 
 
         echo "<tr>"; 
-        echo "<td> $status </td>";
-        echo "<td> $verktoynummer </td>";
-        echo "<td> $delenummer </td>";
         echo "<td> $hylle </td>";
         echo "<td> $kasse </td>";
+        echo "<td> $delenummer </td>";
         echo "<td> $kit_navn </td>";
+        echo "<td> $verktoynummer </td>";
         echo "<td> $beskrivelse </td>";
         echo "<td> $brukernavn </td>";
         echo "<td>" ;     
@@ -218,6 +218,7 @@ while($rad = $resultat->fetch_assoc()) {
             } else{
               echo "$brukernavn";
             }
+        echo "<td> $status </td>";
         //tabel for alle utlån
         echo " </td>";
 
