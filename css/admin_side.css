@@ -3,7 +3,7 @@
 }
 
 body {
-  background-color: #C8C8C8;
+  background-color: #d9d9d9;
   height: 100%;
   width: 100%;
   margin: 0;
@@ -89,7 +89,7 @@ tr:nth-child(even) {
 }
 
 tr:hover{
-  background: rgba(218, 14, 14, 0.404);
+  background: rgba(218, 14, 14, 0.589);
 }
 
 .slett_knapp{
