@@ -26,12 +26,11 @@ if (!isset($_SESSION['feilmelding_minelan'])) {
         <div><a href="utskrift.php">Utskrift</a></div>
         <div><a href="hjelp.php">hjelp</a></div>
     </div>
-
     <div id="meny2">
-        <div id="nav" class="nav">
-            <div value="dark" id="theme-select" class="the_As"><a href="">Dark Mode</a></div>
-            <div value="light" id="theme-select" class="the_As"><a href="">Light Mode</a></div>
-            <div id="admin" class="the_As"><a href="/logg_inn_admin.php">Logg Inn</a></div>
+        <div id="nav" class="nav2">
+           <!-- <div value="dark" id="theme-select" class="the_As"><a href="">Dark Mode</a></div>
+            <div value="light" id="theme-select" class="the_As"><a href="">Light Mode</a></div> -->
+            <div><a href="/logg_inn_admin.php">Logg Inn</a></div>
         </div>  
     </div>
 </div>
@@ -41,13 +40,13 @@ if (!isset($_SESSION['feilmelding_minelan'])) {
     <br>
     <?php include "footer.html";?>    
 </div>
-
+    <!--
     <script>
         const setTheme = theme => document.documentElement.className = theme;
         document.getElementById('theme-select').addEventListener('change', function() {
         setTheme(this.value);
         });
-    </script>
+    </script> -->
 
 </body>
 </html>
