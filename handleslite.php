@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sulland's verktøy</title>
-    <link rel="stylesheet" href="meny.css">
-    <link rel="stylesheet" href="sulland.css">
+    <link rel="stylesheet" href="css/meny.css">
+    <link rel="stylesheet" href="css/sulland.css">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
@@ -14,7 +14,7 @@
 
 :root,
 :root.light {
-  --bg-url: url('sulland_bakgrunn.png');
+  --bg-url: url('img/sulland_bakgrunn.png');
   --bg-size: 20%;
   --sok-bord: 5px solid #cccccc;
 }
@@ -168,13 +168,12 @@ tr:hover {
 <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 
 <?php 
+session_start();
  include "conn.php";
 ?>
 
 <div class='logo'>
 <h1 style="font-family: Helvetica; font-size: 400%" >SUllAND</h1>
-
-
 
 <!-- skjema valg av bruker -->
 <?php
@@ -185,16 +184,13 @@ $resultat_bruker = $kobling->query($sql2);
 <select name="bruker" required onchange="document.bruker_valg.submit()" >
       <option value="">velg en bruker</option>
                 <option value='no_bruker'></option>
-
-      <?php
+                <?php
                 while($rad = $resultat_bruker->fetch_assoc()) {
                     $id_bruker = $rad["id_bruker"];
                     $brukernavn = $rad["brukernavn"];
-
                     echo "<option value=$id_bruker>$brukernavn</option>";
                 }
-
-                
+               
                 ?>
      
     </select>
@@ -207,29 +203,22 @@ if (isset($_POST['bruker'])){
   $sql2 = "SELECT * FROM bruker";
   $resultat_bruker = $kobling->query($sql2);
 
-  
-
 
 }
 ?>
-
-
-
-
-<select name="theme-select" id="theme-select">
-  <option value="light">Light</option>
-  <option value="dark">Dark</option>
-</select>
-
-
-
-
+  <select name="theme-select" id="theme-select">
+    <option value="light">Light</option>
+    <option value="dark">Dark</option>
+  </select>
 </div>
 
 <div>
 <form action="handleliste.php" method="POST">
   <input id='input_handleliste' type="hidden" name="verktoy_handleliste" value="">
-  <input type="submit" name="submit_handleliste">
+  <input value="Vis handleliste" type="submit" name="submit_handleliste">
+  <h1>Antall verktøy i låneliste:</h1>
+  <h1>0</h1>
+
 </form>  
 </div>
 
@@ -290,20 +279,13 @@ if (isset($_POST['bruker'])){
           echo "<td>$verktøynummer</td>";
           echo "<td class='beskrivelse'>$beskrivelse</td>";
           echo "<td>";
-          
-
-          
-          
-
+      
           if  ($id_bruker == NULL){
             echo "<button>lån</button>";
           } else{
             echo "$id_bruker";
           }
-                   
-          
-          
-          
+        
           echo "</td>";
           echo "<td>$status</td>";
         echo "</tr>";
@@ -321,20 +303,23 @@ if (isset($_POST['bruker'])){
 
 
 var send_table = document.getElementById("lanekurv");
-var input_table = document.getElementById("input_handleliste").value;
-
+var input_table = document.getElementById("input_handleliste");
+var valgte_verktoy = [];
+var handle_antall = 0;
 // onclick for hver TR i verktøyvisning
 function handle(id) {
   var tr = document.getElementById(id); // velger rett TR
+  console.log(id);
+  valgte_verktoy.push(id)
    //table.appendChild(tr); // legger til TR inn i table til handleliste
-   send_table.appendChild(tr); // legger til TR inn i table til handleliste
+   //send_table.appendChild(tr); // legger til TR inn i table til handleliste
+   //input_table += tr;
+   //innhold += JSON.stringify(tr);
 
-
-   input_table += tr;
-
-   console.log(send_table);
-
-   console.log(input_table);
+  document.getElementById("input_handleliste").value = valgte_verktoy;
+  
+  console.log(valgte_verktoy);
+ 
 }
 
 

@@ -1,19 +1,34 @@
 body {
-    /*background-image: url("bakgrunn_admin.jpg");
-    background-size: 2000px;*/
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
+input[type=text] {
+  width:75%;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  font-size: 15px;
+}
+
 .form{
     background-color: #032530;
-    width: 73%;
-    height: 500px;
+    width: 72%;
+    height: 175px;
     display: flex;
     justify-content: start;
     margin-top: 15px;
+    padding: 10px;
+}
+.form2{
+    background-color: #032530;
+    width: 73%;
+    height: 150px;
+    display: flex;
+    justify-content: start;
+    margin-top: 15px;
+    
 }
 
 .center{
@@ -21,20 +36,37 @@ body {
     width: 100%;
     height: 100%;
 }
+
 .innpakning{
     background-color: none;
     width: 100%;
-    height: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
 .input{
     width: 100%;
-    height: 9%;
+    height: 45px;
     background-color: none;
     display: flex;
     flex-direction: row;
     display: flex;
     justify-content: space-between;
     margin-top: 15px;
+    float: right;
+}
+
+.input2{
+    width: 100%;
+    height: 30%;
+    background-color: none;
+    display: flex;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    float: right;
 }
 
 .tekst{
@@ -51,6 +83,7 @@ body {
     height: 100%;
     display: flex;
     justify-content: start;
+    
 }
 
 .data{
@@ -60,6 +93,13 @@ body {
     border-radius: 6px;
     font-family: 'Montserrat';
     font-size: 20px;
+}
+
+.kit_select {
+    width: 75%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    font-size: 15px;
 }
 
 .submit{
@@ -72,7 +112,7 @@ body {
 }
 
 .button{
-    width: 10%;
+    width: 100%;
     height: 100%;
     border-radius: 50px;
     border-width: 1px;
@@ -80,6 +120,16 @@ body {
     font-size: 25px;
     cursor: pointer;
 }
+.button2{
+    width: 100%;
+    height: 25%;
+    border-radius: 50px;
+    border-width: 1px;
+    font-family: 'Montserrat';
+    font-size: 25px;
+    cursor: pointer;
+}
+
 
 .button:hover{
     background-color: black;
@@ -97,3 +147,8 @@ body {
     font-size: 25px;
 }
 
+.bruker_select {
+    width: 75%;
+    padding: 12px 20px;
+    font-size: 15px;
+}

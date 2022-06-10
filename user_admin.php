@@ -6,7 +6,7 @@ else {
     header('location: logg_inn_admin.php');
     exit;
 }
-include "meny.php";
+
 include "conn.php";
 
 if(isset($_POST["submit3"])) {
@@ -39,22 +39,15 @@ if(isset($_POST["submit3"])) {
   }
  ?>
 
-
-
-
-
-
-        
-
-
-
         <!DOCTYPE html>
         <html lang="en">
         <head>
-            <title>Ny Bruker</title>
-            <link rel="stylesheet" href="admin_meny.css">
-
+            <title>Sulland - verktøy</title>
+            <link rel="stylesheet" href="css/admin_meny.css">
+            <link rel="stylesheet" href="css/user_admin.css">
             <style>
+
+        /*      
 body {
     background-image: url("Bakgrunn.jpg");
 }
@@ -111,7 +104,7 @@ h1 {
 
 .button {
     float: left;
-  background-color: #4CAF50; /* Green */
+  background-color: #4CAF50;
   border: none;
   color: white;
   padding: 8px 20px;
@@ -137,16 +130,19 @@ h1 {
     padding: 12px 20px;
     margin: 8px 0;
     font-size: 15px;
-}
+}  */
             </style>
         </head>
         <body>
-    <center>
-    <div class="innpakining">
-        <form method="post">
+
+        <?php include "meny.php"; ?>
+
+    
+    <div class="innpakning">
+        <form class="form" method="post">
         <div class="input">      
             <div class="tekst">
-                <label for="brukernavn">Ny Bruker</label>
+                <label for="brukernavn">Ny bruker</label>
             </div>
             <div class="box"> 
                 <input type="text" name="brukernavn" id="brukernavn"> 
@@ -162,7 +158,7 @@ h1 {
         </form>
 
        
-        <form method="post">
+        <form class="form" method="post">
         <div class="input">
 
         <?php
@@ -173,7 +169,7 @@ h1 {
         ?>
 
             <div class="tekst">
-                <label for="id_bruker">slett bruker</label>
+                <label for="id_bruker">Slett bruker</label>
             </div>
             <div class="box"> 
             <?php
@@ -201,6 +197,5 @@ h1 {
 
 
     </div>
-    </center>
         </body>
         </html>

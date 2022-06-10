@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
     
-    <link rel="stylesheet" href="admin_meny.css">
-    <link rel="stylesheet" href="endre_verktøy.css">
+    <link rel="stylesheet" href="css/admin_meny.css">
+    <link rel="stylesheet" href="css/endre_verktøy.css">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <title>Sulland - verktøy</title>
 </head>
 <body>
   <?php
@@ -76,12 +77,30 @@ while($rad = $resultat->fetch_assoc())  {
       echo "</div>";
 
       echo "<div class='input'> ";
+      
+        $sql2 = "SELECT * FROM kit";
+        $resultat2 = $kobling->query($sql2);
+
+        $nullkit =NULL;
         echo" <div class='tekst'>";
-          echo"Id kit";
-        echo "</div>";
+        echo "<label for='id_kit'>Kit</label> ";
+        echo "</div>";  
         echo"<div class='box'>";
-          echo" <input class='data' type='text' name='id_kit' id='id_kit'value='$id_kit'>";
-        echo "</div>";
+        echo"<div class='kit_select'>";
+        
+                echo "<select class='kit_select' name='id_kit'>";
+                echo "<option value='no_kit'></option>";
+                while($rad = $resultat2->fetch_assoc()) {
+                    $id_kit = $rad["id_kit"];
+                    $kitnavn = $rad["kit_navn"];
+
+                    echo "<option value=$id_kit>$kitnavn</option>";
+                }
+
+                echo "</select>";
+      
+      echo "</div>";
+      echo "</div>";  
       echo "</div>";
 
       echo "<div class='input'> ";

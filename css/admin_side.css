@@ -3,7 +3,7 @@
 }
 
 body {
-  background-image: url('SUllAND_admin_bak.png');
+  background-color: #C8C8C8;
   height: 100%;
   width: 100%;
   margin: 0;
@@ -15,7 +15,7 @@ body {
   background-size: 2000px;*/
 }
 #mother_div {
-  width: 73%;
+  width: 100%;
   height: 50%;
   display: flex;
   justify-content: center;
@@ -36,19 +36,17 @@ th, td {
   border-right: 1px solid black;
   border-collapse: collapse;
   text-align: center;
+  
 }
 tr {
   height: 4vh;
 }
 tr:nth-child(odd) {
-  background: #032530;
+  background: rgb(3, 37, 48);
 }
 tr:nth-child(even) {
   background: #0b2028;
-}
-tr:hover {
-  background: #000000;
-}   
+} 
 
 #myInput {
   width: 72%;
@@ -59,9 +57,10 @@ tr:hover {
   margin-top: 12px;
 }
 
-.endre_knapp{
+.lagre_knapp{
   text-decoration: none;
   color: black;
+  cursor: pointer;
 }
 
 .slett_knapp{
@@ -75,3 +74,37 @@ tr:hover {
 .avbryt_button{
   cursor: pointer;
 }
+
+.data{
+  background-color: rgba(3, 37, 48, 0.5);  
+  border-width: 0px;
+  text-align: center;
+  font-family: 'Montserrat';
+  color: #ffffff;
+  width: 95%;
+  height: 95%;
+  /*
+  border-color: rgb(255, 255, 255);
+  color: rgb(255, 255, 255);*/
+}
+
+tr:hover{
+  background: rgba(218, 14, 14, 0.404);
+}
+
+.slett_knapp{
+  width: 80%;
+  height: 80%;
+  font-size: 20px;
+  font-family: 'Montserrat';
+  border-radius: 5px;
+}
+
+.lagre_knapp{
+  width: 80%;
+  height: 80%;
+  font-size: 20px;
+  font-family: 'Montserrat';
+  border-radius: 5px;
+}
+

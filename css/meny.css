@@ -21,11 +21,12 @@ li a {
 }
   
 li a:hover {
-  background-color: #111;
+  color: white;
+  background-color: rgb(241, 241, 241);
 }
 
 #admin{
-  margin-left: auto;
+  
   margin-right: 30px;
 }
 /* END css for meny-en på verktøyvisning side */

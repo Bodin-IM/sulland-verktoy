@@ -9,6 +9,7 @@ else {
 include "meny.php";
 include "conn.php";
 
+//legge til verktøy
 if(isset($_POST["submit"])) {
 
 $hylle = $_REQUEST['hylle'];
@@ -33,6 +34,7 @@ if ($kobling->query($sql) === TRUE) {
 
 }
 
+//lege til kit
 if(isset($_POST["submit2"])) {
 
    $kit_navn = $_REQUEST['kit_navn'];
@@ -50,7 +52,7 @@ if(isset($_POST["submit2"])) {
     }
 
 
-
+//slette kit
 if (isset($_POST['submit_slett'])){
 
     $selected_kit = $_POST['kit'];
@@ -70,99 +72,21 @@ if (isset($_POST['submit_slett'])){
 <html lang="en">
   
 <head>
-    <title>Opprett</title>
-    <link rel="stylesheet" href="admin_meny.css">
-
-    <style> 
-body {
-  background-image: url('sulland_bakgrunn.png');
-  background-size: 30vh;
-}
-
-input[type=text] {
-  width:75%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
-  font-size: 15px;
-}
-
-label {
-  padding: 12px 12px 12px 0;
-  display: inline-block;
-}
-
-form {
-    margin-bottom: 50px;
-}
-
-h1 {
-    font-family: Arial, Helvetica, sans-serif;
-}
-.input {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-   
-}
-.tekst {
-    float: left;
-  width: 200px;
-  margin-top: 6px;
-  text-align: right;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 25px;
-  font-weight: bold;
-}
-
-.box {
-    float: left;
-  width: 75%;
-  margin-top: 6px; 
-}
-
-.kit_select {
-    width: 75%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    font-size: 15px;
-}
-.submit {
-    padding: 20px 20px;
-}
-
-.button {
-  background-color: #4CAF50; /* Green */
-  border: none;
-  color: white;
-  padding: 8px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  transition-duration: 0.4s;
-  cursor: pointer;
-  background-color: white;
-  color: black;
-  border: 2px solid #555555;
-}
-
-.button:hover {
-  background-color: #555555;
-  color: white;
-}
-</style>
+    <title>Sulland - verktøy</title>
+    <link rel="stylesheet" href="css/admin_meny.css">
+    <link rel="stylesheet" href="css/opprett.css">
 
 </head>
   
 <body>
 
     
-    <center>
+    
         <h1>Legge til verktøy</h1>
+    <form class='form' method="post">
+    <center>
     <div class="innpakning">
-        <form method="post">
+        
               
 <div class="input">      
             <div class="tekst">
@@ -216,7 +140,7 @@ h1 {
                 echo "<select class='kit_select' name='id_kit'>";
                 echo "<option value='no_kit'></option>";
                 while($rad = $resultat2->fetch_assoc()) {
-                    $id_kit = $rad["id_kit"];
+                    $id_kit= $rad["id_kit"];
                     $kitnavn = $rad["kit_navn"];
 
                     echo "<option value=$id_kit>$kitnavn</option>";
@@ -274,14 +198,14 @@ h1 {
         <div class="submit">
             <input class="button" name="submit" type="submit" value="Lagre">
         </div>
-
+        <br>
         </form>
 
 
 
         <h1>Legge til Kit</h1>
-        <form method="post">
-        <div class="input">      
+        <form class='form2' method="post">
+        <div class="input2">      
             <div class="tekst">
                      <label for="kit_navn">Kit</label>
             </div>
@@ -291,16 +215,18 @@ h1 {
         </div>   
 
         <div class="submit2">
-            <input class="button" name="submit2" type="submit" value="Lagre">
+            <input class="button2" name="submit2" type="submit" value="Lagre">
         </div>
 
 
         </form>
 
         <h1>Slette kit</h1>
-        <form method="post">
-        <div class="input">
+        <form class='form2' method="post">
+        <div class="input2">
 
+        
+        <!-- Slette kit -->
         <?php
         $sql2 = "SELECT * FROM kit";
         $resultat2 = $kobling->query($sql2);
@@ -329,7 +255,7 @@ h1 {
         </div>
 
         <div class="submit3">
-            <input class="button" name="submit_slett" type="submit" value="Slett">
+            <input class="button2" name="submit_slett" type="submit" value="Slett">
         </div>
 
         </form>
