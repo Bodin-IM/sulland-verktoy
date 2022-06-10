@@ -37,17 +37,19 @@ if ($kobling->query($sql) === TRUE) {
 //lege til kit
 if(isset($_POST["submit2"])) {
 
+   
    $kit_navn = $_REQUEST['kit_navn'];
     
     $sql = "INSERT INTO kit (kit_navn)
     VALUES ('$kit_navn')";
+    
     
     if ($kobling->query($sql) === TRUE) {
       echo "New record created successfully";
     } else {
       echo "Error: " . $sql . "<br>" . $kobling->error;
     }
-    
+   
    
     }
 
@@ -75,6 +77,13 @@ if (isset($_POST['submit_slett'])){
     <title>Sulland - verktøy</title>
     <link rel="stylesheet" href="css/admin_meny.css">
     <link rel="stylesheet" href="css/opprett.css">
+    <style>
+
+    #opprett_shadow {
+        box-shadow: 5px 10px 8px #888888;
+    }
+
+    </style>
 
 </head>
   
@@ -83,7 +92,7 @@ if (isset($_POST['submit_slett'])){
     
     
         <h1>Legge til verktøy</h1>
-    <form class='form' method="post">
+    <form class='form' method="post" id="opprett_shadow">
     <center>
     <div class="innpakning">
         
@@ -204,7 +213,7 @@ if (isset($_POST['submit_slett'])){
 
 
         <h1>Legge til Kit</h1>
-        <form class='form2' method="post">
+        <form class='form2' method="post" id="opprett_shadow">
         <div class="input2">      
             <div class="tekst">
                      <label for="kit_navn">Kit</label>
@@ -214,15 +223,15 @@ if (isset($_POST['submit_slett'])){
             </div>
         </div>   
 
-        <div class="submit2">
-            <input class="button2" name="submit2" type="submit" value="Lagre">
-        </div>
+            <div class="submit2">
+                <input class="button2" name="submit2" type="submit" value="Lagre">
+            </div>
 
 
         </form>
 
         <h1>Slette kit</h1>
-        <form class='form2' method="post">
+        <form class='form2' method="post" id="opprett_shadow">
         <div class="input2">
 
         
