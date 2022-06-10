@@ -14,7 +14,6 @@ session_start();
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 </head>
 <body>
-
   <!-- START PHP Hente Data Fra Databasen --> 
   <?php
   if ($_SESSION['logged_in'] == TRUE) {
@@ -23,7 +22,6 @@ session_start();
       header('location: logg_inn_admin.php');
       exit;
   }
-
   include "meny.php";
   ?>
   <!-- Søke Feltet -->
@@ -37,7 +35,6 @@ session_start();
       $resultat = $kobling->query($sql);
   }
   //END Slett Funksjon//
-
   //START Endre Funksjon//
   if (isset($_POST['lagre_knapp']) || isset($_POST['kits'])) {
     $id_verktoy_update = $_POST['id_verktøy_innhold'];
@@ -47,25 +44,20 @@ session_start();
     $beskrivelse1 = $_POST['beskrivelse_innhold'];
     $verktoynummer1 = $_POST['verktoynummer_innhold'];
     $status1 = $_POST['status_innhold'];
-
     $sql_update = "UPDATE verktoy SET hylle='$hylle1', kasse='$kasse1', delenummer='$delenummer1', beskrivelse='$beskrivelse1', verktoynummer='$verktoynummer1', status='$status1' WHERE id_verktoy = '$id_verktoy_update'";
     $result = $kobling->query($sql_update);
   }
   //END Endre Funksjon//
-
   //START Endre Kit Funksjon//
   if (isset($_POST['kits'])) {
     $id_verktoy_update2 = $_POST['id_verktøy_innhold'];
     $get_kit = $_POST['kits'];
-
     $sql_update2 = "UPDATE verktoy SET id_kit='$get_kit' WHERE id_verktoy = '$id_verktoy_update2'";
     $result2 = $kobling->query($sql_update2);
   }
   //END Endre Kit Funksjon//
-
   $sql = "SELECT * FROM verktoy LEFT JOIN bruker ON verktoy.id_bruker=bruker.id_bruker LEFT JOIN kit ON verktoy.id_kit = kit.id_kit";
   $resultat = $kobling->query($sql);
-
   echo "<div id='mother_div'>";
       echo "<table id='verktoytabell'>";
           echo "<tr>";
@@ -95,33 +87,25 @@ session_start();
           
         echo "<form method='POST'>"; 
             echo "<tr>";
- 
                 echo "<td>";
                 echo "<input class='data' type='text' name='hylle_innhold' value='$hylle'>";
                 echo "</td>";
-
                 echo "<td>";
                 echo "<input class='data' type='text' name='kasse_innhold' value='$kasse'>";
                 echo "</td>";
-
                 echo "<td>";
                 echo "<input class='data' type='text' name='delenummer_innhold' value='$delenummer'>";
                 echo "</td>";
-
                 echo "<td>";
                 echo "<input class='data' type='text' name='beskrivelse_innhold' value='$beskrivelse'>";
                 echo "</td>";
-
                 echo "<td>";
                 echo "<input class='data' type='text' name='verktoynummer_innhold' value='$verktøynummer'>";
                 echo "</td>";
-
                 echo "<td>$brukernavn</td>";
-
                 echo "<td>";
                 echo "<input class='data' type='text' name='status_innhold' value='$status'>";
                 echo "</td>";
-
                 echo "<td style='width:10%'>";
                 echo "<select class='data' name='kits' onchange='this.form.submit()'>";  
                 echo "<option value='no_kit'>$kitnavn_kit_tabel</option>"; 
@@ -134,26 +118,20 @@ session_start();
                 }
                 echo "</select>";
                 echo "</td>";
-
                 echo "<td>  <button class='slett_knapp' type='button' value='$id_verktøy'> Slett </button>  </td>";
                 echo "<td> <button name='lagre_knapp' class='lagre_knapp'>Lagre</button></td>";
-
                 echo "<td>";
                 echo "<input type='hidden' name='id_verktøy_innhold' value='$id_verktøy'>";
                 echo "</td>";
                 
             echo "</tr>";  
         echo "</form>";
-        
       }
       echo "</table>";
   echo "</div>";
-
   mysqli_close($kobling);
   ?>
   <!-- END PHP Hente Data Fra Databasen -->
-
-
   <!-- START Søke Funksjon -->
   <script>
       function myFunction() {
