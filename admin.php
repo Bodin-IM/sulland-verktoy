@@ -16,6 +16,8 @@ session_start();
 <body>
   <!-- START PHP Hente Data Fra Databasen --> 
   <?php
+
+
   if ($_SESSION['logged_in'] == TRUE) {
   }
   else {
@@ -28,6 +30,21 @@ session_start();
   <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Søk her..." title="Type in a name">
   <?php
   include "conn.php";
+
+
+  // select all kits
+  $sql3 = "SELECT * FROM kit";
+  $resultat3 = $kobling->query($sql3);
+  $kits = "";
+  while ($rad = $resultat3->fetch_assoc()) {
+    $id_kit = $rad["id_kit"];
+    $kitnavn = $rad["kit_navn"];
+
+    $kit = "<option value=$id_kit>$kitnavn</option>";
+    $kits .= $kit;
+}
+
+
   //START Slett Funksjon//
   if (isset($_POST['slett'])){
       $selected_verktoy = $_POST['slett'];

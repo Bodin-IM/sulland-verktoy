@@ -9,12 +9,13 @@
     <link rel="stylesheet" href="css/utskrift.css">
 </head>
 <body>
-<?php include "meny_forside.html"; ?>
+  <div class='topbar'>
+    <?php include "meny_forside.html"; ?>
+    <button class="button" onclick="window.print()">Skriv ut siden</button>
+  </div>
 <?php include "conn.php";
-
-$sql = "SELECT * FROM verktoy LEFT JOIN bruker ON verktoy.id_bruker=bruker.id_bruker LEFT JOIN kit ON verktoy.id_kit = kit.id_kit ORDER BY hylle, kasse";
-$resultat = $kobling->query($sql);
-
+  $sql = "SELECT * FROM verktoy LEFT JOIN bruker ON verktoy.id_bruker=bruker.id_bruker LEFT JOIN kit ON verktoy.id_kit = kit.id_kit ORDER BY hylle, kasse";
+  $resultat = $kobling->query($sql);
 ?>
 <table id='verktoytabell'>
 <thead>
