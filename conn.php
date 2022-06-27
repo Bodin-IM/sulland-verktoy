@@ -1,7 +1,7 @@
 <?php
-$servername = "10.100.0.2"; //$servername = "10.100.0.2";
-$username = "im2a"; //$username = "im2a";
-$password = "Passord2"; //$password = "Passord2";
+$servername = "localhost"; //$servername = "10.100.0.2";
+$username = "root"; //$username = "im2a";
+$password = ""; //$password = "Passord2";
 $dbname = "sulland_verktoy";
 
 // Create connection
