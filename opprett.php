@@ -71,200 +71,70 @@ if (isset($_POST['submit_slett'])) {
     <title>Sulland - verktøy</title>
     <link rel="stylesheet" href="css/admin_meny.css">
     <link rel="stylesheet" href="css/opprett.css">
-    <style>
-        #opprett_shadow {
-            box-shadow: 5px 10px 8px #888888;
-        }
-    </style>
-
+    <!-- En link for å hente font fra google  -->
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 </head>
 
 <body>
+    <div id="box1">
+        <h1>Legge til verktøy</h1>
+        <form method="post" id="form1">
+            <input class="data_input" type="text" name="hylle" id="hylle" placeholder="Hylle" required>
+            <input class="data_input" type="text" name="kasse" id="kasse" placeholder="Kasse" required>
+            <input class="data_input" type="text" name="delenummer" id="delenummer" placeholder="Delenummer" required>
+            <input class="data_input" type="text" name="beskrivelse" id="beskrivelse" placeholder="Beskrivelse" required>
+            <input class="data_input" type="text" name="verktoynummer" id="verktoynummer" placeholder="Verktøy Nummer" required>
+            <input class="data_input" type="text" name="status" id="status" placeholder="Status">
+            <?php
+            $sql2 = "SELECT * FROM kit";
+            $resultat2 = $kobling->query($sql2);
+            $nullkit = NULL;
+            ?>
+            <?php
+            echo "<select class='data_input' name='id_kit'>";
+            echo "<option value='no_kit'>Velg Kit</option>";
+            while ($rad = $resultat2->fetch_assoc()) {
+                $id_kit = $rad["id_kit"];
+                $kitnavn = $rad["kit_navn"];
 
+                echo "<option value=$id_kit>$kitnavn</option>";
+            }
+            echo "</select>";
+            ?>
+            <input class="lagre_ny_data_knapp" name="submit" type="submit" value="Lagre">
+        </form>
+    </div>
 
+    <div id="box2">
+        <h1>Legge til Kit</h1>
+        <form method="post" id="form2">
+            <input class="input_ny_kit" type="text" name="kit_navn" id="kit_navn" placeholder="Kit Navn" required>
+            <input class="input_ny_kit_knapp" name="submit2" type="submit" value="Lagre">
+        </form>
+    </div>
 
-    <h1>Legge til verktøy</h1>
-    <form class='form' method="post" id="opprett_shadow">
-        <center>
-            <div class="innpakning">
-
-
-                <div class="input">
-                    <div class="tekst">
-                        <label for="hylle">Hylle</label>
-                    </div>
-                    <div class="box">
-                        <input type="text" name="hylle" id="hylle">
-                    </div>
-
-                </div>
-
-
-                <div class="input">
-
-                    <div class="tekst">
-                        <label for="kasse">Kasse</label>
-                    </div>
-                    <div class="box">
-                        <input type="text" name="kasse" id="kasse">
-                    </div>
-
-                </div>
-
-
-
-                <div class="input">
-
-                    <div class="tekst">
-                        <label for="delenummer">Delenummer</label>
-                    </div>
-                    <div class="box">
-                        <input type="text" name="delenummer" id="delenummer">
-                    </div>
-
-                </div>
-
-
-
-                <div class="input">
-                    <?php
-                    $sql2 = "SELECT * FROM kit";
-                    $resultat2 = $kobling->query($sql2);
-
-                    $nullkit = NULL;
-                    ?>
-                    <div class="tekst">
-                        <label for="id_kit">Kit</label>
-                    </div>
-                    <div class="box">
-                        <?php
-                        echo "<select class='kit_select' name='id_kit'>";
-                        echo "<option value='no_kit'></option>";
-                        while ($rad = $resultat2->fetch_assoc()) {
-                            $id_kit = $rad["id_kit"];
-                            $kitnavn = $rad["kit_navn"];
-
-                            echo "<option value=$id_kit>$kitnavn</option>";
-                        }
-
-                        echo "</select>";
-
-                        ?>
-
-
-
-
-
-                    </div>
-
-                </div>
-
-
-                <div class="input">
-
-                    <div class="tekst">
-                        <label for="beskrivelse">Beskrivelse</label>
-                    </div>
-                    <div class="box">
-                        <input type="text" name="beskrivelse" id="beskrivelse">
-                    </div>
-
-                </div>
-
-
-                <div class="input">
-                    <p>
-                    <div class="tekst">
-                        <label for="verktoynummer">Verktøynummer</label>
-                    </div>
-                    <div class="box">
-                        <input type="text" name="verktoynummer" id="verktoynummer">
-                    </div>
-                    </p>
-                </div>
-
-
-
-                <div class="input">
-
-                    <div class="tekst">
-                        <label for="status">Status</label>
-                    </div>
-                    <div class="box">
-                        <input type="text" name="status" id="status">
-                    </div>
-
-                </div>
-
-                <div class="submit">
-                    <input class="button" name="submit" type="submit" value="Lagre">
-                </div>
-                <br>
-    </form>
-
-
-
-    <h1>Legge til Kit</h1>
-    <form class='form2' method="post" id="opprett_shadow">
-        <div class="input2">
-            <div class="tekst">
-                <label for="kit_navn">Kit</label>
-            </div>
-            <div class="box">
-                <input type="text" name="kit_navn" id="kit_navn">
-            </div>
-        </div>
-
-        <div class="submit2">
-            <input class="button2" name="submit2" type="submit" value="Lagre">
-        </div>
-
-
-    </form>
-
-    <h1>Slette kit</h1>
-    <form class='form2' method="post" id="opprett_shadow">
-        <div class="input2">
-
-
+    <div id="box3">
+        <h1>Slette kit</h1>
+        <form method="post" id="form3">
             <!-- Slette kit -->
             <?php
             $sql2 = "SELECT * FROM kit";
             $resultat2 = $kobling->query($sql2);
-
-
             ?>
+            <?php
+            echo "<select class='slett_kit' name='kit'>";
+            echo "<option >Velg Kit</option>";
+            while ($rad = $resultat2->fetch_assoc()) {
+                $id_kit = $rad["id_kit"];
+                $kitnavn = $rad["kit_navn"];
 
-            <div class="tekst">
-                <label for="id_kit">slett kit</label>
-            </div>
-            <div class="box">
-                <?php
-                echo "<select class='kit_select' name='kit'>";
-
-                while ($rad = $resultat2->fetch_assoc()) {
-                    $id_kit = $rad["id_kit"];
-                    $kitnavn = $rad["kit_navn"];
-
-                    echo "<option value=$id_kit>$kitnavn</option>";
-                }
-
-                echo "</select>";
-
-                ?>
-            </div>
-        </div>
-
-        <div class="submit3">
-            <input class="button2" name="submit_slett" type="submit" value="Slett">
-        </div>
-
-    </form>
-
+                echo "<option value=$id_kit>$kitnavn</option>";
+            }
+            echo "</select>";
+            ?>
+            <input class="slett_kit_knapp" name="submit_slett" type="submit" value="Slett">
+        </form>
     </div>
-
-
-    </center>
     <?php $kobling->close(); ?>
 </body>
 

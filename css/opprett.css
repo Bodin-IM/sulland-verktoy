@@ -1,149 +1,150 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Montserrat';
+    background-color: #d9d9d9;
+}
 
-    body {
-        /*background-image: url("bakgrunn_admin.jpg");
-        background-size: 2000px;*/
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
-    
-    input[type=text] {
-      width:75%;
-      padding: 12px 20px;
-      margin: 8px 0;
-      box-sizing: border-box;
-      font-size: 15px;
-    }
-    
-    .form{
-        background-color: #032530;
-        width: 73%;
-        height: 500px;
-        display: flex;
-        justify-content: start;
-        margin-top: 15px;
-    }
-    .form2{
-        background-color: #032530;
-        width: 73%;
-        height: 150px;
-        display: flex;
-        justify-content: start;
-        margin-top: 15px;
-        
-    }
-    
-    .center{
-        background-color: none;
-        width: 100%;
-        height: 100%;
-    }
-    
-    .innpakning{
-        background-color: none;
-        width: 100%;
-       
-    }
-    
-    .input{
-        width: 100%;
-        height: 9%;
-        background-color: none;
-        display: flex;
-        flex-direction: row;
-        display: flex;
-        justify-content: space-between;
-        margin-top: 15px;
-        float: right;
-    }
-    
-    .input2{
-        width: 100%;
-        height: 30%;
-        background-color: none;
-        display: flex;
-        flex-direction: row;
-        display: flex;
-        justify-content: space-between;
-        margin-top: 15px;
-        float: right;
-    }
-    
-    .tekst{
-        width: 25%;
-        background-color: none;
-        font-size: 25px;
-        font-family: 'Montserrat';
-        color: white;
-    }
-    
-    .box{
-        background-color: none;
-        width: 75%;
-        height: 100%;
-        display: flex;
-        justify-content: start;
-        
-    }
-    
-    .data{
-        background-color: white;
-        width: 70%;
-        height: 95%;
-        border-radius: 6px;
-        font-family: 'Montserrat';
-        font-size: 20px;
-    }
-    
-    .kit_select {
-        width: 75%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        font-size: 15px;
-    }
-    
-    .submit{
-        background-color: none;
-        margin-top: 15px;
-        width: 100%;
-        height: 10%;
-        display: flex;
-        justify-content: center;
-    }
-    
-    .button{
-        width: 20%;
-        height: 100%;
-        border-radius: 50px;
-        border-width: 1px;
-        font-family: 'Montserrat';
-        font-size: 25px;
-        cursor: pointer;
-    }
-    .button2{
-        width: 100%;
-        height: 25%;
-        border-radius: 50px;
-        border-width: 1px;
-        font-family: 'Montserrat';
-        font-size: 25px;
-        cursor: pointer;
-    }
-    
-    
-    .button:hover{
-        background-color: black;
-        color: white;
-    }
-    
-    .melding_box{
-        width: 400px;
-        height: 100px;
-    }
-    
-    .melding{
-        color: black;
-        font-family: 'Montserrat';
-        font-size: 25px;
-    }
+#box1 {
+    background-color: #032530;
+    width: 73%;
+    height: 70%;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    color: white;
+}
+
+#box2 {
+    background-color: #032530;
+    width: 73%;
+    height: 25%;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#box3 {
+    background-color: #032530;
+    width: 73%;
+    height: 25%;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#form1 {
+    background-color: none;
+    width: 100%;
+    height: 95%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+
+.data_input {
+    width: 50%;
+    height: 9%;
+    border-radius: 4px;
+    border-color: black;
+    border-width: 1px;
+    font-family: 'Montserrat';
+    font-size: 20px;
+}
+
+.lagre_ny_data_knapp {
+    width: 50%;
+    height: 9%;
+    border-radius: 20px;
+    border-width: 3px;
+    font-family: 'Montserrat';
+    font-size: 20px;
+    background-color: rgba(255, 255, 255, 0);
+    color: white;
+    cursor: pointer;
+}
+
+.lagre_ny_data_knapp:hover{
+    background-color: rgba(255, 255, 255, 0.295);
+}
+
+
+#form2 {
+    background-color: none;
+    width: 100%;
+    height: 95%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+
+.input_ny_kit {
+    width: 50%;
+    height: 35%;
+    border-radius: 4px;
+    border-color: black;
+    border-width: 1px;
+    font-family: 'Montserrat';
+    font-size: 20px;
+}
+
+.input_ny_kit_knapp {
+    width: 50%;
+    height: 35%;
+    border-radius: 20px;
+    border-width: 3px;
+    font-family: 'Montserrat';
+    font-size: 20px;
+    background-color: rgba(255, 255, 255, 0);
+    color: white;
+    cursor: pointer;
+}
+
+.input_ny_kit_knapp:hover{
+    background-color: rgba(255, 255, 255, 0.295);
+}
+
+#form3 {
+    background-color: none;
+    width: 100%;
+    height: 95%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+
+.slett_kit {
+    width: 50%;
+    height: 35%;
+    border-radius: 4px;
+    border-color: black;
+    border-width: 1px;
+    font-family: 'Montserrat';
+    font-size: 20px;
+}
+
+.slett_kit_knapp {
+    width: 50%;
+    height: 35%;
+    border-radius: 20px;
+    border-width: 3px;
+    font-family: 'Montserrat';
+    font-size: 20px;
+    background-color: #cc0000;
+    color: white;
+    cursor: pointer;
+}
+.slett_kit_knapp:hover{
+    background-color: #ff000093;
+}
