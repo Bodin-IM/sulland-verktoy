@@ -48,10 +48,5 @@
             </form>
         </div>
     </div>
-    <script>
-        function skriv_passord() {
-        document.getElementById("bakgrunn").className = ("bakgrunn2");
-        }
-    </script>
 </body>
 </html>
