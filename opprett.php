@@ -7,7 +7,6 @@ if ($_SESSION['logged_in'] == TRUE) {
 }
 include "meny.php";
 include "conn.php";
-
 //legge til verktøy
 if (isset($_POST["submit"])) {
 
@@ -15,15 +14,11 @@ if (isset($_POST["submit"])) {
     $kasse = $_REQUEST['kasse'];
     $delenummer = $_REQUEST['delenummer'];
     $id_kit = $_REQUEST['id_kit'];
-
-
     $beskrivelse = $_REQUEST['beskrivelse'];
     $verktoynummer = $_REQUEST['verktoynummer'];
     $status = $_REQUEST['status'];
-
     $sql = "INSERT INTO Verktoy (hylle, kasse, delenummer, id_kit, beskrivelse, verktoynummer, status)
     VALUES ('$hylle', '$kasse', '$delenummer', IF('$id_kit' = 'no_kit', NULL,'$id_kit'), '$beskrivelse', '$verktoynummer', '$status')";
-
     if ($kobling->query($sql) === TRUE) {
         echo "New record created successfully";
     } else {
@@ -33,14 +28,9 @@ if (isset($_POST["submit"])) {
 
 //lege til kit
 if (isset($_POST["submit2"])) {
-
-
     $kit_navn = $_REQUEST['kit_navn'];
-
     $sql = "INSERT INTO kit (kit_navn)
     VALUES ('$kit_navn')";
-
-
     if ($kobling->query($sql) === TRUE) {
         echo "New record created successfully";
     } else {
@@ -48,14 +38,11 @@ if (isset($_POST["submit2"])) {
     }
 }
 
-
 //slette kit
 if (isset($_POST['submit_slett'])) {
-
     $selected_kit = $_POST['kit'];
     $sql = "DELETE FROM kit WHERE id_kit ='$selected_kit'";
     $resultat = $kobling->query($sql);
-
     if ($kobling->query($sql) === TRUE) {
         echo "Deleted kit";
     } else {
@@ -76,6 +63,7 @@ if (isset($_POST['submit_slett'])) {
 </head>
 
 <body>
+    <!-- START legge til ny verktøy -->
     <div id="box1">
         <h1>Legge til verktøy</h1>
         <form method="post" id="form1">
@@ -104,7 +92,10 @@ if (isset($_POST['submit_slett'])) {
             <input class="lagre_ny_data_knapp" name="submit" type="submit" value="Lagre">
         </form>
     </div>
+    <!-- END legge til ny verktøy -->
 
+
+    <!-- START legge til ny Kit -->
     <div id="box2">
         <h1>Legge til Kit</h1>
         <form method="post" id="form2">
@@ -112,11 +103,13 @@ if (isset($_POST['submit_slett'])) {
             <input class="input_ny_kit_knapp" name="submit2" type="submit" value="Lagre">
         </form>
     </div>
+    <!-- END legge til ny Kit -->
 
+
+    <!-- START Slette kit -->
     <div id="box3">
         <h1>Slette kit</h1>
         <form method="post" id="form3">
-            <!-- Slette kit -->
             <?php
             $sql2 = "SELECT * FROM kit";
             $resultat2 = $kobling->query($sql2);
@@ -135,6 +128,8 @@ if (isset($_POST['submit_slett'])) {
             <input class="slett_kit_knapp" name="submit_slett" type="submit" value="Slett">
         </form>
     </div>
+    <!-- END Slette kit -->
+
     <?php $kobling->close(); ?>
 </body>
 
