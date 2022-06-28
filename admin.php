@@ -8,7 +8,7 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sulland - verktøy</title>
+    <title>Sulland</title>
     <link rel="stylesheet" href="css/admin_side.css">
     <link rel="stylesheet" href="css/admin_meny.css">
     <!-- En link for å hente font fra google  -->
@@ -76,7 +76,7 @@ session_start();
     //END Endre Kit Funksjon//
     $sql = "SELECT * FROM verktoy LEFT JOIN bruker ON verktoy.id_bruker=bruker.id_bruker LEFT JOIN kit ON verktoy.id_kit = kit.id_kit";
     $resultat = $kobling->query($sql);
-    echo "<div id='mother_div'>";
+    echo "<div id='mother_box'>";
     echo "<table id='verktoytabell'>";
     echo "<tr>";
     echo "<th>Hylle</th>";
@@ -87,8 +87,8 @@ session_start();
     echo "<th>Bruker</th>";
     echo "<th>Status</th>";
     echo "<th>Kit</th>";
-    echo "<th>Slett Verktøy</th>";
-    echo "<th>Endre Verktøy</th>";
+    echo "<th>Slett verktøy</th>";
+    echo "<th>Lagre endringer</th>";
     echo "</tr>";
     while ($rad = $resultat->fetch_assoc()) {
         $id_verktøy = $rad["id_verktoy"];
