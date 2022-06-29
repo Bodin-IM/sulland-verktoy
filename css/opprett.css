@@ -5,6 +5,7 @@ body {
     flex-direction: column;
     font-family: 'Montserrat';
     background-color: #d9d9d9;
+    margin: 0px;
 }
 
 #box1 {
