@@ -9,8 +9,6 @@
 
     <div id="meny2">
         <div id="nav" class="nav">
-            <div id="dark_mode" class="the_As"><a href="#">Dark Mode</a></div>
-            <div id="light_mode" class="the_As"><a href="#">Light Mode</a></div>
             <div id="andre_passord" class="the_As"><a href="endre_passord.php">Passord</a></div>
             <div id="log_ut" class="the_As"><a href="log_ut.php">Logg ut</a></div>
         </div>

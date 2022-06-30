@@ -24,7 +24,7 @@ body {
 #verktoytabell {
   width: 100%;
   height: 100%;
-  background-color: #0b2028;
+  background-color: #032530;
   color: #f2f2f2;
 }
 
@@ -36,18 +36,25 @@ td {
 }
 
 tr:hover {
-  background: rgba(255, 0, 0, 0.308);
+  background: rgba(255, 0, 0, 0.486);
 }
 
 #myInput {
   width: 72.5%;
   height: 40px;
   font-size: 18px;
+  font-family: 'Montserrat';
   border-style: solid;
   border-width: 3px;
   border-color: #0b2028;
+  background-color: #032530;
+  color: white;
   margin-bottom: 12px;
   margin-top: 12px;
+}
+::placeholder {
+  color: rgb(255, 255, 255);
+  font-family: 'Montserrat';
 }
 
 .data {
@@ -58,16 +65,17 @@ tr:hover {
   color: #ffffff;
   width: 95%;
   height: 95%;
+  font-size: 17px;
 }
 
 .slett_knapp {
   width: 80%;
   height: 80%;
-  font-size: 16px;
+  font-size: 17px;
   font-family: 'Montserrat';
   border-radius: 5px;
   cursor: pointer;
-  color: #ff0000;;
+  color: #ff0000;
 }
 
 .lagre_knapp {
@@ -87,4 +95,13 @@ tr:hover {
 
 .avbryt_button {
   cursor: pointer;
+}
+
+.kit{
+  width: 80%;
+  height: 80%;
+  font-size: 16px;
+  font-family: 'Montserrat';
+  border-radius: 5px;
+  text-align: center;
 }

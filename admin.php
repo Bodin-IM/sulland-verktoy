@@ -18,8 +18,6 @@ session_start();
 <body>
     <!-- START PHP Hente Data Fra Databasen -->
     <?php
-
-
     if ($_SESSION['logged_in'] == TRUE) {
     } else {
         header('location: logg_inn_admin.php');
@@ -31,20 +29,6 @@ session_start();
     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Søk her..." title="Type in a name">
     <?php
     include "conn.php";
-
-
-    // select all kits
-    $sql3 = "SELECT * FROM kit";
-    $resultat3 = $kobling->query($sql3);
-    $kits = "";
-    while ($rad = $resultat3->fetch_assoc()) {
-        $id_kit = $rad["id_kit"];
-        $kitnavn = $rad["kit_navn"];
-
-        $kit = "<option value=$id_kit>$kitnavn</option>";
-        $kits .= $kit;
-    }
-
 
     //START Slett Funksjon//
     if (isset($_POST['slett'])) {
@@ -125,7 +109,7 @@ session_start();
         echo "<input class='data' type='text' name='status_innhold' value='$status'>";
         echo "</td>";
         echo "<td style='width:7%'>";
-        echo "<select class='data' name='kits' onchange='this.form.submit()'>";
+        echo "<select class='kit' name='kits' onchange='this.form.submit()'>";
         echo "<option value='no_kit'>$kitnavn_kit_tabel</option>";
         $sql3 = "SELECT * FROM kit";
         $resultat3 = $kobling->query($sql3);
@@ -150,6 +134,7 @@ session_start();
     mysqli_close($kobling);
     ?>
     <!-- END PHP Hente Data Fra Databasen -->
+
     <!-- START Søke Funksjon -->
     <script>
         function myFunction() {
@@ -184,7 +169,6 @@ session_start();
     </script>
     <!-- END Søke Funksjon -->
 
-
     <!-- START Slett Funksjon -->
     <dialog class="modal" id="modal">
         <h2>Bekreft Sletting</h2>
@@ -211,7 +195,5 @@ session_start();
         });
     </script>
     <!-- END Slett Funksjon -->
-
 </body>
-
 </html>
