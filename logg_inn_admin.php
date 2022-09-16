@@ -26,7 +26,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sulland - verktøy</title>
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-    <link rel="stylesheet" href="logg_inn.css">
+    <link rel="stylesheet" href="css/logg_inn.css">
 </head>
 <body>
     <div id="mother_div">
@@ -48,10 +48,5 @@
             </form>
         </div>
     </div>
-    <script>
-        function skriv_passord() {
-        document.getElementById("bakgrunn").className = ("bakgrunn2");
-        }
-    </script>
 </body>
 </html>

@@ -1,201 +1,75 @@
 <?php
 session_start();
 if ($_SESSION['logged_in'] == TRUE) {
-}
-else {
-    header('location: logg_inn_admin.php');
-    exit;
+} else {
+  header('location: logg_inn_admin.php');
+  exit;
 }
 
 include "conn.php";
-
-if(isset($_POST["submit3"])) {
-
-    $brukernavn = $_POST['brukernavn'];
-     
-     $sql = "INSERT INTO bruker (brukernavn) VALUES ('$brukernavn')";
-     
-     if ($kobling->query($sql) === TRUE) {
-       echo "Ny bruker er lagt til";
-     } else {
-       echo "Error: " . $sql . "<br>" . $kobling->error;
-     }
-     
-    
-     }
-
-     if (isset($_POST['submit_slett'])){
-
-      $selected_bruker = $_POST['bruker'];
-      $sql = "DELETE FROM bruker WHERE id_bruker ='$selected_bruker'";
-      $resultat = $kobling->query($sql);
-  
-      if ($kobling->query($sql) === TRUE) {
-          echo "Slettet bruker";
-        } else {
-          echo "Error: " . $sql . "<br>" . $kobling->error;
-        }
-        
+if (isset($_POST["submit3"])) {
+  $brukernavn = $_POST['brukernavn'];
+  $sql = "INSERT INTO bruker (brukernavn) VALUES ('$brukernavn')";
+  if ($kobling->query($sql) === TRUE) {
+    echo "Ny bruker er lagt til";
+  } else {
+    echo "Error: " . $sql . "<br>" . $kobling->error;
   }
- ?>
-
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <title>Sulland - verktøy</title>
-            <link rel="stylesheet" href="css/admin_meny.css">
-            <link rel="stylesheet" href="css/user_admin.css">
-            <style>
-
-        /*      
-body {
-    background-image: url("Bakgrunn.jpg");
 }
 
-input[type=text] {
-  width:75%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
-  font-size: 15px;
+if (isset($_POST['submit_slett'])) {
+  $selected_bruker = $_POST['bruker'];
+  $sql = "DELETE FROM bruker WHERE id_bruker ='$selected_bruker'";
+  $resultat = $kobling->query($sql);
+  if ($kobling->query($sql) === TRUE) {
+    echo "Slettet bruker";
+  } else {
+    echo "Error: " . $sql . "<br>" . $kobling->error;
+  }
 }
+?>
 
-label {
-  padding: 12px 12px 12px 0;
-  display: inline-block;
-}
+<!DOCTYPE html>
+<html lang="en">
 
-form {
-    margin-bottom: 50px;
-}
+<head>
+  <title>Sulland - verktøy</title>
+  <link rel="stylesheet" href="css/admin_meny.css">
+  <link rel="stylesheet" href="css/user_admin.css">
+  <!-- En link for å hente font fra google  -->
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+</head>
 
-h1 {
-    font-family: Arial, Helvetica, sans-serif;
-}
+<body>
+  <?php include "meny.php"; ?>
 
-.input {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-   
-}
-.tekst {
-    float: left;
-  width: 200px;
-  margin-top: 6px;
-  text-align: right;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 25px;
-  font-weight: bold;
-}
-
-.box {
-    float: left;
-  width: 60%;
-  margin-top: 6px; 
-}
+  <div id="box1">
+    <form id="form1" method="post">
+      <input type="text" name="brukernavn" class="data_input" placeholder="Ny bruker" required>
+      <input class="lagre_ny_data_knapp" name="submit3" type="submit" value="Lagre">
+    </form>
 
 
-.submit3 {
-    float: left;
-    width: 20%;
-    padding: 12px 10px;
-}
+    <form id="form2" method="post">
+      <?php
+      $sql2 = "SELECT * FROM bruker";
+      $resultat2 = $kobling->query($sql2);
+      ?>
+      <?php
+      echo "<select class='data_input' name='bruker'>";
+      echo "<option value='no_kit'>Velg bruker</option>";
+      while ($rad = $resultat2->fetch_assoc()) {
+        $id_bruker = $rad["id_bruker"];
+        $brukernavn = $rad["brukernavn"];
 
-.button {
-    float: left;
-  background-color: #4CAF50;
-  border: none;
-  color: white;
-  padding: 8px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  transition-duration: 0.4s;
-  cursor: pointer;
-  background-color: white;
-  color: black;
-  border: 2px solid #555555;
-}
+        echo "<option value=$id_bruker>$brukernavn</option>";
+      }
+      echo "</select>";
+      ?>
 
-.button:hover {
-  background-color: #555555;
-  color: white;
-}
+      <input class="slett_bruker_knapp" name="submit_slett" type="submit" value="Slett">
+    </form>
+  </div>
+</body>
 
-.bruker_select {
-    width: 75%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    font-size: 15px;
-}  */
-            </style>
-        </head>
-        <body>
-
-        <?php include "meny.php"; ?>
-
-    
-    <div class="innpakning">
-        <form class="form" method="post">
-        <div class="input">      
-            <div class="tekst">
-                <label for="brukernavn">Ny bruker</label>
-            </div>
-            <div class="box"> 
-                <input type="text" name="brukernavn" id="brukernavn"> 
-            </div>
-            <div class="submit3">
-            <input class="button" name="submit3" type="submit" value="Lagre">
-        </div>
-
-        </div>   
-
-        
-
-        </form>
-
-       
-        <form class="form" method="post">
-        <div class="input">
-
-        <?php
-        $sql2 = "SELECT * FROM bruker";
-        $resultat2 = $kobling->query($sql2);
-
-     
-        ?>
-
-            <div class="tekst">
-                <label for="id_bruker">Slett bruker</label>
-            </div>
-            <div class="box"> 
-            <?php
-                echo "<select class='bruker_select' name='bruker'>";
-                echo "<option value='no_kit'></option>";
-                while($rad = $resultat2->fetch_assoc()) {
-                    $id_bruker = $rad["id_bruker"];
-                    $brukernavn = $rad["brukernavn"];
-
-                    echo "<option value=$id_bruker>$brukernavn</option>";
-                }
-
-                echo "</select>";
-                
-                ?>
-            </div>
-              <div class="submit3">
-                <input class="button" name="submit_slett" type="submit" value="Slett">
-              </div>
-        </div>
-
-        
-
-        </form>
-
-
-    </div>
-        </body>
-        </html>
+</html>

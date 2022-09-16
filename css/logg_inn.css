@@ -9,12 +9,6 @@ body{
     background-size: 3000px;*/
 }
 
-.bakgrunn2{
-    width: 100%;
-    height: auto;
-    filter: blur(5px);
-    transition: 0.3s;
-}
 
 #mother_div{
     position: absolute;

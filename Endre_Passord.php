@@ -19,16 +19,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sulland - verktøy</title>
+    <link rel="stylesheet" href="css/endre_passord.css">
+    <!-- En link for å hente font fra google  --> 
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 </head>
 <body>
-    <div>
-        <h1>Lag et nytt passord</h1>
-        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-            <input type="text" name="endre_passord" placeholder="Nytt Passord" required>
-            <button type='submit' name='endre'>Endre</button>
-            <input type="date" name="" id="" value=''>
-            <select name="" id=""> <option value=""></option> </select>
-        </form>
+    <div id='mother_div'>
+        <div  id='tittel'>
+            <h1>Lag nytt passord</h1>
+        </div>
+        <div id='form_en'>
+            <form  action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+                    <input id='data_input' type="text" name="endre_passord" placeholder="Nytt Passord" required>
+                    <button id='input_knapp' type='submit' name='endre'>Endre</button>
+            </form>
+        </div>
+            
     </div>
     
 </body>
